@@ -18,5 +18,8 @@
     "compilerOptions": {
       "module": "CommonJS"
     }
-  }
+  },
+  "typeRoots": [
+  "node_modules/@types"
+],
 }

@@ -1,7 +1,7 @@
-import { FC } from "react";
+import { type FC } from 'react'
 
 const MainPage: FC = () => {
-  return <div>main</div>;
-};
+    return <div>main</div>
+}
 
-export default MainPage;
+export default MainPage
