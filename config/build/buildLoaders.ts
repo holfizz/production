@@ -7,6 +7,38 @@ export function buildLoaders(isDev: boolean): webpack.RuleSetRule[] {
     use: "ts-loader",
     exclude: /node_modules/,
   };
+
+  const svgLoader = {
+    test: /\.svg$/i,
+    use: ["@svgr/webpack"],
+  };
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+        plugins: [
+          [
+            "i18next-extract",
+            {
+              locales: ["en", "ru"],
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: "file-loader",
+      },
+    ],
+  };
   const cssLoader = {
     test: /\.s[ac]ss$/i,
     use: [
@@ -25,5 +57,5 @@ export function buildLoaders(isDev: boolean): webpack.RuleSetRule[] {
       "sass-loader",
     ],
   };
-  return [typescriptLoader, cssLoader];
+  return [fileLoader, cssLoader, svgLoader, babelLoader, typescriptLoader];
 }
