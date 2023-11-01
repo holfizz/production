@@ -1,17 +1,18 @@
 .Navbar {
-  width: 100vw;
-  height: var(--navbar-height);
-  background: var(--bg-inverted-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  transition: all .4s;
+    width: 100vw;
+    height: var(--navbar-height);
+    background: var(--bg-inverted-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all .4s;
 
 
 }
+
 .links {
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
 }

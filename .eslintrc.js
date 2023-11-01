@@ -4,7 +4,7 @@ module.exports = {
         es2021: true,
         jest: true
     },
-    extends: ['plugin:react/recommended'],
+    extends: ['plugin:react/recommended', 'plugin:i18next/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -13,7 +13,7 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: ['react', '@typescript-eslint', 'unused-imports' ],
+    plugins: ['react', '@typescript-eslint', 'unused-imports','i18next' ],
     rules: {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -38,7 +38,11 @@ module.exports = {
         'max-len': ['error', {
             ignoreComments: true,
             code: 100
-        }]
+        }],
+        'i18next/no-literal-string': ['error', {
+            markupOnly: true,
+            ignoreAttribute: ['data-testId']
+        }],
     },
     globals: {
         __IS_DEV__: true

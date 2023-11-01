@@ -1,36 +1,38 @@
 .ThemeSwitcher{
-  width: 50px;
-  height: 50px;
-  font-size: var(--font-size-l);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: nowrap;
-  svg{
-    position: absolute;
-  }
-  color:var(--primary-color);
+    width: 50px;
+    height: 50px;
+    font-size: var(--font-size-l);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+
+    svg{
+        position: absolute;
+    }
+
+    color:var(--primary-color);
 
 }
 
 .sunMoonEnter {
-  transform: rotate(360deg);
-  opacity: 0;
+    transform: rotate(360deg);
+    opacity: 0;
 }
 
 .sunMoonEnterActive {
-  transform: rotate(0);
-  opacity: 1;
-  transition: opacity 400ms, transform 400ms;
+    transform: rotate(0);
+    opacity: 1;
+    transition: opacity 400ms, transform 400ms;
 }
 
 .sunMoonExit {
-  transform: rotate(0);
-  opacity: 1;
+    transform: rotate(0);
+    opacity: 1;
 }
 
 .sunMoonExitActive {
-  transform: rotate(360deg);
-  opacity: 0;
-  transition: opacity 400ms, transform 400ms;
+    transform: rotate(360deg);
+    opacity: 0;
+    transition: opacity 400ms, transform 400ms;
 }
