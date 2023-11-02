@@ -1,14 +1,15 @@
-import { type FC, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { routeConfig } from 'shared/config/routeConfig/routeConfig'
+import { type FC, Suspense } from "react"
+import { Route, Routes } from "react-router-dom"
+import { routeConfig } from "shared/config/routeConfig/routeConfig"
+import { PageLoader } from "widgets/pageLoader"
 
 const AppRouter: FC = () => {
     return (
-        <Suspense fallback={<div>...loading</div>}>
+        <Suspense fallback={<PageLoader />}>
             <Routes>
                 {Object.values(routeConfig).map(({ path, element }) => (
                     <Route
-                        element={<div className={'pageWrapper'}>{element}</div>}
+                        element={<div className={"pageWrapper"}>{element}</div>}
                         key={path}
                         path={path}
                     />

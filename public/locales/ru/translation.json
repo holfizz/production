@@ -1,4 +1,8 @@
 {
   "about" : "О нас",
-  "main" : "Главная"
+  "main" : "Главная",
+  "Page not found": "Страница не найдена",
+  "An unexpected error occurred": "Произошла непредвиденная ошибка",
+  "Refresh the page": "Обновить страницу",
+  "throw error": "Пробросить ошибку"
 }

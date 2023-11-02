@@ -1,56 +1,56 @@
 .LangSwitcher{
-    width: 55px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color:var(--primary-color);
-    transition: all .4s;
-    font-size: var(--font-size-l);
+  width: 55px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color:var(--primary-color);
+  transition: all .4s;
+  font-size: var(--font-size-l);
 
 }
 
 .changeLang{
-    svg{
-        position: absolute;
-    }
+  svg{
+    position: absolute;
+  }
 
-    width: 30px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .langSwitchEnter {
-    transform: rotate(360deg);
-    opacity: 0;
+  transform: rotate(360deg);
+  opacity: 0;
 }
 
 .langSwitchEnterActive {
-    transform: rotate(0);
-    opacity: 1;
-    transition: opacity 400ms, transform 400ms;
+  transform: rotate(0);
+  opacity: 1;
+  transition: opacity 400ms, transform 400ms;
 }
 
 .langSwitchExit {
-    transform: rotate(0);
-    opacity: 1;
+  transform: rotate(0);
+  opacity: 1;
 }
 
 .langSwitchExitActive {
-    transform: rotate(360deg);
-    opacity: 0;
-    transition: opacity 400ms, transform 400ms;
+  transform: rotate(360deg);
+  opacity: 0;
+  transition: opacity 400ms, transform 400ms;
 }
 
 .LangSwitcher:hover{
-    transition: all .4s;
+  transition: all .4s;
+  color: var(--secondary-color);
+
+  div{
     color: var(--secondary-color);
+    transition: all .4s;
 
-    div{
-        color: var(--secondary-color);
-        transition: all .4s;
-
-    }
+  }
 }

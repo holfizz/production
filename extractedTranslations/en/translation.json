@@ -1,4 +1,8 @@
 {
+  "An unexpected error occurred": "An unexpected error occurred",
+  "Page not found": "Page not found",
+  "Refresh the page": "Refresh the page",
   "about": "about",
-  "main": "main"
+  "main": "main",
+  "throw error": "throw error"
 }

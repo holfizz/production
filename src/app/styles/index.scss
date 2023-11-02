@@ -4,20 +4,20 @@
 @import "themes/dark";
 
 .app {
-    font: var(--font-m);
-    color: var(--primary-color);
-    background: var(--bg-inverted-color);
-    min-height: 100vh;
-    transition: all .4s;
+  font: var(--font-m);
+  color: var(--primary-color);
+  background: var(--bg-inverted-color);
+  min-height: 100vh;
+  transition: all .4s;
 }
 
 .contentPage{
-    display: flex;
+  display: flex;
 }
 
 .pageWrapper{
-    border-top-left-radius: 15px;
-    background: var(--bg-color);
-    flex-grow: 1;
-    padding: 20px;
+  border-top-left-radius: var(--border-top-left-radius);
+  background: var(--bg-color);
+  flex-grow: 1;
+  padding: 20px;
 }

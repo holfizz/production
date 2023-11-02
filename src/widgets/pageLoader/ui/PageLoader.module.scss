@@ -1,0 +1,10 @@
+.PageLoader{
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  background: var(--bg-color);
+  border-top-left-radius:var(--border-top-left-radius);
+}
+
