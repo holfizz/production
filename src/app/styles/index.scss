@@ -7,15 +7,14 @@
   font: var(--font-m);
   color: var(--primary-color);
   min-height: 100vh;
-  transition: all .4s;
   width: 100vw;
   background: var(--bg-color);
 
 }
 
 .appContent{
-  transition: all .4s;
   width: 100%;
+  transition: all .4s;
   height: 100%;
   background: var(--bg-inverted-color);
 }
