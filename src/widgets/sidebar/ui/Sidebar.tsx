@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "widgets/themeSwitcher"
 interface SidebarProps {
   className?: string;
 }
- 
+
 const Sidebar: FC<SidebarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const onToggle = () => {
@@ -21,7 +21,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
                 className,
             ])}
         >
-            <button data-testid={'sidebar-toggle'} onClick={onToggle}>toggle</button>
+            <button data-testid={'sidebar-toggle'} onClick={onToggle}>123</button>
             <div className={cls.switchers}>
                 <LangSwitcher />
                 <ThemeSwitcher />
