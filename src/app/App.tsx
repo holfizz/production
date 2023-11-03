@@ -10,13 +10,15 @@ const App: FC = () => {
     const { theme } = useTheme()
     return (
         <div className={classNames("app", {}, [theme])}>
-            <Suspense fallback={""}>
-                <Navbar />
-                <div className={"contentPage"}>
-                    <Sidebar />
-                    <AppRouter />
-                </div>
-            </Suspense>
+            <div className={"appContent"}>
+                <Suspense fallback={""}>
+                    <Navbar />
+                    <div className={"contentPage"}>
+                        <Sidebar />
+                        <AppRouter />
+                    </div>
+                </Suspense>
+            </div>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import { fireEvent, screen } from "@testing-library/react"
 import { Sidebar } from "widgets/sidebar"
+// eslint-disable-next-line max-len
 import { renderWithTranslation } from "shared/lib/tools/renderWithoutTranslation/renderWithTranslation"
 
 describe("Sidebar", () => {

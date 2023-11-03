@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "widgets/themeSwitcher"
 interface SidebarProps {
   className?: string;
 }
-
+ 
 const Sidebar: FC<SidebarProps> = ({ className }) => {
     const [collapsed, setCollapsed] = useState<boolean>(false)
     const onToggle = () => {
