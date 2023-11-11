@@ -1,0 +1,46 @@
+.LangSwitcher {
+  width: 55px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+  transition: all 0.4s;
+  font-size: var(--font-size-l);
+}
+
+.changeLang {
+  svg {
+    position: absolute;
+  }
+
+  width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.active {
+  animation: ease .4s infinite lang-switch;
+}
+
+.LangSwitcher:hover {
+  transition: all 0.4s;
+  color: var(--secondary-color);
+
+  div {
+    color: var(--secondary-color);
+    transition: all 0.4s;
+  }
+}
+
+@keyframes lang-switch {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

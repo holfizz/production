@@ -1,0 +1,18 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src",
+    "public",
+    ".eslintrc.js",
+    "config",
+    "webpack.config.ts",
+    ".gitignore",
+    "babel.config.json",
+    "tsconfig.json",
+    "package.json",
+    "package-lock.json",
+    "node_modules",
+    "./node_modules/@types",
+    "./node_modules",
+  ]
+}
