@@ -1,0 +1,16 @@
+.Input{
+  padding: 0 30px;
+  border-radius: var(--default-border-radius);
+}
+
+.outline{
+  height: 50px;
+  border: var(--components-color) 2px solid;
+  color:var(--primary-color);
+  font-size: 16px;
+}
+
+.outline::placeholder{
+  color:var(--primary-color);
+
+}

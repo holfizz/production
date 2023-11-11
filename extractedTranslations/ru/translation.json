@@ -1,0 +1,32 @@
+{
+  "": "",
+  "An unexpected error occurred": "An unexpected error occurred",
+  "Authorization": "Authorization",
+  "Enter password": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "Enter username": {
+    "": {
+      "": {
+        "": ""
+      }
+    }
+  },
+  "Page not found": "Page not found",
+  "Refresh the page": "Refresh the page",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "about": "about",
+  "decrement": "decrement",
+  "hello": "hello",
+  "increment": "increment",
+  "log in": "log in",
+  "log in ": "log in ",
+  "log out": "log out",
+  "main": "main",
+  "throw error": "throw error",
+  "value": "value"
+}

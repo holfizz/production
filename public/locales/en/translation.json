@@ -1,0 +1,15 @@
+{
+  "about" : "About Us",
+  "main" : "Main",
+  "Page not found": "Page not found",
+  "An unexpected error occurred": "An unexpected error occurred",
+  "Refresh the page": "Refresh the page",
+  "throw error": "throw error",
+  "log in": "Log in",
+  "value": "value",
+  "Enter username...":"Enter username...",
+  "Enter password...":"Enter password...",
+  "You entered an incorrect username or password": "You entered an incorrect username or password",
+  "Authorization":"Authorization",
+  "log out": "Log out"
+}
