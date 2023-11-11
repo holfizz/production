@@ -18,8 +18,13 @@ const preview: Preview = {
     },
     decorators: [
         RouterDecorator,
+<<<<<<< HEAD
         StyleDecorator,
         TranslationDecorator,
+=======
+        TranslationDecorator,
+        StyleDecorator,
+>>>>>>> 921c489 (fix all files and add loki)
         ThemeDecorator(Theme.LIGHT),
     ],
 }

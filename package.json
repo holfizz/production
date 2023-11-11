@@ -16,6 +16,7 @@
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "yarn loki test",
     "test:ui:ok": "yarn loki approve",
+<<<<<<< HEAD
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:report": "yarn test:ui:json && yarn test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
@@ -23,6 +24,10 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install"
+=======
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook"
+>>>>>>> 921c489 (fix all files and add loki)
   },
   "author": "holfizz",
   "license": "ISC",
@@ -70,7 +75,10 @@
     "json-server": "^0.17.4",
     "loki": "^0.33.0",
     "mini-css-extract-plugin": "^2.7.6",
+<<<<<<< HEAD
     "reg-cli": "^0.17.7",
+=======
+>>>>>>> 921c489 (fix all files and add loki)
     "regenerator-runtime": "^0.14.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
@@ -84,8 +92,12 @@
     "webpack": "^5.89.0",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^5.1.4",
+<<<<<<< HEAD
     "webpack-dev-server": "^4.15.1",
     "husky": "^8.0.0"
+=======
+    "webpack-dev-server": "^4.15.1"
+>>>>>>> 921c489 (fix all files and add loki)
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
@@ -111,7 +123,13 @@
       "chrome.laptop": {
         "target": "chrome.docker",
         "width": 1366,
+<<<<<<< HEAD
         "height": 768
+=======
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+>>>>>>> 921c489 (fix all files and add loki)
       },
       "chrome.iphone7": {
         "target": "chrome.docker",

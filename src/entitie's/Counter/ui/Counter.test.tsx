@@ -1,5 +1,9 @@
 import {fireEvent, screen} from "@testing-library/react"
+<<<<<<< HEAD
 import {componentRender} from "shared/lib/tests/componentRender/componentRender"
+=======
+import {componentRender} from "shared/lib/tools/componentRender/componentRender"
+>>>>>>> 921c489 (fix all files and add loki)
 import Counter from "./Counter"
 
 describe("Counter", () => {

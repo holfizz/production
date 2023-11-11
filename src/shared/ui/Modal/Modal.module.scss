@@ -1,10 +1,15 @@
 .Modal {
   position: fixed;
+<<<<<<< HEAD
   z-index: var(--modal-z-index);
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
+=======
+  inset: 0;
+  z-index: var(--modal-z-index);
+>>>>>>> 921c489 (fix all files and add loki)
   display: none;
 }
 

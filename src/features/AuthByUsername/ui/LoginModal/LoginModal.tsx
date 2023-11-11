@@ -23,11 +23,17 @@ export const LoginModal: FC<LoginModalProps> = ({
             onClose={onClose}
             className={classNames(cls.LoginModal, {}, [className])}
         >
+<<<<<<< HEAD
             <div className={cls.wrapper}>
                 <Suspense  fallback={<Loader/>}>
                     <LoginFormAsync />
                 </Suspense>
             </div>
+=======
+            <Suspense  fallback={<Loader/>}>
+                <LoginFormAsync />
+            </Suspense>
+>>>>>>> 921c489 (fix all files and add loki)
         </Modal>
     )
 }

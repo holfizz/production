@@ -1,109 +1,194 @@
 {
   "posts": [
     {
+<<<<<<< HEAD
       "id": "1",
+=======
+      "id": 1,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "json-server",
       "author": "typicode"
     },
     {
+<<<<<<< HEAD
       "id": "2",
+=======
+      "id": 2,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "json-server",
       "author": "typicode"
     },
     {
+<<<<<<< HEAD
       "id": "3",
+=======
+      "id": 3,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "json-serve232r",
       "author": "typicode"
     },
     {
+<<<<<<< HEAD
       "id": "4",
+=======
+      "id": 4,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "json-serve23424r",
       "author": "typicode"
     },
     {
+<<<<<<< HEAD
       "id": "5",
+=======
+      "id": 5,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "json23423432-server",
       "author": "typicode"
     },
     {
+<<<<<<< HEAD
       "id": "6",
+=======
+      "id": 6,
+>>>>>>> 921c489 (fix all files and add loki)
       "title": "js4242342on-server",
       "author": "typicode"
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "7"
+=======
+      "id": 7
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "8"
+=======
+      "id": 8
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "9"
+=======
+      "id": 9
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "10"
+=======
+      "id": 10
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "11"
+=======
+      "id": 11
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "12"
+=======
+      "id": 12
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "13"
+=======
+      "id": 13
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "14"
+=======
+      "id": 14
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "15"
+=======
+      "id": 15
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "16"
+=======
+      "id": 16
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "17"
+=======
+      "id": 17
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admin",
       "password": "123",
+<<<<<<< HEAD
       "id": "18"
+=======
+      "id": 18
+>>>>>>> 921c489 (fix all files and add loki)
     },
     {
       "username": "admiasdn",
       "password": "123",
+<<<<<<< HEAD
       "id": "19"
+=======
+      "id": 19
+>>>>>>> 921c489 (fix all files and add loki)
     }
   ],
   "comments": [
     {
+<<<<<<< HEAD
       "id": "1",
       "body": "some comment",
       "postId": "1"
     }
   ],
   "users": [{ "id": "1", "username": "admin", "password": "123" }],
+=======
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [{ "id": 1, "username": "admin", "password": "123" }],
+>>>>>>> 921c489 (fix all files and add loki)
   "profile": {
     "name": "typicode"
   }
