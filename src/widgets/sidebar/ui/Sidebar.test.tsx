@@ -1,7 +1,7 @@
-import { fireEvent, screen } from "@testing-library/react"
-import { Sidebar } from "widgets/sidebar"
+import {fireEvent, screen} from "@testing-library/react"
+import {Sidebar} from "widgets/sidebar"
 // eslint-disable-next-line max-len
-import { componentRender } from "shared/lib/tools/componentRender/componentRender"
+import {componentRender} from "shared/lib/tests/componentRender/componentRender"
 
 describe("Sidebar", () => {
     test("test sidebar ", () => {
@@ -16,5 +16,5 @@ describe("Sidebar", () => {
         expect(screen.getByTestId("sidebar")).toHaveClass("collapsed")
     })
 })
- 
+
 
