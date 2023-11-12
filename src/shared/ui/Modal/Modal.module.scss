@@ -1,7 +1,10 @@
 .Modal {
   position: fixed;
-  inset: 0;
   z-index: var(--modal-z-index);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   display: none;
 }
 

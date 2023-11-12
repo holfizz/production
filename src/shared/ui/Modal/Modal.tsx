@@ -2,6 +2,7 @@ import {Dispatch, FC, PropsWithChildren, SetStateAction, useCallback, useEffect,
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./Modal.module.scss"
 import Portal from "shared/ui/Portal/Portal"
+import {useTheme} from "app/providers/ThemeProvider"
 
 interface ModalProps {
   className?: string;
@@ -19,48 +20,51 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
     isOpen,
     lazy,
 }) => {
+    const { theme } = useTheme()
     const [isClothing, setIsClothing] = useState<boolean>(false)
     const [isMounted, setIsMounted] = useState<boolean>(false)
     const timerRef = useRef<ReturnType<typeof setTimeout>>(null)
 
     useEffect(() => {
-        if(isOpen){
+        if (isOpen) {
             setIsMounted(true)
         }
     }, [isOpen])
 
-    const closeHandler = useCallback(() =>{
-        if(onClose){
+    const closeHandler = useCallback(() => {
+        if (onClose) {
             setIsClothing(true)
-            timerRef.current = setTimeout(()=>{
+            timerRef.current = setTimeout(() => {
                 onClose(false)
                 setIsClothing(false)
-            },ANIMATION_DELAY)
+            }, ANIMATION_DELAY)
         }
     }, [onClose])
 
     const mods: Record<string, boolean> = {
         [cls.opened]: isOpen,
-        [cls.isClothing] :isClothing,
+        [cls.isClothing]: isClothing,
     }
-    const onKeyDown = useCallback((e:KeyboardEvent) =>{
-        if(e.key === 'Escape'){
-            closeHandler()
-        }
-    },[closeHandler])
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                closeHandler()
+            }
+        },
+        [closeHandler]
+    )
 
     useEffect(() => {
-        if(isOpen){
-            window.addEventListener('keydown', onKeyDown)
+        if (isOpen) {
+            window.addEventListener("keydown", onKeyDown)
         }
-        return ()=>{
+        return () => {
             clearTimeout(timerRef.current)
-            window.removeEventListener('keydown', onKeyDown)
-
+            window.removeEventListener("keydown", onKeyDown)
         }
     }, [isOpen, onKeyDown])
 
-    if(lazy && !isMounted){
+    if (lazy && !isMounted) {
         return null
     }
     return (

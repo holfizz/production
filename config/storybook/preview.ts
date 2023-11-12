@@ -3,7 +3,6 @@ import {RouterDecorator} from "../../src/shared/config/storybook/RouterDecorator
 import {StyleDecorator} from "../../src/shared/config/storybook/StyleDecorator/StyleDecorator"
 import {ThemeDecorator} from "../../src/shared/config/storybook/ThemeDecorator/ThemeDecorator"
 import {Theme} from "../../src/app/providers/ThemeProvider"
-import {TranslationDecorator} from "../../src/shared/config/storybook/TranslationDecorator/TranslationDecorator"
 
 const preview: Preview = {
     parameters: {
@@ -18,7 +17,6 @@ const preview: Preview = {
     },
     decorators: [
         RouterDecorator,
-        TranslationDecorator,
         StyleDecorator,
         ThemeDecorator(Theme.LIGHT),
     ],

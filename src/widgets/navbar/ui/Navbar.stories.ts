@@ -1,7 +1,7 @@
 import type {Meta, StoryObj} from "@storybook/react"
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
 import {Theme} from "app/providers/ThemeProvider"
-import {Navbar} from "widgets/navbar"
+import Navbar from "./Navbar"
 import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
@@ -23,7 +23,7 @@ export const Dark: Story = {
 
 export const Auth: Story = {
     decorators: [StoreDecorator({
-        user: { authData: {} },
+        user: { authData: {username:'user', id:'1'}  },
     })]
 }
 
