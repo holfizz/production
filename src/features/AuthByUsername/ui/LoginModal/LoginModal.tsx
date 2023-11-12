@@ -23,9 +23,11 @@ export const LoginModal: FC<LoginModalProps> = ({
             onClose={onClose}
             className={classNames(cls.LoginModal, {}, [className])}
         >
-            <Suspense  fallback={<Loader/>}>
-                <LoginFormAsync />
-            </Suspense>
+            <div className={cls.wrapper}>
+                <Suspense  fallback={<Loader/>}>
+                    <LoginFormAsync />
+                </Suspense>
+            </div>
         </Modal>
     )
 }
