@@ -1,10 +1,10 @@
-import type { FC } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import type {FC} from "react"
+import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ThemeSwitcher.module.scss"
-import { Theme, useTheme } from "app/providers/ThemeProvider"
-import { CSSTransition } from "react-transition-group"
+import {Theme, useTheme} from "app/providers/ThemeProvider"
+import {CSSTransition} from "react-transition-group"
 import Button from "shared/ui/Button/Button"
-import { Moon, Sun } from "lucide-react"
+import {Moon, Sun} from "lucide-react"
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -19,21 +19,9 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             className={classNames(cls.ThemeSwitcher, {}, [className])}
         >
             <CSSTransition
-                in={theme === Theme.DARK}
-                timeout={300}
-                unmountOnExit
-                classNames={{
-                    enter: cls.sunMoonEnter,
-                    enterActive: cls.sunMoonEnterActive,
-                    exit: cls.sunMoonExit,
-                    exitActive: cls.sunMoonExitActive,
-                }}
-            >
-                <Moon />
-            </CSSTransition>
-            <CSSTransition
-                in={theme === Theme.LIGHT}
+                in={!!theme}
                 timeout={400}
+                mountOnEnter
                 unmountOnExit
                 classNames={{
                     enter: cls.sunMoonEnter,
@@ -42,7 +30,7 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
                     exitActive: cls.sunMoonExitActive,
                 }}
             >
-                <Sun />
+                {theme === Theme.DARK ? <Sun /> : <Moon />}
             </CSSTransition>
         </Button>
     )
