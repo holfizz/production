@@ -1,24 +1,20 @@
-import { FC, memo, useCallback } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import {FC, memo, useCallback} from "react"
+import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./LoginForm.module.scss"
-import { useTranslation } from "react-i18next"
-import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
-import Input, { InputTheme } from "shared/ui/Input/Input"
-import { useDispatch, useSelector } from "react-redux"
-import Text, { TextTheme } from "shared/ui/Text/Text"
+import {useTranslation} from "react-i18next"
+import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
+import Input, {InputTheme} from "shared/ui/Input/Input"
+import {useDispatch, useSelector} from "react-redux"
+import Text, {TextTheme} from "shared/ui/Text/Text"
 import i18n from "shared/config/i18n/i18n"
-import { AppDispatch, loginByUsername } from "features/AuthByUsername"
-import {
-    loginActions,
-    loginReducer,
-} from "features/AuthByUsername/model/slice/loginSlice"
-import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername"
-import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword"
-import { getLoginLoading } from "../../model/selectors/getLoginLoading/getLoginLoading"
-import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
-import DynamicModuleLoader, {
-    ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import {AppDispatch, loginByUsername} from "features/AuthByUsername"
+import {loginActions, loginReducer,} from "features/AuthByUsername/model/slice/loginSlice"
+import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername"
+import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword"
+import {getLoginLoading} from "../../model/selectors/getLoginLoading/getLoginLoading"
+import {getLoginError} from "../../model/selectors/getLoginError/getLoginError"
+import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import Loader from "shared/ui/Loader/Loader"
 
 export interface LoginFormProps {
   className?: string;
@@ -53,6 +49,13 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     const onLoginClick = useCallback(() => {
         dispatch(loginByUsername({ username, password }))
     }, [dispatch, password, username])
+    if(isLoading){
+        return (
+            <div className={cls.loaderWrapper}>
+                <Loader/>
+            </div>
+        )
+    }
     return (
         <DynamicModuleLoader reducer={initialReducers} removeAfterUnmount={true}>
             <div className={classNames(cls.LoginForm, {}, [className])}>
