@@ -11,6 +11,7 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
+
 const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
     const { theme, toggleTheme } = useTheme()
     const [themeSwitch, setThemeSwitch] = useState<boolean>(false)
