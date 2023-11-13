@@ -8,6 +8,8 @@ import {userActions} from "entitie\'s/User"
 
 const App: FC = () => {
     const dispatch = useDispatch()
+
+
     useEffect(() => {
         dispatch(userActions.initAuthData())
     }, [dispatch])

@@ -1,16 +1,11 @@
-import { type BuildPaths } from './types/config'
+import {BuildOptions} from './types/config'
 import type webpack from 'webpack'
-import { buildPlugins } from './buildPlugins'
-import { buildLoaders } from './buildLoaders'
-import { buildResolvers } from './buildResolvers'
-import { buildDevServer } from './buildDevServer'
+import {buildPlugins} from './buildPlugins'
+import {buildLoaders} from './buildLoaders'
+import {buildResolvers} from './buildResolvers'
+import {buildDevServer} from './buildDevServer'
 
-export function buildWebpackConfig (options: {
-  mode: 'production' | 'development'
-  port: number
-  paths: BuildPaths
-  isDev: boolean
-}): webpack.Configuration {
+export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
     const { paths, mode, isDev } = options
     return {
         mode: mode,
