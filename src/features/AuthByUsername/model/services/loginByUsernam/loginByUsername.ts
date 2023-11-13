@@ -34,4 +34,4 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
     }
 )
 
-export type AppDispatch = ThunkDispatch<LoginByUsernameProps, null, AnyAction>;
+export type LoginDispatch = ThunkDispatch<LoginByUsernameProps, null, AnyAction>;

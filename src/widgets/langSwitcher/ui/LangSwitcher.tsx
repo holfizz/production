@@ -1,16 +1,16 @@
-import { type FC, useState } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import {type FC, memo, useState} from "react"
+import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./LangSwitcher.module.scss"
-import Button, { ButtonSize } from "shared/ui/Button/Button"
-import { useTranslation } from "react-i18next"
-import { Globe } from "lucide-react"
+import Button, {ButtonSize} from "shared/ui/Button/Button"
+import {useTranslation} from "react-i18next"
+import {Globe} from "lucide-react"
 
 interface LangSwitcherProps {
   className?: string;
 }
 
 
-const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
+const LangSwitcher: FC<LangSwitcherProps> = memo(({ className }) => {
     const { i18n } = useTranslation()
     const [isActive, setIsActive] = useState(false)
 
@@ -38,7 +38,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
             {i18n.language === 'en' ? 'ru' : 'en'}
         </Button>
     )
-}
+})
 
 export default LangSwitcher
 

@@ -1,4 +1,5 @@
 import type {FC} from "react"
+import {memo, useEffect, useState} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ThemeSwitcher.module.scss"
 import {Theme, useTheme} from "app/providers/ThemeProvider"
@@ -10,19 +11,20 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
     const { theme, toggleTheme } = useTheme()
-
+    const [themeSwitch, setThemeSwitch] = useState<boolean>(false)
+    useEffect(() => {
+        setThemeSwitch(prevState => !prevState)
+    }, [theme])
     return (
         <Button
             onClick={toggleTheme}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
         >
             <CSSTransition
-                in={!!theme}
+                in={themeSwitch}
                 timeout={400}
-                mountOnEnter
-                unmountOnExit
                 classNames={{
                     enter: cls.sunMoonEnter,
                     enterActive: cls.sunMoonEnterActive,
@@ -34,6 +36,6 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             </CSSTransition>
         </Button>
     )
-}
+})
 
 export default ThemeSwitcher

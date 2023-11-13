@@ -1,7 +1,7 @@
-import {FC} from "react"
+import {FC, memo} from "react"
 import cls from "./Loader.module.scss"
 
-const Loader: FC = () => {
+const Loader: FC = memo(() => {
     return (
         <span className={cls.loader}>
             <div></div>
@@ -10,6 +10,6 @@ const Loader: FC = () => {
             <div></div>
         </span>
     )
-}
+})
 
 export default Loader

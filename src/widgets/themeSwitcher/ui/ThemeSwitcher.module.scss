@@ -28,22 +28,18 @@
 
 .sunMoonEnter {
   transform: rotate(360deg);
-  opacity: 0;
 }
 
 .sunMoonEnterActive {
   transform: rotate(0);
-  opacity: 1;
   transition: opacity 400ms, transform 400ms;
 }
 
 .sunMoonExit {
   transform: rotate(0);
-  opacity: 1;
 }
 
 .sunMoonExitActive {
   transform: rotate(360deg);
-  opacity: 0;
   transition: opacity 400ms, transform 400ms;
 }

@@ -1,12 +1,12 @@
-import { lazy } from "react"
+import {lazy} from "react"
 
-const AboutAsyncPage = lazy(
+const ProfileAsyncPage = lazy(
     () =>
         new Promise((res) => {
             setTimeout(() => {
                 // @ts-ignore
-                res(import("./AboutPage"))
+                res(import("./ProfilePage"))
             }, 1500)
         }),
 )
-export default AboutAsyncPage
+export default ProfileAsyncPage

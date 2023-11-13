@@ -1,5 +1,5 @@
-import { ChangeEvent, FC, InputHTMLAttributes, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import {ChangeEvent, FC, InputHTMLAttributes, memo} from "react"
+import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./Input.module.scss"
 
 type HTMLInputProps = Omit<
@@ -18,9 +18,7 @@ interface InputProps extends HTMLInputProps {
   onChange?: (value: string) => void;
 }
 
-// eslint-disable-next-line react/display-name
 const Input: FC<InputProps> = memo(
-    // eslint-disable-next-line react/prop-types
     ({ className, onChange, value, type = "text", theme, ...otherProps }) => {
         const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
             onChange?.(e.target.value)
