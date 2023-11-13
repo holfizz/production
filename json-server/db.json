@@ -3,97 +3,12 @@
     {
       "id": "1",
       "title": "json-server",
-      "author": "typicode"
+      "userId": "1"
     },
     {
       "id": "2",
       "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": "3",
-      "title": "json-serve232r",
-      "author": "typicode"
-    },
-    {
-      "id": "4",
-      "title": "json-serve23424r",
-      "author": "typicode"
-    },
-    {
-      "id": "5",
-      "title": "json23423432-server",
-      "author": "typicode"
-    },
-    {
-      "id": "6",
-      "title": "js4242342on-server",
-      "author": "typicode"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "7"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "8"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "9"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "10"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "11"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "12"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "13"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "14"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "15"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "16"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "17"
-    },
-    {
-      "username": "admin",
-      "password": "123",
-      "id": "18"
-    },
-    {
-      "username": "admiasdn",
-      "password": "123",
-      "id": "19"
+      "userId": "2"
     }
   ],
   "comments": [
@@ -103,8 +18,21 @@
       "postId": "1"
     }
   ],
-  "users": [{ "id": "1", "username": "admin", "password": "123" }],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123"
+    }
+  ],
   "profile": {
-
+    "first": "Sergey",
+    "lastname": "Gorlachev",
+    "age": 16,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "St. Petersburg",
+    "username": "admin",
+    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTI9YVObwWQeaVos3dCSeZa_SKulGlSbTaung&usqp=CAU"
   }
 }

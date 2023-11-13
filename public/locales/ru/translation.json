@@ -1,16 +1,16 @@
 {
-  "about" : "О нас",
-  "main" : "Главная",
   "Page not found": "Страница не найдена",
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
   "Refresh the page": "Обновить страницу",
   "throw error": "Пробросить ошибку",
   "log in": "Войти",
   "value": "value",
-  "Enter username...":"Введите имя пользователя...",
-  "Enter password...":"Введите пароль...",
+  "Enter username...": "Введите имя пользователя...",
+  "Enter password...": "Введите пароль...",
   "You entered an incorrect username or password": "Вы ввели неверное имя пользователя или пароль",
-  "Authorization":"Авторизация",
+  "Authorization": "Авторизация",
   "log out": "Выйти",
-  "PROFILE PAGE": "PROFILE PAGE"
+  "Your name": "Your name",
+  "Your lastname": "Your lastname"
 }
+

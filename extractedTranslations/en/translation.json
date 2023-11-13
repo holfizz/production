@@ -29,5 +29,9 @@
   "main": "main",
   "throw error": "throw error",
   "value": "value",
-  "PROFILE PAGE": "PROFILE PAGE"
+  "PROFILE PAGE": "PROFILE PAGE",
+  "Profile": "Profile",
+  "edit": "edit",
+  "Your name": "Your name",
+  "Your lastname": "Your lastname"
 }

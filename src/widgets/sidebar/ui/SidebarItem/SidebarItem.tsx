@@ -7,7 +7,7 @@ import {classNames} from "shared/lib/classNames/classNames"
 
 interface SidebarItemProps {
   className?: string;
-  item?: SidebarItemType;
+  item: SidebarItemType;
 }
 
 const SidebarItem: FC<SidebarItemProps> = memo(({ item, className }) => {

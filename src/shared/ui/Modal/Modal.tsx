@@ -1,5 +1,15 @@
-import {Dispatch, FC, PropsWithChildren, SetStateAction, useCallback, useEffect, useRef, useState,} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import {
+    Dispatch,
+    FC,
+    MutableRefObject,
+    PropsWithChildren,
+    SetStateAction,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react"
+import {classNames, Mods} from "shared/lib/classNames/classNames"
 import cls from "./Modal.module.scss"
 import Portal from "shared/ui/Portal/Portal"
 
@@ -21,7 +31,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
 }) => {
     const [isClothing, setIsClothing] = useState<boolean>(false)
     const [isMounted, setIsMounted] = useState<boolean>(false)
-    const timerRef = useRef<ReturnType<typeof setTimeout>>(null)
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
     useEffect(() => {
         if (isOpen) {
@@ -39,7 +49,7 @@ const Modal: FC<PropsWithChildren<ModalProps>> = ({
         }
     }, [onClose])
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen,
         [cls.isClothing]: isClothing,
     }

@@ -7,7 +7,7 @@ import Input, {InputTheme} from "shared/ui/Input/Input"
 import {useSelector} from "react-redux"
 import Text, {TextTheme} from "shared/ui/Text/Text"
 import i18n from "shared/config/i18n/i18n"
-import {loginByUsername, LoginDispatch} from "features/AuthByUsername"
+import {loginByUsername} from "features/AuthByUsername"
 import {loginActions, loginReducer,} from "features/AuthByUsername/model/slice/loginSlice"
 import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername"
 import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword"
@@ -33,7 +33,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }) => {
     const password = useSelector(getLoginPassword)
     const isLoading = useSelector(getLoginLoading)
     const error = useSelector(getLoginError)
-    const dispatch:LoginDispatch = useAppDispatch()
+    const dispatch = useAppDispatch()
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(loginActions.setUsername(value))

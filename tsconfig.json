@@ -8,9 +8,10 @@
     "allowJs": true,
     "moduleResolution": "node",
     "baseUrl": ".",
+    "strict": true,
     "paths": {
       "@entities": ["./src/entities"],
-      "*": ["./src/*"],
+      "*": ["./src/*"]
 
     },
     "esModuleInterop": true,

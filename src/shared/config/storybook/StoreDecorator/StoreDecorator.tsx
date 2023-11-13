@@ -1,24 +1,25 @@
-import { Decorator } from "@storybook/react"
-import { StateSchema, StoreProvider } from "app/providers/StoreProvider"
-import { DeepPartial, ReducersMapObject } from "@reduxjs/toolkit"
-import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice"
+import {Decorator} from "@storybook/react"
+import {StateSchema, StoreProvider} from "app/providers/StoreProvider"
 
-const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+import {loginReducer} from "features/AuthByUsername/model/slice/loginSlice"
+import {ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+
+const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
 }
 
 export const StoreDecorator =
   (
       state: DeepPartial<StateSchema>,
-      asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
-  ): Decorator =>
-  // eslint-disable-next-line react/display-name
-      (StoryComponent) =>
+      asyncReducers?: ReducersList
+  ): Decorator => {
+      return (StoryComponent) =>
           (
               <StoreProvider
                   initialState={state}
-                  asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+                  asyncReducers={{...defaultAsyncReducers, ...asyncReducers}}
               >
-                  <StoryComponent />
+                  <StoryComponent/>
               </StoreProvider>
           )
+  }

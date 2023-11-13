@@ -1,5 +1,5 @@
 import {ChangeEvent, FC, InputHTMLAttributes, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import {classNames, Mods} from "shared/lib/classNames/classNames"
 import cls from "./Input.module.scss"
 
 type HTMLInputProps = Omit<
@@ -19,11 +19,11 @@ interface InputProps extends HTMLInputProps {
 }
 
 const Input: FC<InputProps> = memo(
-    ({ className, onChange, value, type = "text", theme, ...otherProps }) => {
+    ({ className, onChange, value, type = "text", theme = InputTheme.OUTLINE, ...otherProps }) => {
         const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
             onChange?.(e.target.value)
         }
-        const mods: Record<string, boolean> = {
+        const mods: Mods = {
             [cls[theme]]: true,
         }
         return (
