@@ -1,0 +1,29 @@
+.Wrapper{
+  display: flex;
+
+}
+.label{
+  font-weight: 400;
+  font:var(--font-m);
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  svg{
+    margin:0 5px;
+  }
+}
+.readonly{
+  select{
+    color:var(--grey);
+  }
+}
+
+.select{
+  background: none;
+  outline: none;
+  color:var(--inverted-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}

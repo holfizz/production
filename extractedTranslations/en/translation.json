@@ -33,5 +33,16 @@
   "Profile": "Profile",
   "edit": "edit",
   "Your name": "Your name",
-  "Your lastname": "Your lastname"
+  "Your lastname": "Your lastname",
+  "There was an error loading the profile": "There was an error loading the profile",
+  "Try refreshing the page": "Try refreshing the page",
+  "cancel": "cancel",
+  "Save": "Save",
+  "Your age": "Your age",
+  "Your username": "Your username",
+  "Your country": "Your country",
+  "Your city": "Your city",
+  "Your avatar": "Your avatar",
+  "indicate currency": "indicate currency",
+  "indicate country": "indicate country"
 }

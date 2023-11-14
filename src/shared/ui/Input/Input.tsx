@@ -4,38 +4,49 @@ import cls from "./Input.module.scss"
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange"
+  "value" | "onChange" | "readOnly"
 >;
 
 export enum InputTheme {
   OUTLINE = "outline",
+  CLEAR = "clear",
 }
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   theme?: InputTheme;
-  onChange?: (value: string) => void;
+  onChange?: (value: string ) => void;
+  readonly?: boolean;
 }
 
-const Input: FC<InputProps> = memo(
-    ({ className, onChange, value, type = "text", theme = InputTheme.OUTLINE, ...otherProps }) => {
-        const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-            onChange?.(e.target.value)
-        }
-        const mods: Mods = {
-            [cls[theme]]: true,
-        }
-        return (
-            <input
-                className={classNames(cls.Input, mods, [className])}
-                onChange={onChangeHandler}
-                type={type}
-                value={value}
-                {...otherProps}
-            />
-        )
+const Input: FC<InputProps> = memo((props) => {
+    const {
+        className,
+        onChange,
+        value,
+        type = "text",
+        theme = InputTheme.OUTLINE,
+        readonly,
+        ...otherProps
+    } = props
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e.target.value)
     }
-)
+    const mods: Mods = {
+        [cls[theme]]: true,
+        [cls.readonly]: readonly,
+    }
+    return (
+        <input
+            className={classNames(cls.Input, mods, [className])}
+            onChange={onChangeHandler}
+            type={type}
+            value={value}
+            {...otherProps}
+            readOnly={readonly}
+        />
+    )
+})
 
 export default Input

@@ -5,7 +5,7 @@ const AboutPage: FC = () => {
     const { t } = useTranslation('about')
     return (
         <div>
-            <h1>{t("hello")}</h1>
+            <h1>{t("about")}</h1>
         </div>
     )
 }

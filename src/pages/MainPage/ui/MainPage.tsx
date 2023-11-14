@@ -1,5 +1,4 @@
 import {type FC, useState} from "react"
-import Input from "shared/ui/Input/Input"
 import {useTranslation} from "react-i18next"
 
 const MainPage: FC = () => {
@@ -10,7 +9,6 @@ const MainPage: FC = () => {
     }
     return (
         <div>
-            <Input onChange={onChange} value={value} />
             {t('main')}
         </div>
     )

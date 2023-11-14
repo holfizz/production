@@ -1,31 +1,110 @@
-import {FC, useEffect} from "react"
+import {FC, useCallback, useEffect} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import {useTranslation} from "react-i18next"
-import DynamicModuleLoader, {ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import {fetchProfileData, ProfileCard, profileReducer} from "entitie's/Profile"
+import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import {
+    fetchProfileData,
+    getProfileError,
+    getProfileForm,
+    getProfileIsLoading,
+    getProfileReadonly,
+    profileActions,
+    ProfileCard,
+    profileReducer,
+} from "entitie's/Profile"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
+import {useSelector} from "react-redux"
+import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
+import {Currency} from "entitie's/Currency"
+import {Country} from "entitie's/Country"
 
-
-const reducers:ReducersList = {
-    profile:profileReducer
+const reducers: ReducersList = {
+    profile: profileReducer,
 }
 
 interface ProfilePageProps {
   className?: string;
 }
 
-const ProfilePage: FC<ProfilePageProps> = ({className}) => {
-
-    const {t} = useTranslation("profile")
+const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
+    const { t } = useTranslation("profile")
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(fetchProfileData())
     }, [dispatch])
 
+    const formData = useSelector(getProfileForm)
+    const error = useSelector(getProfileError)
+    const isLoading = useSelector(getProfileIsLoading)
+    const readonly = useSelector(getProfileReadonly)
+    const onChangeFirstname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ first: value || "" }))
+        },
+        [dispatch]
+    )
+
+    const onChangeLastname = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value || "" }))
+        },
+        [dispatch]
+    )
+    const onChangeAge = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ age: Number(value || 0) }))
+        },
+        [dispatch]
+    )
+    const onChangeCity = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ lastname: value || "" }))
+        },
+        [dispatch]
+    )
+    const onChangeUsername = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ username: value || "" }))
+        },
+        [dispatch]
+    )
+    const onChangeAvatar = useCallback(
+        (value?: string) => {
+            dispatch(profileActions.updateProfile({ avatar: value || "" }))
+        },
+        [dispatch]
+    )
+    const onChangeCurrency = useCallback(
+        (currency: Currency) => {
+            dispatch(profileActions.updateProfile({ currency: currency || Currency.RUB }))
+        },
+        [dispatch]
+    )
+    const onChangeCountry = useCallback(
+        (country: Country) => {
+            dispatch(profileActions.updateProfile({ country: country || Country.RUSSIA }))
+        },
+        [dispatch]
+    )
+
     return (
         <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
-                <ProfileCard/>
+            <ProfilePageHeader />
+            <div className={classNames("", {}, [className])}>
+                <ProfileCard
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeAge={onChangeAge}
+                    onChangeLastname={onChangeLastname}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    readonly={readonly}
+                    data={formData}
+                    isLoading={isLoading}
+                    error={error}
+                />
             </div>
         </DynamicModuleLoader>
     )
