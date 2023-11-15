@@ -5,8 +5,9 @@ import {useTranslation} from "react-i18next"
 import Text from "shared/ui/Text/Text"
 import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
 import {useSelector} from "react-redux"
-import {getProfileReadonly, profileActions, updateProfileData} from "entitie's/Profile"
+import {getProfileError, getProfileReadonly, profileActions, updateProfileData} from "entitie's/Profile"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
+
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -15,6 +16,7 @@ interface ProfilePageHeaderProps {
 const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     const { t } = useTranslation()
     const readonly = useSelector(getProfileReadonly)
+    const error = useSelector(getProfileError)
     const dispatch = useAppDispatch()
     const onEdit = useCallback(() => {
         dispatch(profileActions.setReadonly(false))
@@ -25,6 +27,9 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     const onSave = useCallback(() => {
         dispatch(updateProfileData())
     }, [dispatch])
+    if(error){
+        return null
+    }
     return (
         <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
             <Text text={t("Profile")} />

@@ -1,6 +1,5 @@
 import {FC, useCallback, useEffect} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
-import {useTranslation} from "react-i18next"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import {
     fetchProfileData,
@@ -27,7 +26,6 @@ interface ProfilePageProps {
 }
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
-    const { t } = useTranslation("profile")
     const dispatch = useAppDispatch()
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -45,7 +43,10 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     )
 
     const onChangeLastname = useCallback(
+
         (value?: string) => {
+            console.log(value)
+
             dispatch(profileActions.updateProfile({ lastname: value || "" }))
         },
         [dispatch]
@@ -76,13 +77,13 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     )
     const onChangeCurrency = useCallback(
         (currency: Currency) => {
-            dispatch(profileActions.updateProfile({ currency: currency || Currency.RUB }))
+            dispatch(profileActions.updateProfile({ currency}))
         },
         [dispatch]
     )
     const onChangeCountry = useCallback(
         (country: Country) => {
-            dispatch(profileActions.updateProfile({ country: country || Country.RUSSIA }))
+            dispatch(profileActions.updateProfile({ country}))
         },
         [dispatch]
     )
@@ -92,18 +93,18 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
             <ProfilePageHeader />
             <div className={classNames("", {}, [className])}>
                 <ProfileCard
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeAge={onChangeAge}
-                    onChangeLastname={onChangeLastname}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeCurrency={onChangeCurrency}
-                    onChangeCountry={onChangeCountry}
-                    readonly={readonly}
                     data={formData}
                     isLoading={isLoading}
                     error={error}
+                    readonly={readonly}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeCity={onChangeCity}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>

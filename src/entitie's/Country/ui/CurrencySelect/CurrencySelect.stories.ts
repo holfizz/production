@@ -1,5 +1,5 @@
 import type {Meta, StoryObj} from "@storybook/react"
-import CountrySelect from "./CurrencySelect"
+import CountrySelect from "./CountrySelect"
 
 const meta = {
     title: "entities/CountrySelect",

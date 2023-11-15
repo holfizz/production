@@ -10,7 +10,7 @@ interface CurrencySelectProps {
   onChange?: (value: Country) => void;
   readonly?: boolean;
 }
-const options:{ value: Country; content: Country; }[] = [
+const options = [
     { value: Country.RUSSIA, content: Country.RUSSIA },
     { value: Country.AMERICA, content: Country.AMERICA },
     { value: Country.DUBAI, content: Country.DUBAI },
@@ -21,10 +21,9 @@ const CountrySelect: FC<CurrencySelectProps> = ({
     readonly,
     className,
 }) => {
-    const onChangeHandler = useCallback(() => {
+    const onChangeHandler = useCallback((value: string) => {
         onChange?.(value as Country)
-    }, [onChange, value])
-
+    }, [onChange])
     const { t } = useTranslation()
     return (
         <Select

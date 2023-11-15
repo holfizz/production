@@ -21,10 +21,9 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
     readonly,
     className,
 }) => {
-    const onChangeHandler = useCallback(() => {
+    const onChangeHandler = useCallback((value: string) => {
         onChange?.(value as Currency)
-    }, [onChange, value])
-
+    }, [onChange])
     const { t } = useTranslation()
     return (
         <Select
