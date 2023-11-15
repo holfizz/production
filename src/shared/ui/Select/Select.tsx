@@ -1,4 +1,4 @@
-import {ChangeEvent, FC, memo, useEffect, useMemo} from "react"
+import {ChangeEvent, FC, memo, useMemo} from "react"
 import {classNames, Mods} from "shared/lib/classNames/classNames"
 import cls from "./Select.module.scss"
 import {Forward} from "lucide-react"
@@ -34,9 +34,6 @@ const Select: FC<SelectProps> = memo((props) => {
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value)
     }
-    useEffect(() => {
-        console.log(value)
-    }, [value])
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
             {label && (

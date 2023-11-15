@@ -1,5 +1,10 @@
 {
   "PROFILE PAGE": "PROFILE PAGE",
   "Profile": "Профиль",
-  "edit": "Редактировать"
+  "edit": "Редактировать",
+  "Incorrect user": "Некорректный пользователь",
+  "Server Error": "Серверная ошибка",
+  "Incorrect country": "Некорректная страна",
+  "Incorrect age": "Некорректный возраст",
+  "Data not provided": "Данные не указаны"
 }

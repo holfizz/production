@@ -1,5 +1,10 @@
 {
   "PROFILE PAGE": "PROFILE PAGE",
   "Profile": "Profile",
-  "edit": "edit"
+  "edit": "edit",
+  "Incorrect user": "Incorrect user",
+  "Server Error": "Server Error",
+  "Incorrect country": "Incorrect country",
+  "Incorrect age": "Incorrect age",
+  "Data not provided": "Data not provided"
 }

@@ -14,7 +14,7 @@ interface ProfileCardProps {
   className?: string;
   data?: Profile;
   isLoading?: boolean;
-  error?: string;
+  errors?: string;
   readonly?: boolean;
   onChangeFirstname?: (value?: string) => void;
   onChangeLastname?: (value?: string) => void;
@@ -30,7 +30,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
     const {
         className,
         data,
-        error,
+        errors,
         isLoading,
         onChangeLastname,
         onChangeFirstname,
@@ -57,7 +57,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             </div>
         )
     }
-    if (error) {
+    if (errors) {
         return (
             <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
                 <Text
