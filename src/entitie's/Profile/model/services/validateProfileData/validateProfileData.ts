@@ -1,20 +1,20 @@
-import {Profile, ValidateProfileError} from "../../types/profile"
+import {Profile, ValidateProfileErrors} from "../../types/profile"
 
 
 export const validateProfileData = (profile?:Profile) =>{
     if(!profile){
-        return [ValidateProfileError.NO_DATA]
+        return [ValidateProfileErrors.NO_DATA]
     }
     const { first,lastname, age, country} = profile
-    const errors:ValidateProfileError[] =[]
+    const errors:ValidateProfileErrors[] =[]
     if(!first || !lastname){
-        errors.push(ValidateProfileError.INCORRECT_USER_DATA)
+        errors.push(ValidateProfileErrors.INCORRECT_USER_DATA)
     }
     if(!age || !Number.isInteger(age)){
-        errors.push(ValidateProfileError.INCORRECT_AGE)
+        errors.push(ValidateProfileErrors.INCORRECT_AGE)
     }
     if(!country){
-        errors.push(ValidateProfileError.INCORRECT_COUNTY)
+        errors.push(ValidateProfileErrors.INCORRECT_COUNTY)
     }
     return errors
 }

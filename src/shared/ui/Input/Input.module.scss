@@ -13,13 +13,16 @@
 .outline::placeholder{
   color:var(--primary-color);
 }
+
 .readonly{
   border: var(--grey) 2px solid;
   color: var(--grey);
 }
+
 .readonly::placeholder{
   color: var(--grey);
 }
+
 .clear{
   border: none;
   color: var(--primary-color);

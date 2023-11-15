@@ -4,30 +4,36 @@
   border-radius: var(--default-border-radius);
   min-height: 200px;
 }
+
 .editing{
   border: 2px solid var(--grey);
   background: var(--bg-block-color);
 }
+
 .data{
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .input {
   width: 200px;
   margin: 10px;
 }
+
 .fields {
   width: 400px;
   display: flex;
   align-items: center;
 }
+
 .loading,
 .error{
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .avatarWrapper{
   width: 100%;
   display: flex;

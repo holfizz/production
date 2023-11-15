@@ -3,10 +3,10 @@ import {classNames} from "shared/lib/classNames/classNames"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import {
     fetchProfileData,
+    getProfileError,
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
-    getProfileServerError,
     profileActions,
     ProfileCard,
     profileReducer,
@@ -16,9 +16,11 @@ import {useSelector} from "react-redux"
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
 import {Currency} from "entitie's/Currency"
 import {Country} from "entitie's/Country"
-import {getProfileErrors} from "entitie's/Profile/model/selectors/getProfileErrors/getProfileErrors"
+import {
+    getProfileValidateErrors
+} from "entitie\'s/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
 import Text, {TextTheme} from "shared/ui/Text/Text"
-import {ValidateProfileError} from "entitie's/Profile/model/types/profile"
+import {ValidateProfileErrors} from "entitie's/Profile/model/types/profile"
 import {useTranslation} from "react-i18next"
 
 const reducers: ReducersList = {
@@ -31,24 +33,25 @@ interface ProfilePageProps {
 
 const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     const dispatch = useAppDispatch()
-    useEffect(() => {
-        dispatch(fetchProfileData())
-    }, [dispatch])
     const {t} = useTranslation('profile')
     const formData = useSelector(getProfileForm)
-    const validateErrors = useSelector(getProfileErrors)
-    const serverError = useSelector(getProfileServerError)
+    const validateErrors = useSelector(getProfileValidateErrors)
+    const serverError = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
 
     const validateErrorTranslate = {
-        [ValidateProfileError.INCORRECT_USER_DATA]:t('Incorrect user'),
-        [ValidateProfileError.SERVER_ERROR]:t('Server Error'),
-        [ValidateProfileError.INCORRECT_COUNTY]:t('Incorrect country'),
-        [ValidateProfileError.INCORRECT_AGE]:t('Incorrect age'),
-        [ValidateProfileError.NO_DATA]:t('Data not provided'),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]:t('Incorrect user'),
+        [ValidateProfileErrors.SERVER_ERROR]:t('Server Error'),
+        [ValidateProfileErrors.INCORRECT_COUNTY]:t('Incorrect country'),
+        [ValidateProfileErrors.INCORRECT_AGE]:t('Incorrect age'),
+        [ValidateProfileErrors.NO_DATA]:t('Data not provided'),
     }
-
+    useEffect(() => {
+        if(__PROJECT__!=='storybook'){
+            dispatch(fetchProfileData())
+        }
+    }, [dispatch])
     const onChangeFirstname = useCallback(
         (value?: string) => {
             dispatch(profileActions.updateProfile({ first: value || "" }))
