@@ -3,12 +3,12 @@ import {classNames} from "shared/lib/classNames/classNames"
 import {AppRouter} from "app/providers/Router"
 import {Navbar} from "widgets/navbar"
 import {Sidebar} from "widgets/sidebar"
-import {useDispatch} from "react-redux"
-import {userActions} from "entitie\'s/User"
+import {useDispatch, useSelector} from "react-redux"
+import {getUserMounted, userActions} from "entitie\'s/User"
 
 const App: FC = () => {
     const dispatch = useDispatch()
-
+    const mounted = useSelector(getUserMounted)
 
     useEffect(() => {
         dispatch(userActions.initAuthData())
@@ -20,7 +20,7 @@ const App: FC = () => {
                     <Navbar />
                     <div className={"contentPage"}>
                         <Sidebar />
-                        <AppRouter />
+                        {mounted && <AppRouter />}
                     </div>
                 </Suspense>
             </div>
