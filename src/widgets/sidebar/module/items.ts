@@ -1,4 +1,4 @@
-import {BookAudio, Home, LucideIcon, User} from "lucide-react"
+import {BookAudio, Home, ListTree, LucideIcon, User} from "lucide-react"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
 
 export interface SidebarItemType {
@@ -23,6 +23,12 @@ export const SidebarItemsList: SidebarItemType[] = [
         path: RouterPath.profile,
         Icon: User,
         text: "Profile",
+        authOnly: true,
+    },
+    {
+        path: RouterPath.articles,
+        Icon: ListTree,
+        text: "Articles",
         authOnly: true,
     },
 ]
