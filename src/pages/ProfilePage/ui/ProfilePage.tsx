@@ -10,17 +10,17 @@ import {
     profileActions,
     ProfileCard,
     profileReducer,
-} from "entitie's/Profile"
+} from "entities/Profile"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
 import {useSelector} from "react-redux"
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
-import {Currency} from "entitie's/Currency"
-import {Country} from "entitie's/Country"
+import {Currency} from "entities/Currency"
+import {Country} from "entities/Country"
 import {
     getProfileValidateErrors
-} from "entitie\'s/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
+} from "entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
 import Text, {TextTheme} from "shared/ui/Text/Text"
-import {ValidateProfileErrors} from "entitie's/Profile/model/types/profile"
+import {ValidateProfileErrors} from "entities/Profile/model/types/profile"
 import {useTranslation} from "react-i18next"
 
 const reducers: ReducersList = {

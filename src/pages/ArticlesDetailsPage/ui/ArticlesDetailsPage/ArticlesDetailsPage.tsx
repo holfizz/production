@@ -2,6 +2,8 @@ import {FC, memo} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticlesDetailsPage.module.scss"
 import {useTranslation} from "react-i18next"
+import {ArticleDetails} from "entities/Article"
+import {useParams} from "react-router-dom"
 
 
 interface ArticlesDetailsPageProps {
@@ -10,11 +12,16 @@ interface ArticlesDetailsPageProps {
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({className}) => {
 
-    const {t} = useTranslation("article")
-
+    const {t} = useTranslation("article-details")
+    const {id} = useParams<{id:string}>()
+    if(!id){
+        return <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+            {t('article not found')}
+        </div>
+    }
     return (
         <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
-            ARTICLES DETAILS PAGE
+            <ArticleDetails id={id}/>
         </div>
     )
 }

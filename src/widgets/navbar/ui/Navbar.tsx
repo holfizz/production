@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next"
 import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
 import {ArrowBigLeft, LogIn} from "lucide-react"
 import {LoginModal} from "features/AuthByUsername"
-import {getUserAuthData, userActions} from "entitie's/User"
+import {getUserAuthData, userActions} from "entities/User"
 import {useDispatch, useSelector} from "react-redux"
 
 interface NavbarProps {

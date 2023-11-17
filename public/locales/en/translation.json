@@ -2,6 +2,7 @@
   "About" : "About Us",
   "Main" : "Main",
   "Profile": "Profile",
+  "Articles": "Articles",
   "Page not found": "Page not found",
   "An unexpected error occurred": "An unexpected error occurred",
   "Refresh the page": "Refresh the page",
@@ -25,5 +26,6 @@
   "Your city": "Your city",
   "Your avatar": "Your avatar",
   "indicate currency": "indicate currency",
-  "indicate country": "indicate country"
+  "indicate country": "indicate country",
+  "an error occurred while loading the page": "An error occurred while loading the page"
 }

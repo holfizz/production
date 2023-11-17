@@ -2,6 +2,7 @@
   "About" : "О нас",
   "Main" : "Главная",
   "Profile": "Профиль",
+  "Articles": "Статьи",
   "Page not found": "Страница не найдена",
   "An unexpected error occurred": "Произошла непредвиденная ошибка",
   "Refresh the page": "Обновить страницу",
@@ -25,6 +26,7 @@
   "Your city": "Ваш город",
   "Your avatar": "Ваш аватар",
   "indicate currency": "Выбередите валюту",
-  "indicate country": "Выберите страну"
+  "indicate country": "Выберите страну",
+  "an error occurred while loading the page": "Произошла ошибка во время загрузки страницы"
 }
 
