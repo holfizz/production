@@ -30,10 +30,11 @@ body{
 }
 
 .pageWrapper {
+  width: min-content;
   border-top-left-radius: var(--border-top-left-radius);
   background: var(--bg-color);
   flex-grow: 1;
-  padding: 45px;
-  height: calc( 100vh - var(--navbar-height));
+  padding: 20px 20px 20px 45px;
+  height: calc(100vh - var(--navbar-height));
   overflow-y: auto;
 }

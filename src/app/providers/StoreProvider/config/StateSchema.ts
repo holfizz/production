@@ -1,11 +1,11 @@
-import {CounterSchema} from "entities/Counter"
-import {UserSchema} from "entities/User"
+import {CounterSchema} from "entitie/Counter"
+import {UserSchema} from "entitie/User"
 import {LoginSchema} from "features/AuthByUsername"
 import {AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,} from "@reduxjs/toolkit"
-import {ProfileSchema} from "entities/Profile"
+import {ProfileSchema} from "entitie/Profile"
 import {AxiosInstance} from "axios"
 import {NavigateOptions, To} from "react-router-dom"
-import {ArticleDetailsSchema} from "entities/Article"
+import {ArticleDetailsSchema} from "entitie/Article"
 
 export interface StateSchema {
   counter: CounterSchema;

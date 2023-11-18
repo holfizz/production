@@ -3,8 +3,8 @@ import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecora
 import {Theme} from "app/providers/ThemeProvider"
 import ProfilePage from "./ProfilePage"
 import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
-import {Currency} from "entities/Currency"
-import {Country} from "entities/Country"
+import {Currency} from "entitie/Currency"
+import {Country} from "entitie/Country"
 
 const meta = {
     title: "pages/ProfilePage",

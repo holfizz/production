@@ -5,7 +5,7 @@ import AppLink from "shared/ui/AppLink/AppLink"
 import {SidebarItemType} from "widgets/sidebar/module/items"
 import {classNames} from "shared/lib/classNames/classNames"
 import {useSelector} from "react-redux"
-import {getUserAuthData} from "entities/User"
+import {getUserAuthData} from "entitie/User"
 
 interface SidebarItemProps {
   className?: string;

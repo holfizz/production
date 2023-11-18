@@ -60,6 +60,7 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: ["data-testId", "to"],
+
             },
         ],    "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",

@@ -2,7 +2,7 @@ import {FC, memo} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticlesDetailsPage.module.scss"
 import {useTranslation} from "react-i18next"
-import {ArticleDetails} from "entities/Article"
+import {ArticleDetails} from "entitie/Article"
 import {useParams} from "react-router-dom"
 
 

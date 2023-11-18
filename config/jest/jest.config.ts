@@ -1,33 +1,42 @@
-import type {Config} from "jest"
-import path from "path"
+/*
+ * For a detailed explanation regarding each configuration property and type check, visit:
+ * https://jestjs.io/docs/configuration
+ */
 
-const config: Config = {
+import path from 'path'
+
+export default {
     globals: {
         __IS_DEV__: true,
-        __API__: "true",
-        __PROJECT__: "jest",
+        __API__: '',
+        __PROJECT__: 'jest',
     },
     clearMocks: true,
-    testEnvironment: "jsdom",
-    coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
-    moduleDirectories: ["node_modules", "src"],
-    moduleFileExtensions: [
-        "js",
-        "mjs",
-        "cjs",
-        "jsx",
-        "ts",
-        "tsx",
-        "json",
-        "node",
+    testEnvironment: 'jsdom',
+    coveragePathIgnorePatterns: [
+        '\\\\node_modules\\\\',
     ],
-    testMatch: [`<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)`],
-    rootDir: "../../",
-    setupFilesAfterEnv: ["<rootDir>config/jest/setupTests.ts"],
+    moduleFileExtensions: [
+        'js',
+        'jsx',
+        'ts',
+        'tsx',
+        'json',
+        'node',
+    ],
+    moduleDirectories: [
+        'node_modules',
+    ],
+    modulePaths: [
+        '<rootDir>src',
+    ],
+    testMatch: [
+        '<rootDir>/src/**/*(*.)@(spec|test).[tj]s?(x)',
+    ],
+    rootDir: '../../',
+    setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
     moduleNameMapper: {
-        "\\.s?css$": "identity-obj-proxy",
-        "\\.svg": path.resolve(__dirname, "jestEmptyComponent.tsx"),
+        '\\.s?css$': 'identity-obj-proxy',
+        '\\.svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
     },
 }
-
-export default config

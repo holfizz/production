@@ -1,4 +1,4 @@
-import {type ButtonHTMLAttributes, type FC, memo} from "react"
+import {type ButtonHTMLAttributes, type FC, memo, ReactNode} from "react"
 import {classNames, Mods} from "shared/lib/classNames/classNames"
 import cls from "./Button.module.scss"
 
@@ -21,6 +21,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   size?: ButtonSize;
   disabled?: boolean;
+  children?:ReactNode
 }
 
 const Button: FC<ButtonProps> = memo(({
