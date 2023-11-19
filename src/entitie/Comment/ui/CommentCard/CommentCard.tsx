@@ -5,10 +5,12 @@ import {Comment} from "entitie/Comment"
 import Text from "shared/ui/Text/Text"
 import Skeleton from "shared/ui/Skeleton/Skeleton"
 import Avatar from "shared/ui/Avatar/Avatar"
+import AppLink from "shared/ui/AppLink/AppLink"
+import {RouterPath} from "shared/config/routeConfig/routeConfig"
 
 interface CommentCardProps {
   className?: string;
-  comment: Comment;
+  comment?: Comment;
   isLoading?: boolean;
 }
 
@@ -16,25 +18,35 @@ const CommentCard: FC<CommentCardProps> = memo(
     ({ className, comment, isLoading }) => {
         if (isLoading) {
             return (
-                <div className={classNames(cls.CommentCard, {}, [className])}>
+                <div
+                    className={classNames(cls.CommentCard, {}, [className, cls.loading])}
+                >
                     <div className={cls.header}>
                         <Skeleton height={40} width={40} border={"50%"}></Skeleton>
-                        <Skeleton
+                        <Skeleton border={"3px"}
                             height={16}
                             className={cls.username}
                             width={100}
                         ></Skeleton>
                     </div>
-                    <Skeleton className={cls.text} height={50} width={"100%"}></Skeleton>
+                    <Skeleton border={"8px"} className={cls.text} height={50} width={"100%"}></Skeleton>
                 </div>
             )
         }
+        if (!comment) {
+            return null
+        }
         return (
             <div className={classNames(cls.CommentCard, {}, [className])}>
-                <div className={cls.header}>
-                    {comment.user.avatar ? <Avatar size={40} src={comment.user.avatar} /> : null}
+                <AppLink
+                    to={`${RouterPath.profile}${comment.user.id}`}
+                    className={cls.header}
+                >
+                    {comment.user.avatar ? (
+                        <Avatar size={40} src={comment.user.avatar} />
+                    ) : null}
                     <Text className={cls.username} title={comment.user.username} />
-                </div>
+                </AppLink>
                 <Text className={cls.text} text={comment.text} />
             </div>
         )

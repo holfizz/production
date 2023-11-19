@@ -1,7 +1,8 @@
 import type {Meta, StoryObj} from "@storybook/react"
 import ArticlesDetailsPage from "./ArticlesDetailsPage"
 import {Article} from "entitie/Article"
-import {ArticleBlockType, ArticleType} from "entitie/Article/model/types/article"
+import {ArticleBlockType, ArticleType,} from "entitie/Article/model/types/article"
+import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
     title: "pages/ArticlesDetailsPage",
@@ -56,4 +57,12 @@ const article: Article = {
         },
     ],
 }
-export const Normal: Story = {}
+export const Normal: Story = {
+    decorators: [
+        StoreDecorator({
+            articleDetails: {
+                data: article,
+            },
+        }),
+    ],
+}

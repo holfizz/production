@@ -12,6 +12,7 @@ const data = {
     country: Country.AMERICA,
     city: "St. Petersburg",
     username: "admin",
+    id:'1'
 }
 describe("updateProfileData.test", () => {
     test("success", async () => {

@@ -1,4 +1,4 @@
-import {FC, useCallback, useEffect} from "react"
+import {FC, useCallback} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import {
@@ -22,6 +22,8 @@ import {
 import Text, {TextTheme} from "shared/ui/Text/Text"
 import {ValidateProfileErrors} from "entitie/Profile/model/types/profile"
 import {useTranslation} from "react-i18next"
+import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
+import {useParams} from "react-router-dom"
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -39,6 +41,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     const serverError = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
+    const {id} = useParams<{id:string}>()
 
     const validateErrorTranslate = {
         [ValidateProfileErrors.INCORRECT_USER_DATA]:t('Incorrect user'),
@@ -47,11 +50,11 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         [ValidateProfileErrors.INCORRECT_AGE]:t('Incorrect age'),
         [ValidateProfileErrors.NO_DATA]:t('Data not provided'),
     }
-    useEffect(() => {
-        if(__PROJECT__!=='storybook'){
-            dispatch(fetchProfileData())
+    useInitialEffect(()=>{
+        if(id){
+            dispatch(fetchProfileData(id))
         }
-    }, [dispatch])
+    })
     const onChangeFirstname = useCallback(
         (value?: string) => {
             dispatch(profileActions.updateProfile({ first: value || "" }))
@@ -103,7 +106,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         [dispatch]
     )
     return (
-        <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducer={reducers}>
             <ProfilePageHeader />
             {validateErrors?.length && validateErrors.map((err) => (
                 <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslate[err]} />

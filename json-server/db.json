@@ -19,7 +19,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
@@ -93,13 +95,43 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
       "text": "some comment 3",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "good",
+      "id": "4"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "very ggod",
+      "id": "Me6Ivj6"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "asdasdasdasdasdasda",
+      "id": "_xOaLQD"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "yRR2zFy"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "u-l_grK"
     }
   ],
   "users": [
@@ -112,20 +144,34 @@
     },
     {
       "id": "2",
-      "username": "user",
+      "username": "brother",
       "password": "123",
       "role": "USER",
       "avatar": "https://images.unsplash.com/photo-1699694927230-bea08b4dbd45?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
     }
   ],
-  "profile": {
-    "first": "Sergey",
-    "lastname": "Gorlachev",
-    "age": 16,
-    "currency": "USD",
-    "country": "Russia",
-    "city": "St. Petersburg",
-    "username": "admin",
-    "avatar": "https://images.unsplash.com/photo-1510797215324-95aa89f43c33?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dds"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Sergey",
+      "lastname": "Gorlachev",
+      "age": 16,
+      "currency": "USD",
+      "country": "America",
+      "city": "St. Petersburg",
+      "username": "admin",
+      "avatar": "https://images.unsplash.com/photo-1510797215324-95aa89f43c33?q=80&w=2971&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Dds"
+    },
+    {
+      "id": "2",
+      "first": "Andrey",
+      "lastname": "Gorlachev",
+      "age": 15,
+      "currency": "USD",
+      "country": "Russia",
+      "city": "St. Petersburg",
+      "username": "brother",
+      "avatar": "https://images.unsplash.com/photo-1700068877703-8ab9b45f64b2?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3"
+    }
+  ]
 }

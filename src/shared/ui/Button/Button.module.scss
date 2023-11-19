@@ -7,7 +7,8 @@
   border-radius: var(--default-border-radius);
   user-select: none;
   transition: all .3s;
-  min-width: auto;
+  width: auto;
+  box-sizing: inherit;
 
   &:hover{
     transition: all .3s;
@@ -41,7 +42,7 @@
 }
 
 .size_m{
-  width:45px;
+  width:auto;
   height: 30px;
 }
 

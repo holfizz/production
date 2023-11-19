@@ -28,6 +28,8 @@
   "indicate currency": "Выбередите валюту",
   "indicate country": "Выберите страну",
   "an error occurred while loading the page": "Произошла ошибка во время загрузки страницы",
-  "no comments": "Нет комментариев"
+  "no comments": "Нет комментариев",
+  "enter comment text": "Введите текст комментария",
+  "Send": "Отправить"
 }
 

@@ -1,4 +1,4 @@
-import {FC, memo, useEffect} from "react"
+import {FC, memo, useCallback} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticlesDetailsPage.module.scss"
 import {useTranslation} from "react-i18next"
@@ -12,7 +12,9 @@ import {useSelector} from "react-redux"
 import {getArticleCommentsIsLoading} from "../../model/selectors/comments"
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {fetchCommentsByArticleId} from "pages/ArticlesDetailsPage/model/services/fetchCommentsByArticleId"
+import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
+import {AddCommentForm} from "features/AddNewCommentForm"
+import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle"
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -30,12 +32,13 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     const comments = useSelector(getArticleComments.selectAll)
     const isLoading = useSelector(getArticleCommentsIsLoading)
 
+    const onSendComment= useCallback((text:string)=>{
+        dispatch(addCommentForArticle(text))
+    },[dispatch])
+
     useInitialEffect(()=>{
         dispatch(fetchCommentsByArticleId(id))
     })
-    useEffect(() => {
-        console.log(comments)
-    }, [comments])
     if (!id) {
         return (
             <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
@@ -44,7 +47,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         )
     }
     return (
-        <DynamicModuleLoader reducer={reducers} removeAfterUnmount>
+        <DynamicModuleLoader reducer={reducers}>
             <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
                 <ArticleDetails id={id} />
                 <Text
@@ -52,6 +55,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
                     className={cls.commentTitle}
                     title={t("Comment")}
                 />
+                <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>
         </DynamicModuleLoader>
