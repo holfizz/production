@@ -1,0 +1,15 @@
+.CommentCard {
+  padding: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius:  var(--default-border-radius);
+}
+.header{
+  display: flex;
+  align-items: center;
+}
+.text{
+  margin-top: 10px;
+}
+.username{
+  margin-left: 10px;
+}

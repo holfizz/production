@@ -1,9 +1,10 @@
 export interface User {
-    id:string
-    username:string
+  id: string;
+  username: string;
+  avatar?: string;
 }
 
 export interface UserSchema {
-    authData?:User
-    _mounted:boolean
+  authData?: User;
+  _mounted: boolean;
 }

@@ -4,7 +4,7 @@ import cls from "./ArticleDetails.module.scss"
 import {useTranslation} from "react-i18next"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import {articlesDetailsReducer} from "../../model/slice/artliDetailsSlice"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import {fetchArticleById} from "entitie/Article"
 import {useSelector} from "react-redux"
 import {

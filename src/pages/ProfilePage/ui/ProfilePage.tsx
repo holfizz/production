@@ -11,7 +11,7 @@ import {
     ProfileCard,
     profileReducer,
 } from "entitie/Profile"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import {useSelector} from "react-redux"
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
 import {Currency} from "entitie/Currency"

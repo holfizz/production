@@ -6,6 +6,7 @@ import {ProfileSchema} from "entitie/Profile"
 import {AxiosInstance} from "axios"
 import {NavigateOptions, To} from "react-router-dom"
 import {ArticleDetailsSchema} from "entitie/Article"
+import {ArticleDetailsCommentsSchema} from "pages/ArticlesDetailsPage"
 
 export interface StateSchema {
   counter: CounterSchema;
@@ -15,6 +16,7 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?:ProfileSchema
   articleDetails?:ArticleDetailsSchema
+  articleDetailsComments?:ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

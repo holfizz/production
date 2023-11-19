@@ -15,7 +15,7 @@ import {getLoginLoading} from "../../model/selectors/getLoginLoading/getLoginLoa
 import {getLoginError} from "../../model/selectors/getLoginError/getLoginError"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import Loader from "shared/ui/Loader/Loader"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch"
+import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 
 export interface LoginFormProps {
   className?: string;
