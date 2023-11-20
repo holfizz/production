@@ -21,6 +21,12 @@ const article: Article = {
     views: 1022,
     createdAt: "26.02.2022",
     type: [ArticleType.IT],
+    user: {
+        id: "1",
+        username: "admin",
+        avatar:
+      "https://images.unsplash.com/photo-1700068877703-8ab9b45f64b2?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3",
+    },
     blocks: [
         {
             id: "2",

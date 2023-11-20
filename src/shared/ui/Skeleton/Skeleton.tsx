@@ -11,7 +11,7 @@ interface SkeletonProps {
 }
 
 const Skeleton: FC<SkeletonProps> = memo((props) => {
-    const { className, width, height, border } = props
+    const { className, width, height, border='3px' } = props
     const { t } = useTranslation()
     const style: CSSProperties = {
         width,

@@ -1,19 +1,16 @@
 import type {Meta, StoryObj} from "@storybook/react"
-import ArticleDetails from "./ArticleDetails"
-import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
-import {Article, ArticleBlockType, ArticleType,} from "entitie/Article/model/types/article"
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
-import {Theme} from "app/providers/ThemeProvider"
+import ArticleListItem from "./ArticleListItem"
+import {Article, ArticleView} from "entitie/Article"
+import {ArticleBlockType, ArticleType,} from "entitie/Article/model/types/article"
 
 const meta = {
-    title: "entities/ArticleDetails",
-    component: ArticleDetails,
+    title: "entities/ArticleListItem",
+    component: ArticleListItem,
     parameters: {},
-} satisfies Meta<typeof ArticleDetails>
+} satisfies Meta<typeof ArticleListItem>
 
 export default meta
 type Story = StoryObj<typeof meta>;
-
 const article: Article = {
     id: "1",
     title: "Javascript news",
@@ -21,13 +18,13 @@ const article: Article = {
     img: "https://teknotower.com/wp-content/uploads/2020/11/js.png",
     views: 1022,
     createdAt: "26.02.2022",
+    type: [ArticleType.IT],
     user: {
         id: "1",
         username: "admin",
         avatar:
-          "https://images.unsplash.com/photo-1700068877703-8ab9b45f64b2?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3",
+      "https://images.unsplash.com/photo-1700068877703-8ab9b45f64b2?q=80&w=3552&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3",
     },
-    type: [ArticleType.IT],
     blocks: [
         {
             id: "2",
@@ -64,56 +61,15 @@ const article: Article = {
         },
     ],
 }
-
-export const Light: Story = {
+export const Small: Story = {
     args: {
-        id: "1",
+        view: ArticleView.SMALL,
+        article,
     },
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                data: article,
-            },
-        }),
-    ],
 }
-
-export const Dark: Story = {
+export const Big: Story = {
     args: {
-        id: "1",
+        article,
+        view: ArticleView.BIG,
     },
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                data: article,
-            },
-        }),
-        ThemeDecorator(Theme.DARK),
-    ],
-}
-
-export const IsLoading: Story = {
-    args: {
-        id: "1",
-    },
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                isLoading: true,
-            },
-        }),
-    ],
-}
-
-export const Error: Story = {
-    args: {
-        id: "1",
-    },
-    decorators: [
-        StoreDecorator({
-            articleDetails: {
-                error: "error",
-            },
-        }),
-    ],
 }

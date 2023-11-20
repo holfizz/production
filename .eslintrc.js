@@ -48,13 +48,7 @@ module.exports = {
         "react/jsx-props-no-spreading": "off",
         "no-underscore-dangle": "off",
         "react/no-deprecated": "off",
-        "max-len": [
-            "error",
-            {
-                ignoreComments: true,
-                code: 120,
-            },
-        ],
+        "max-len": "off",
         "i18next/no-literal-string": [
             "error",
             {
@@ -67,7 +61,8 @@ module.exports = {
         "no-param-reassign": "off",
         "react/prop-types": 0,
         "react/display-name":"off",
-        "no-undef":"off"
+        "no-undef":"off",
+        "react/no-array-index-key":"off"
     },
     globals: {
         __IS_DEV__: true,
