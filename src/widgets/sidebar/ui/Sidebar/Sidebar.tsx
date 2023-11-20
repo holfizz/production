@@ -4,8 +4,10 @@ import cls from "./Sidebar.module.scss"
 import {LangSwitcher} from "widgets/langSwitcher"
 import {ThemeSwitcher} from "widgets/themeSwitcher"
 import {ChevronLeft, ChevronRight} from "lucide-react"
-import {SidebarItemsList} from "widgets/sidebar/module/items"
+
 import SidebarItem from "widgets/sidebar/ui/SidebarItem/SidebarItem"
+import {useSelector} from "react-redux"
+import {getSidebarItems} from "widgets/sidebar/module/selectors/getSidebarItems"
 
 interface SidebarProps {
   className?: string;
@@ -17,11 +19,12 @@ const Sidebar: FC<SidebarProps> = memo(({ className }) => {
     const onToggle = () => {
         setCollapsed((prevState) => !prevState)
     }
+    const sidebarItemsList = useSelector(getSidebarItems)
     const itemList = useMemo(() => {
-        return SidebarItemsList.map((item) => {
+        return sidebarItemsList.map((item) => {
             return <SidebarItem key={item.path} className={classLink} item={item} />
         })
-    }, [classLink])
+    }, [classLink, sidebarItemsList])
     return (
         <div
             data-testid="sidebar"
