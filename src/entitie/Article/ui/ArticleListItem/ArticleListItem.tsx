@@ -47,7 +47,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(
                         cls[view],
                     ])}
                 >
-                    <Card>
+                    <Card className={cls.card}>
                         <div className={cls.header}>
                             <Avatar size={30} src={article.user.avatar} />
                             <Text text={article.user.username} className={cls.username} />

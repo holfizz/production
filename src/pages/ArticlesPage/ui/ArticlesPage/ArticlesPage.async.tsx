@@ -6,7 +6,7 @@ const ArticlesPageAsync = lazy(
             setTimeout(() => {
                 // @ts-ignore
                 res(import("./ArticlesPage"))
-            }, 1500)
+            }, 400)
         }),
 )
 export default ArticlesPageAsync
