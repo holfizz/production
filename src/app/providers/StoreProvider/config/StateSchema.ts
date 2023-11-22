@@ -8,10 +8,12 @@ import {ArticleDetailsSchema} from "entitie/Article"
 import {ArticleDetailsCommentsSchema} from "pages/ArticlesDetailsPage"
 import {AddCommentFormSchema} from "features/AddNewCommentForm"
 import {ArticlePageSchema} from "pages/ArticlesPage"
+import {ScrollSaveSchema} from "features/ScrollSave"
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  scrollSave:ScrollSaveSchema
 
   //async reducers
   loginForm?: LoginSchema;

@@ -1,6 +1,7 @@
 import {type FC} from "react"
 import {useTranslation} from "react-i18next"
-import Page from "shared/ui/Page/Page"
+import {Page} from "widgets/page"
+
 
 const MainPage: FC = () => {
     const { t } = useTranslation("main")

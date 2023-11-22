@@ -14,7 +14,8 @@ import {
     getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors"
 import {ArticleView, ArticleViewSelector} from "entitie/Article"
-import Page from "shared/ui/Page/Page"
+import {Page} from "widgets/page"
+
 import {fetchNextArticlesPage} from "../../model/service/fetchNextArticlesPage/fetchNextArticlesPage"
 import Text, {TextAlign, TextSize, TextTheme} from "shared/ui/Text/Text"
 

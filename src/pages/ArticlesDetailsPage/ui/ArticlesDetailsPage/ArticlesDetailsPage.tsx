@@ -17,7 +17,8 @@ import {AddCommentForm} from "features/AddNewCommentForm"
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle"
 import Button, {ButtonTheme} from "shared/ui/Button/Button"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
-import Page from "shared/ui/Page/Page"
+import {Page} from "widgets/page"
+
 
 interface ArticlesDetailsPageProps {
   className?: string;
