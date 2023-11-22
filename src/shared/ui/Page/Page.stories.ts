@@ -1,11 +1,11 @@
 import type {Meta, StoryObj} from "@storybook/react"
-import ArticleViewSelector from "./ArticleViewSelector"
+import Page from "./Page"
 
 const meta = {
-    title: "shared/ArticleViewSelector",
-    component: ArticleViewSelector,
+    title: "shared/Page",
+    component: Page,
     parameters: {},
-} satisfies Meta<typeof ArticleViewSelector>
+} satisfies Meta<typeof Page>
 
 export default meta
 type Story = StoryObj<typeof meta>;

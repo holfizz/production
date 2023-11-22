@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
     }, [authData])
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <div className={cls.links}>
                     <Button
                         onClick={onLogout}
@@ -37,11 +37,11 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                         <ArrowBigLeft />
                     </Button>
                 </div>
-            </div>
+            </header>
         )
     }
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <Button
                     onClick={() => setIsAuthModal(true)}
@@ -53,7 +53,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                 </Button>
                 <LoginModal isOpen={isAuthModal} onClose={setIsAuthModal} />
             </div>
-        </div>
+        </header>
     )
 })
 

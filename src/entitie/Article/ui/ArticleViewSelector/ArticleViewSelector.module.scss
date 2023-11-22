@@ -5,6 +5,10 @@
 .button{
   padding: 10px;
 }
-.selected{
+.notSelected{
   color: var(--grey);
+
+}
+.selected{
+  color: var(--primary-color);
 }

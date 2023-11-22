@@ -34,7 +34,7 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
                         key={index}
                         onClick={onClick(viewType.view)}
                     >
-                        <Icon className={classNames('', {[cls.selected]:viewType.view ===view},[])} SVG={viewType.icon} />
+                        <Icon className={classNames(cls.notSelected, {[cls.selected]:viewType.view ===view},[])} SVG={viewType.icon} />
                     </Button>
                 ))}
             </div>

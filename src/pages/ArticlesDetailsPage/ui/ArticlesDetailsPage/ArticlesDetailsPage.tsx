@@ -17,6 +17,7 @@ import {AddCommentForm} from "features/AddNewCommentForm"
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle"
 import Button, {ButtonTheme} from "shared/ui/Button/Button"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
+import Page from "shared/ui/Page/Page"
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -56,8 +57,8 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     }
     return (
         <DynamicModuleLoader reducer={reducers}>
-            <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.FILL} onClick={backToList}>{t("Back to list")}</Button>
+            <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
+                <Button theme={ButtonTheme.OUTLINE} onClick={backToList}>{t("Back to list")}</Button>
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
@@ -66,7 +67,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
                 />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     )
 }

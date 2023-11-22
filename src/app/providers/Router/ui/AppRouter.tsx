@@ -7,9 +7,9 @@ import {PageLoader} from "widgets/pageLoader"
 const AppRouter: FC = () => {
     const renderWithWrapper = useCallback((route:AppRoutesProps)=>{
         const element = (
-            <div className={'pageWrapper'}>
+            <>
                 {route.element}
-            </div>
+            </>
 
         )
         return(
