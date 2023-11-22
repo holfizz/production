@@ -8,7 +8,7 @@ export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
 };
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
+type ReducersListEntry = [StateSchemaKey, Reducer];
 
 interface DynamicModuleLoader {
   reducer: ReducersList;
@@ -24,17 +24,21 @@ const DynamicModuleLoader: FC<PropsWithChildren<DynamicModuleLoader>> = ({
     const dispatch = useDispatch()
 
     useEffect(() => {
-        Object.entries(reducer).forEach(([name, reducer])=>{
-            store.reducerManager.add(name as StateSchemaKey, reducer)
-            dispatch({ type: `@UNIT ${name as StateSchemaKey} reducer` })
+        const mountedReducers = store.reducerManager.getMountedReducers()
+        Object.entries(reducer).forEach(([name, reducer]) => {
+            const mounted = mountedReducers[name as StateSchemaKey]
+            //add a new reducer if it doesn’tx exist
+            if (!mounted) {
+                store.reducerManager.add(name as StateSchemaKey, reducer)
+                dispatch({ type: `@UNIT ${name as StateSchemaKey} reducer` })
+            }
         })
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducer).forEach(([name])=>{
+                Object.entries(reducer).forEach(([name]) => {
                     store.reducerManager.remove(name as StateSchemaKey)
                     dispatch({ type: `@DESTROY ${name as StateSchemaKey} reducer` })
                 })
-
             }
         }
     //eslint-disable-next-line

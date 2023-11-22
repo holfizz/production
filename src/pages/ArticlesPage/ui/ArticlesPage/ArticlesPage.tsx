@@ -7,7 +7,6 @@ import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicM
 import {articlesPageActions, articlesPageReducer, getArticles,} from "../../model/slice/articalPageSlice"
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {fetchArticlesList} from "../../model/service/fetchArticlesList/fetchArticlesList"
 import {useSelector} from "react-redux"
 import {
     getArticlesPageError,
@@ -16,7 +15,7 @@ import {
 } from "../../model/selectors/articlesPageSelectors"
 import {ArticleView, ArticleViewSelector} from "entitie/Article"
 import Page from "shared/ui/Page/Page"
-import {fetchNextArticlesPage} from "pages/ArticlesPage/model/service/fetchNextArticlesPage/fetchNextArticlesPage"
+import {fetchNextArticlesPage} from "../../model/service/fetchNextArticlesPage/fetchNextArticlesPage"
 import Text, {TextAlign, TextSize, TextTheme} from "shared/ui/Text/Text"
 
 interface ArticlesPageProps {
@@ -35,32 +34,43 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
     const isLoading = useSelector(getArticlesPageIsLoading)
     const error = useSelector(getArticlesPageError)
     const view = useSelector(getArticlesPageView)
+    const onChangeView = useCallback(
+        (view: ArticleView) => {
+            dispatch(articlesPageActions.setView(view))
+            console.log(view)
+        },
+        [dispatch]
+    )
 
-    const onChangeView = useCallback((view:ArticleView)=>{
-        dispatch(articlesPageActions.setView(view))
-        console.log(view)
-    },[dispatch])
-
-    const onLoadNextPart = useCallback(()=>{
+    const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage())
-    },[dispatch])
+    }, [dispatch])
 
-    useInitialEffect(() => {
-        dispatch(articlesPageActions.initState())
-        dispatch(fetchArticlesList({page:1}))
-    })
-    if(error){
-        return(
-            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <Text align={TextAlign.CENTER} theme={TextTheme.ERROR} size={TextSize.XL} title={t("Error loading article")} text={t('Try refreshing the page')} />
+    useInitialEffect(() => {})
+    if (error) {
+        return (
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.ArticlesPage, {}, [className])}
+            >
+                <Text
+                    align={TextAlign.CENTER}
+                    theme={TextTheme.ERROR}
+                    size={TextSize.XL}
+                    title={t("Error loading article")}
+                    text={t("Try refreshing the page")}
+                />
             </Page>
         )
     }
     return (
-        <DynamicModuleLoader  reducer={reducers}>
-            <Page onScrollEnd={onLoadNextPart} className={classNames(cls.ArticlesPage, {}, [className])}>
-                <ArticleViewSelector onViewClick={onChangeView} view={view}/>
-                <ArticleList isLoading={isLoading } view={view} articles={articles} />
+        <DynamicModuleLoader  removeAfterUnmount={false} reducer={reducers}>
+            <Page
+                onScrollEnd={onLoadNextPart}
+                className={classNames(cls.ArticlesPage, {}, [className])}
+            >
+                <ArticleViewSelector onViewClick={onChangeView} view={view} />
+                <ArticleList isLoading={isLoading} view={view} articles={articles} />
             </Page>
         </DynamicModuleLoader>
     )
