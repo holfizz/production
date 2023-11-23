@@ -1,5 +1,6 @@
-export {default as ArticleViewSelector} from "entitie/Article/ui/ArticleViewSelector/ArticleViewSelector"
-export {ArticleView} from "./model/types/article"
+export {default as ArticleSortSelector} from "./ui/ArticleSortSelector/ArticleSortSelector"
+export {default as ArticleViewSelector} from "./ui/ArticleViewSelector/ArticleViewSelector"
+export {ArticleView, ArticleSortField} from "./model/types/article"
 export {getArticleDetailsData} from "./model/selectors/articleDetails"
 export {fetchArticleById} from "./model/services/fetchArticleById/fetchArticleById"
 export type { Article } from "./model/types/article"

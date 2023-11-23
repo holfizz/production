@@ -32,5 +32,13 @@
   "enter comment text": "Enter comment text",
   "Send": "Send",
   "Read more": "Read more...",
-  "Error loading article": "Error loading article"
+  "Error loading article": "Error loading article",
+  "Sort by": "Sort by",
+  "Search": "Search",
+  "By": "By",
+  "increasing": "increasing",
+  "decreasing": "decreasing",
+  "creation date": "creation date",
+  "views": "views",
+  "name": "name"
 }

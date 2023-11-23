@@ -1,5 +1,4 @@
 .Input{
-  width: auto;
   padding: 0 30px;
   border-radius: var(--default-border-radius);
 }
@@ -27,4 +26,10 @@
 .clear{
   border: none;
   color: var(--primary-color);
+}
+.primary {
+  width: auto;
+}
+.full{
+  width: 100%;
 }

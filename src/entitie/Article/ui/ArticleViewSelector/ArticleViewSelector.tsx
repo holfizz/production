@@ -1,4 +1,4 @@
-import {FC, memo} from "react"
+import {FC, memo, useEffect} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticleViewSelector.module.scss"
 import {ArticleView} from "../../model/types/article"
@@ -26,6 +26,9 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
         const onClick = (newView: ArticleView) => () => {
             onViewClick?.(newView)
         }
+        useEffect(() => {
+            console.log(view)
+        }, [view])
         return (
             <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
                 {viewTypes.map((viewType, index) => (

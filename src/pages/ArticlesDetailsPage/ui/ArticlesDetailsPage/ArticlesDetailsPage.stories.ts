@@ -5,7 +5,7 @@ import {ArticleBlockType, ArticleType,} from "entitie/Article/model/types/articl
 import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
-    title: "pages/ArticlesDetailsPage",
+    title: "pages/Article/ArticlesDetailsPage",
     component: ArticlesDetailsPage,
     parameters: {},
 } satisfies Meta<typeof ArticlesDetailsPage>

@@ -4,20 +4,25 @@ import cls from "./Input.module.scss"
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  "value" | "onChange" | "readOnly"
+  "value" | "onChange" | "readOnly" | "size"
 >;
 
 export enum InputTheme {
   OUTLINE = "outline",
   CLEAR = "clear",
 }
+export enum InputSize {
+  PRIMARY = "primary",
+  FULL = "full",
+}
 
 interface InputProps extends HTMLInputProps {
   className?: string;
   value?: string | number;
   theme?: InputTheme;
-  onChange?: (value: string ) => void;
+  onChange?: (value: string) => void;
   readonly?: boolean;
+  size?:InputSize
 }
 
 const Input: FC<InputProps> = memo((props) => {
@@ -28,6 +33,7 @@ const Input: FC<InputProps> = memo((props) => {
         type = "text",
         theme = InputTheme.OUTLINE,
         readonly,
+        size = InputSize.PRIMARY ,
         ...otherProps
     } = props
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,6 +41,7 @@ const Input: FC<InputProps> = memo((props) => {
     }
     const mods: Mods = {
         [cls[theme]]: true,
+        [cls[size]]: true,
         [cls.readonly]: readonly,
     }
     return (

@@ -4,7 +4,7 @@ import {Article, ArticleView} from "../../model/types/article"
 import {ArticleBlockType, ArticleType,} from "entitie/Article/model/types/article"
 
 const meta = {
-    title: "entities/ArticleList",
+    title: "entities/Article/ArticleList",
     component: ArticleList,
     parameters: {},
 } satisfies Meta<typeof ArticleList>

@@ -6,7 +6,7 @@ import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecora
 import {Theme} from "app/providers/ThemeProvider"
 
 const meta = {
-    title: "entities/ArticleDetails",
+    title: "entities/Article/ArticleDetails",
     component: ArticleDetails,
     parameters: {},
 } satisfies Meta<typeof ArticleDetails>

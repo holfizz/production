@@ -1,22 +1,22 @@
-import {ChangeEvent, FC, memo, useMemo} from "react"
+import {ChangeEvent, useMemo} from "react"
 import {classNames, Mods} from "shared/lib/classNames/classNames"
 import cls from "./Select.module.scss"
 import {Forward} from "lucide-react"
 
-export interface SelectOption {
-  value?: string;
+export interface SelectOption<T extends string> {
+  value?: T;
   content?: string;
 }
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
   label?: string;
-  options?: SelectOption[];
+  options?: SelectOption<T>[];
   value?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
   readonly?: boolean;
 }
 
-const Select: FC<SelectProps> = memo((props) => {
+const Select = <T extends string>(props: SelectProps<T>) => {
     const { className, label, options, value, onChange, readonly } = props
     const optionsList = useMemo(() => {
         return options?.map((opt) => {
@@ -32,7 +32,7 @@ const Select: FC<SelectProps> = memo((props) => {
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-        onChange?.(e.target.value)
+        onChange?.(e.target.value as T)
     }
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
@@ -52,6 +52,6 @@ const Select: FC<SelectProps> = memo((props) => {
             </select>
         </div>
     )
-})
+}
 
 export default Select

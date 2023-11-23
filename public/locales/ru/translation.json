@@ -32,5 +32,13 @@
   "enter comment text": "Введите текст комментария",
   "Send": "Отправить",
   "Read more": "Читать далее...",
-  "Error loading article": "Ошибка загрузки статьи"
+  "Error loading article": "Ошибка загрузки статьи",
+  "Sort by": "Сортировать по",
+  "Search": "Поиск",
+  "By": "По",
+  "increasing": "Возрастанию",
+  "decreasing": "Убыванию",
+  "creation date": "дате создания",
+  "views": "просмотрам",
+  "name": "названию"
 }
