@@ -4,6 +4,8 @@ import cls from "./ArticleList.module.scss"
 import {Article, ArticleView} from "../../model/types/article"
 import ArticleListItem from "../ArticleListItem/ArticleListItem"
 import ArticleListItemSkeleton from "entitie/Article/ui/ArticleListItem/ArticleListItemSkeleton"
+import Text, {TextSize} from "shared/ui/Text/Text"
+import {useTranslation} from "react-i18next"
 
 interface ArticleListProps {
   className?: string;
@@ -22,6 +24,7 @@ const getSkeletons = (view: ArticleView) => {
 
 const ArticleList: FC<ArticleListProps> = memo((props) => {
     const { className, articles, view = ArticleView.SMALL, isLoading } = props
+    const {t} = useTranslation()
     const renderArticle = (article: Article) => {
         return (
             <ArticleListItem
@@ -30,6 +33,13 @@ const ArticleList: FC<ArticleListProps> = memo((props) => {
                 article={article}
                 view={view}
             />
+        )
+    }
+    if(!isLoading  && !articles.length){
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text size={TextSize.L} title={t("Article not found")}/>
+            </div>
         )
     }
 

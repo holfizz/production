@@ -422,19 +422,19 @@
     },
     {
       "id": "16",
-      "title": "Python news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "Открытие в космосе!",
+      "subtitle": "Что находтся внутри черной дыры!",
       "img": "https://images.unsplash.com/photo-1700159915592-004562ddcf6f?q=80&w=3628&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      "views": 111022,
+      "views": 1194,
       "createdAt": "26.10.2019",
       "userId": "1",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
           "id": "1",
-          "type": "TEXT",
+          "type": "POLITICS",
           "title": "Заголовок этого блока",
           "paragraphs": [
             "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
@@ -446,14 +446,14 @@
     },
     {
       "id": "17",
-      "title": "Kotlin news",
-      "subtitle": "Что нового в JS за 2022 год?",
+      "title": "Экономическая статья",
+      "subtitle": "Что будет с долларом?",
       "img": "https://images.unsplash.com/photo-1700403595113-eaa7056ceeab?q=80&w=3687&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "views": 1022,
-      "createdAt": "26.02.2022",
+      "createdAt": "11.11.2023",
       "userId": "1",
       "type": [
-        "IT"
+        "ECONOMICS"
       ],
       "blocks": [
         {

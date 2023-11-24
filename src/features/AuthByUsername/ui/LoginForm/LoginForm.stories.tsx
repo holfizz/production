@@ -5,7 +5,7 @@ import {Theme} from "app/providers/ThemeProvider"
 import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
 
 const meta = {
-    title: "features/loginForm",
+    title: "features/LoginForm",
     component: LoginForm,
     parameters: {
         layout: "centered",

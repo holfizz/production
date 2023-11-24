@@ -1,13 +1,20 @@
 import {FC, memo, useCallback} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticlesPageFilters.module.scss"
-import {ArticleSortField, ArticleSortSelector, ArticleView, ArticleViewSelector,} from "entitie/Article"
+import {
+    ArticleSortField,
+    ArticleSortSelector,
+    ArticleTypeTabs,
+    ArticleView,
+    ArticleViewSelector,
+} from "entitie/Article"
 import {articlesPageActions} from "pages/ArticlesPage/model/slice/articalPageSlice"
 import {useSelector} from "react-redux"
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
     getArticlesPageSort,
+    getArticlesPageType,
     getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
@@ -17,6 +24,7 @@ import Input, {InputSize, InputTheme} from "shared/ui/Input/Input"
 import {SortOrder} from "shared/types"
 import {fetchArticlesList} from "pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList"
 import {useDebounce} from "shared/lib/hooks/useDebounce/useDebounce"
+import {ArticleType} from "entitie/Article/model/types/article"
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -31,6 +39,9 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
         const sort = useSelector(getArticlesPageSort)
         const order = useSelector(getArticlesPageOrder)
         const search = useSelector(getArticlesPageSearch)
+        const type = useSelector(getArticlesPageType)
+
+
 
         const fetchData = useCallback(() => {
             dispatch(fetchArticlesList({ replace: true }))
@@ -69,7 +80,14 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
             },
             [debounceFetchData, dispatch]
         )
-
+        const onChangeType = useCallback(
+            (value:ArticleType) => {
+                dispatch(articlesPageActions.setType(value))
+                dispatch(articlesPageActions.setPage(1))
+                debounceFetchData()
+            },
+            [debounceFetchData, dispatch]
+        )
         return (
             <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
                 <div className={cls.sortWrapper}>
@@ -79,7 +97,7 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
                         onChangeOrder={onChangeOrder}
                         onChangeSort={onChangeSort}
                     />
-                    <ArticleViewSelector onViewClick={onChangeView} view={view} />
+                    <ArticleViewSelector  onViewClick={onChangeView} view={view} />
                 </div>
                 <Card className={cls.search}>
                     <Input
@@ -90,6 +108,7 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
                         placeholder={t("Search")}
                     />
                 </Card>
+                <ArticleTypeTabs className={cls.tabs} onChangeType={onChangeType} value={type}/>
             </div>
         )
     }

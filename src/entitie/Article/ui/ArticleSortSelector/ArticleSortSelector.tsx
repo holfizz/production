@@ -53,7 +53,7 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = memo(
         return (
             <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
                 <Select<ArticleSortField> value={sort} onChange={onChangeSort} options={sortFieldOptions} label={t("Sort by")} />
-                <Select<SortOrder>  value={order} onChange={onChangeOrder} options={orderOptions} label={t("By")} />
+                <Select<SortOrder> className={cls.sortOrder} value={order} onChange={onChangeOrder} options={orderOptions} label={t("By")} />
             </div>
         )
     }
