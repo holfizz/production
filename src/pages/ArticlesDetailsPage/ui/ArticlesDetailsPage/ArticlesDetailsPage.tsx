@@ -6,8 +6,8 @@ import {ArticleDetails} from "entitie/Article"
 import {useNavigate, useParams} from "react-router-dom"
 import Text, {TextSize} from "shared/ui/Text/Text"
 import {CommentList} from "entitie/Comment"
-import DynamicModuleLoader, {ReducersList} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import {articleDetailsCommentsReducer, getArticleComments} from "../../model/slice/articleDetailsCommentsSlice"
+import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import {getArticleComments,} from "../../model/slice/articleDetailsCommentsSlice"
 import {useSelector} from "react-redux"
 import {getArticleCommentsIsLoading} from "../../model/selectors/comments"
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
@@ -18,14 +18,18 @@ import {addCommentForArticle} from "../../model/services/addCommentForArticle/ad
 import Button, {ButtonTheme} from "shared/ui/Button/Button"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
 import {Page} from "widgets/page"
-
+import {getArticleRecommendations,} from "../../model/slice/articleDetailsPageRecommendations"
+import {getArticleRecommendationsIsLoading} from "../../model/selectors/recommendations"
+import ArticleList from "entitie/Article/ui/ArticleList/ArticleList"
+import {fetchArticleRecommendations} from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations"
+import {articleDetailsPageReducer} from "../../model/slice/index"
 
 interface ArticlesDetailsPageProps {
   className?: string;
 }
 
-const reducers:ReducersList ={
-    articleDetailsComments:articleDetailsCommentsReducer
+const reducers: ReducersList = {
+    articleDetailsPage: articleDetailsPageReducer
 }
 
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
@@ -34,20 +38,26 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const comments = useSelector(getArticleComments.selectAll)
+    const recommendations = useSelector(getArticleRecommendations.selectAll)
     const isLoading = useSelector(getArticleCommentsIsLoading)
+    const recommendationsIsLoading = useSelector(
+        getArticleRecommendationsIsLoading
+    )
 
-    const backToList = useCallback(()=>{
+    const backToList = useCallback(() => {
         navigate(RouterPath.articles)
-    },[navigate])
+    }, [navigate])
 
+    const onSendComment = useCallback(
+        (text: string) => {
+            dispatch(addCommentForArticle(text))
+        },
+        [dispatch]
+    )
 
-    const onSendComment= useCallback((text:string)=>{
-        dispatch(addCommentForArticle(text))
-    },[dispatch])
-
-
-    useInitialEffect(()=>{
+    useInitialEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
+        dispatch(fetchArticleRecommendations())
     })
     if (!id) {
         return (
@@ -59,8 +69,19 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     return (
         <DynamicModuleLoader reducer={reducers}>
             <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={backToList}>{t("Back to list")}</Button>
+                <Button theme={ButtonTheme.OUTLINE} onClick={backToList}>
+                    {t("Back to list")}
+                </Button>
                 <ArticleDetails id={id} />
+                <Text
+                    size={TextSize.L}
+                    className={cls.commentTitle}
+                    title={t("Recommendation")}
+                />
+                <ArticleList target={'_blank'} className={cls.recommendation}
+                    articles={recommendations}
+                    isLoading={recommendationsIsLoading}
+                />
                 <Text
                     size={TextSize.L}
                     className={cls.commentTitle}

@@ -5,14 +5,14 @@ import {profileReducer} from 'entitie/Profile'
 import {ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
 import {articlesDetailsReducer} from "entitie/Article/model/slice/artliDetailsSlice"
 import {addCommentFormReducer} from "features/AddNewCommentForm/model/slices/addCommentFormSchema"
-import {articleDetailsCommentsReducer} from "pages/ArticlesDetailsPage/model/slice/articleDetailsCommentsSlice"
+import {articleDetailsPageReducer} from "pages/ArticlesDetailsPage/model/slice"
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articlesDetailsReducer,
     addCommentForm:addCommentFormReducer,
-    articleDetailsComments:articleDetailsCommentsReducer
+    articleDetailsPage:articleDetailsPageReducer
 }
 
 export const StoreDecorator = (

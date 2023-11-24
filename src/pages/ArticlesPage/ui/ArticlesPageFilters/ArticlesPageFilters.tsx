@@ -84,9 +84,9 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
             (value:ArticleType) => {
                 dispatch(articlesPageActions.setType(value))
                 dispatch(articlesPageActions.setPage(1))
-                debounceFetchData()
+                fetchData()
             },
-            [debounceFetchData, dispatch]
+            [dispatch, fetchData]
         )
         return (
             <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
