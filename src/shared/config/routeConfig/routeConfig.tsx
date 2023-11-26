@@ -5,26 +5,32 @@ import {NotFoundPage} from "pages/NotFoundPage"
 import {ProfilePage} from "pages/ProfilePage"
 import {ArticlesPage} from "pages/ArticlesPage"
 import {ArticlesDetailsPage} from "pages/ArticlesDetailsPage"
+import {ArticleEditPage} from "pages/ArticleEditPage"
 
 export type AppRoutesProps = RouteProps & {
-    authOnly?:boolean
-}
+  authOnly?: boolean;
+};
 
 export enum AppRoutes {
   MAIN = "main",
   ABOUT = "about",
   PROFILE = "profile",
-  NOT_FOUND = "not_found",
   ARTICLES = "articles",
+  ARTICLES_CREATE = "article_create",
+  ARTICLES_EDIT = "article_edit",
   ARTICLES_DETAILS = "articles_details",
+  // not found
+  NOT_FOUND = "not_found",
 }
 
 export const RouterPath: Record<AppRoutes, string> = {
     [AppRoutes.MAIN]: "/",
     [AppRoutes.ABOUT]: "/about",
     [AppRoutes.PROFILE]: "/profile/", // +:id
-    [AppRoutes.ARTICLES]:"/articles",
-    [AppRoutes.ARTICLES_DETAILS]:"/articles/", // + :id
+    [AppRoutes.ARTICLES]: "/articles",
+    [AppRoutes.ARTICLES_DETAILS]: "/articles/", // + :id
+    [AppRoutes.ARTICLES_CREATE]: "/articles/new",
+    [AppRoutes.ARTICLES_EDIT]: "/articles/:id/edit",
     [AppRoutes.NOT_FOUND]: "*",
 }
 
@@ -40,19 +46,28 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     [AppRoutes.PROFILE]: {
         path: `${RouterPath.profile}:id`,
         element: <ProfilePage />,
-        authOnly:true
+        authOnly: true,
     },
     [AppRoutes.ARTICLES]: {
         path: RouterPath.articles,
         element: <ArticlesPage />,
-        authOnly:true
+        authOnly: true,
     },
     [AppRoutes.ARTICLES_DETAILS]: {
         path: `${RouterPath.articles_details}:id`,
         element: <ArticlesDetailsPage />,
-        authOnly:true
+        authOnly: true,
     },
-
+    [AppRoutes.ARTICLES_CREATE]: {
+        path: RouterPath.article_create,
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
+    [AppRoutes.ARTICLES_EDIT]: {
+        path: RouterPath.article_edit,
+        element: <ArticleEditPage />,
+        authOnly: true,
+    },
     [AppRoutes.NOT_FOUND]: {
         path: RouterPath.not_found,
         element: <NotFoundPage />,

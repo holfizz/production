@@ -63,5 +63,10 @@
   "all": "all",
   "science": "science",
   "economics": "economics",
-  "Article not found": "Article not found"
+  "Article not found": "Article not found",
+  "Edit article with ID = ": "Edit article with ID = ",
+  "Create new article": "Create new article",
+  "Holfizz app": "Holfizz app",
+  "Create article": "Create article",
+  "articles": "articles"
 }

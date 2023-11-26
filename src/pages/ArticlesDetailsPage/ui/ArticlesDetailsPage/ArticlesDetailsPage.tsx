@@ -3,7 +3,7 @@ import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./ArticlesDetailsPage.module.scss"
 import {useTranslation} from "react-i18next"
 import {ArticleDetails} from "entitie/Article"
-import {useNavigate, useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 import Text, {TextSize} from "shared/ui/Text/Text"
 import {CommentList} from "entitie/Comment"
 import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
@@ -15,14 +15,14 @@ import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import {fetchCommentsByArticleId} from "../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId"
 import {AddCommentForm} from "features/AddNewCommentForm"
 import {addCommentForArticle} from "../../model/services/addCommentForArticle/addCommentForArticle"
-import Button, {ButtonTheme} from "shared/ui/Button/Button"
-import {RouterPath} from "shared/config/routeConfig/routeConfig"
 import {Page} from "widgets/page"
 import {getArticleRecommendations,} from "../../model/slice/articleDetailsPageRecommendations"
 import {getArticleRecommendationsIsLoading} from "../../model/selectors/recommendations"
 import ArticleList from "entitie/Article/ui/ArticleList/ArticleList"
 import {fetchArticleRecommendations} from "../../model/services/fetchArticleRecommendations/fetchArticleRecommendations"
 import {articleDetailsPageReducer} from "../../model/slice/index"
+import ArticlesDetailsPageHeader
+    from "pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader"
 
 interface ArticlesDetailsPageProps {
   className?: string;
@@ -36,7 +36,6 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     const { t } = useTranslation("article-details")
     const { id } = useParams<{ id: string }>()
     const dispatch = useAppDispatch()
-    const navigate = useNavigate()
     const comments = useSelector(getArticleComments.selectAll)
     const recommendations = useSelector(getArticleRecommendations.selectAll)
     const isLoading = useSelector(getArticleCommentsIsLoading)
@@ -44,9 +43,6 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
         getArticleRecommendationsIsLoading
     )
 
-    const backToList = useCallback(() => {
-        navigate(RouterPath.articles)
-    }, [navigate])
 
     const onSendComment = useCallback(
         (text: string) => {
@@ -69,9 +65,7 @@ const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     return (
         <DynamicModuleLoader reducer={reducers}>
             <Page className={classNames(cls.ArticlesDetailsPage, {}, [className])}>
-                <Button theme={ButtonTheme.OUTLINE} onClick={backToList}>
-                    {t("Back to list")}
-                </Button>
+                <ArticlesDetailsPageHeader/>
                 <ArticleDetails id={id} />
                 <Text
                     size={TextSize.L}
