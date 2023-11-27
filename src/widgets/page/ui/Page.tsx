@@ -1,4 +1,4 @@
-import {FC, memo, MutableRefObject, PropsWithChildren, UIEvent, useRef} from "react"
+import {FC, memo, MutableRefObject, PropsWithChildren, UIEvent, useRef,} from "react"
 import {classNames} from "shared/lib/classNames/classNames"
 import cls from "./Page.module.scss"
 import {useInfiniteScroll} from "shared/lib/hooks/useInfiniteScroll/useInfiniteScroll"
@@ -17,25 +17,32 @@ interface PageProps {
 
 const Page: FC<PropsWithChildren<PageProps>> = memo(
     ({ className, children, onScrollEnd }) => {
-        const {pathname} = useLocation()
+        const { pathname } = useLocation()
         const dispatch = useAppDispatch()
 
         const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>
         const triggerRef = useRef() as MutableRefObject<HTMLDivElement>
 
-        const scrollPositions = useSelector((state:StateSchema)=>getScrollSaveByPath(state, pathname))
+        const scrollPositions = useSelector((state: StateSchema) =>
+            getScrollSaveByPath(state, pathname)
+        )
 
         useInfiniteScroll({
             triggerRef,
             wrapperRef,
             callback: onScrollEnd,
         })
-        useInitialEffect(()=>{
+        useInitialEffect(() => {
             wrapperRef.current.scrollTop = scrollPositions
         })
         const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-            dispatch(scrollSaveActions.setScrollPosition({position:e.currentTarget.scrollTop, path:pathname}))
-        },500)
+            dispatch(
+                scrollSaveActions.setScrollPosition({
+                    position: e.currentTarget.scrollTop,
+                    path: pathname,
+                })
+            )
+        }, 500)
         return (
             <section
                 onScroll={onScroll}
@@ -43,7 +50,7 @@ const Page: FC<PropsWithChildren<PageProps>> = memo(
                 className={classNames(cls.Page, {}, [className])}
             >
                 {children}
-                {onScrollEnd ?  <div className={cls.trigger} ref={triggerRef} /> : null}
+                {onScrollEnd ? <div className={cls.trigger} ref={triggerRef} /> : null}
             </section>
         )
     }

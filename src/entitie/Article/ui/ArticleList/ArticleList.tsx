@@ -12,8 +12,7 @@ interface ArticleListProps {
   articles: Article[];
   isLoading?: boolean;
   view?: ArticleView;
-  target?:HTMLAttributeAnchorTarget
-
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -25,11 +24,18 @@ const getSkeletons = (view: ArticleView) => {
 }
 
 const ArticleList: FC<ArticleListProps> = memo((props) => {
-    const { className, articles, view = ArticleView.SMALL, isLoading,target } = props
-    const {t} = useTranslation()
+    const {
+        className,
+        articles,
+        view = ArticleView.SMALL,
+        isLoading,
+        target,
+    } = props
+    const { t } = useTranslation()
     const renderArticle = (article: Article) => {
         return (
-            <ArticleListItem target={target}
+            <ArticleListItem
+                target={target}
                 key={article.id}
                 className={cls.card}
                 article={article}
@@ -37,10 +43,10 @@ const ArticleList: FC<ArticleListProps> = memo((props) => {
             />
         )
     }
-    if(!isLoading  && !articles.length){
+    if (!isLoading && !articles.length) {
         return (
             <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-                <Text size={TextSize.L} title={t("Article not found")}/>
+                <Text size={TextSize.L} title={t("Article not found")} />
             </div>
         )
     }
