@@ -1,5 +1,5 @@
 import {useSelector} from "react-redux"
-import {getUserAuthData} from "entitie/User"
+import {getUserAuthData} from "entity/User"
 import {Navigate, useLocation} from "react-router-dom"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
 import {ReactNode} from "react"

@@ -23,6 +23,7 @@ module.exports = {
         "unused-imports",
         "i18next",
         "react-hooks",
+        "holfizz-plugin",
     ],
     rules: {
         "react/jsx-indent": [2, 4],
@@ -62,7 +63,7 @@ module.exports = {
         "react/prop-types": 0,
         "react/display-name":"off",
         "no-undef":"off",
-        "react/no-array-index-key":"off"
+        "react/no-array-index-key":"off",
     },
     globals: {
         __IS_DEV__: true,

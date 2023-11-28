@@ -7,7 +7,7 @@ import {RouterPath} from "shared/config/routeConfig/routeConfig"
 import {useNavigate} from "react-router-dom"
 import {useSelector} from "react-redux"
 import {getCanEditArticle} from "../../model/selectors/article"
-import {getArticleDetailsData} from "entitie/Article"
+import {getArticleDetailsData} from "entity/Article"
 
 interface ArticlesDetailsPageHeaderProps {
   className?: string;

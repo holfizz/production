@@ -10,17 +10,17 @@ import {
     profileActions,
     ProfileCard,
     profileReducer,
-} from "entitie/Profile"
+} from "entity/Profile"
 import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import {useSelector} from "react-redux"
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
-import {Currency} from "entitie/Currency"
-import {Country} from "entitie/Country"
+import {Currency} from "entity/Currency"
+import {Country} from "entity/Country"
 import {
     getProfileValidateErrors
-} from "entitie/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
+} from "entity/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
 import Text, {TextTheme} from "shared/ui/Text/Text"
-import {ValidateProfileErrors} from "entitie/Profile/model/types/profile"
+import {ValidateProfileErrors} from "entity/Profile/model/types/profile"
 import {useTranslation} from "react-i18next"
 import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import {useParams} from "react-router-dom"

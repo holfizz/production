@@ -1,5 +1,5 @@
 import {createSelector} from "@reduxjs/toolkit"
-import {getUserAuthData} from "entitie/User"
+import {getUserAuthData} from "entity/User"
 import {RouterPath} from "shared/config/routeConfig/routeConfig"
 import {BookAudio, Home, ListTree, User} from "lucide-react"
 

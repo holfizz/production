@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
 import {ThunkConfig} from "app/providers/StoreProvider"
-import {Article} from "entitie/Article"
+import {Article} from "entity/Article"
 
 interface FetchArticlesListProps {
   replace?: boolean;

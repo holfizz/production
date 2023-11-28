@@ -1,9 +1,9 @@
 import {Story} from '@storybook/react'
 import {StateSchema, StoreProvider} from 'app/providers/StoreProvider'
 import {loginReducer} from 'features/AuthByUsername/model/slice/loginSlice'
-import {profileReducer} from 'entitie/Profile'
+import {profileReducer} from 'entity/Profile'
 import {ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import {articlesDetailsReducer} from "entitie/Article/model/slice/artliDetailsSlice"
+import {articlesDetailsReducer} from "entity/Article/model/slice/artliDetailsSlice"
 import {addCommentFormReducer} from "features/AddNewCommentForm/model/slices/addCommentFormSchema"
 import {articleDetailsPageReducer} from "pages/ArticlesDetailsPage/model/slice"
 
