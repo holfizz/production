@@ -1,32 +1,37 @@
-import {FC, memo, useCallback, useEffect} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo, useCallback, useEffect } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticleDetails.module.scss"
-import {useTranslation} from "react-i18next"
-import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import {articlesDetailsReducer} from "../../model/slice/artliDetailsSlice"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {useSelector} from "react-redux"
+import { useTranslation } from "react-i18next"
+import DynamicModuleLoader, {
+    ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { articlesDetailsReducer } from "../../model/slice/artliDetailsSlice"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useSelector } from "react-redux"
 import {
     getArticleDetailsData,
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from "../../model/selectors/articleDetails"
-import Text, {TextAlign, TextSize, TextTheme} from "shared/ui/Text/Text"
+import Text, { TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text"
 import Avatar from "shared/ui/Avatar/Avatar"
-import {CalendarDays, Eye} from "lucide-react"
+import { CalendarDays, Eye } from "lucide-react"
 import Icon from "shared/ui/Icon/Icon"
-import {ArticleBlock, ArticleBlockType} from "../../model/types/article"
+import { ArticleBlock, ArticleBlockType } from "../../model/types/article"
 import Skeleton from "shared/ui/Skeleton/Skeleton"
 import ArticleImageBlockComponent from "../ArticleImageBlockComponent/ArticleImageBlockComponent"
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
-import {fetchArticleById} from "../../model/services/fetchArticleById/fetchArticleById"
+import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById"
 import ArticleCodeBlockComponent from "entity/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent"
+import ArticleTypeTabs from "entity/Article/ui/ArticleTypeTabs/ArticleTypeTabs"
+import { HStack, VStack } from "shared/ui/Stack"
 
 interface ArticleDetailsProps {
   className?: string;
   id: string;
 }
 
+ArticleTypeTabs
 const reducers: ReducersList = {
     articleDetails: articlesDetailsReducer,
 }
@@ -120,31 +125,33 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     } else {
         content = (
             <>
-                <div className={cls.avatarWrapper}>
+                <HStack justify={'center'} gap={"16"} className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} size={200} />
-                </div>
-                <Text
-                    title={article?.title}
-                    text={article?.subtitle}
-                    size={TextSize.L}
-                />
-                <div className={cls.articleInfo}>
-                    <Icon SVG={Eye} className={cls.icon} />
-                    <Text text={String(article?.views)} />
-                </div>
-                <div className={cls.articleInfo}>
-                    <Icon SVG={CalendarDays} className={cls.icon} />
-                    <Text text={article?.createdAt} />
-                </div>
+                </HStack>
+                <VStack gap={'4'} max>
+                    <Text
+                        title={article?.title}
+                        text={article?.subtitle}
+                        size={TextSize.L}
+                    />
+                    <HStack gap={"16"} className={cls.articleInfo}>
+                        <Icon SVG={Eye} className={cls.icon} />
+                        <Text text={String(article?.views)} />
+                    </HStack>
+                    <HStack gap={"16"} className={cls.articleInfo}>
+                        <Icon SVG={CalendarDays} className={cls.icon} />
+                        <Text text={article?.createdAt} />
+                    </HStack>
+                </VStack>
                 {article?.blocks?.map(renderBlock)}
             </>
         )
     }
     return (
         <DynamicModuleLoader reducer={reducers}>
-            <div className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack gap={'16'} className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicModuleLoader>
     )
 })

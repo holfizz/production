@@ -1,5 +1,5 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {AddCommentFormSchema} from "features/AddNewCommentForm"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { AddCommentFormSchema } from "features/AddCommentForm"
 
 const initialState: AddCommentFormSchema = {
     text: "",
@@ -14,7 +14,7 @@ export const addCommentFormSlice = createSlice({
             state.text = action.payload
         },
     },
-    extraReducers: (builder) => {
+    // extraReducers: (builder) => {
     // builder
     //     .addCase(loginByUsername.pending, (state) => {
     //         state.error = undefined
@@ -27,7 +27,7 @@ export const addCommentFormSlice = createSlice({
     //         state.isLoading = false
     //         state.error = action.payload
     //     })
-    },
+    // },
 })
 
 export const { actions: addCommentFormAction } = addCommentFormSlice

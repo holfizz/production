@@ -55,27 +55,28 @@ module.exports = {
             {
                 markupOnly: true,
                 ignoreAttribute: ["data-testId", "to"],
-
             },
-        ],    "react-hooks/rules-of-hooks": "error",
+        ],
+        "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "error",
         "no-param-reassign": "off",
         "react/prop-types": 0,
-        "react/display-name":"off",
-        "no-undef":"off",
-        "react/no-array-index-key":"off",
+        "react/display-name": "off",
+        "no-undef": "off",
+        "react/no-array-index-key": "off",
+        "holfizz-plugin/path-checker": "error",
     },
     globals: {
         __IS_DEV__: true,
         __API__: true,
-        __PROJECT__:true
+        __PROJECT__: true,
     },
     overrides: [
         {
-            files: ["**/src/**/*.{test, stories}.{ts,tsx}"],
+            files: ["**/src/**/*.{test,stories}.{ts,tsx}"],
             rules: {
                 "i18next/no-literal-string": "off",
-                "max-len": 'off',
+                "max-len": "off",
             },
         },
     ],

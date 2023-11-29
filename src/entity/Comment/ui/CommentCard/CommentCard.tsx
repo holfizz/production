@@ -1,12 +1,13 @@
-import {FC, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./CommentCard.module.scss"
-import {Comment} from "entity/Comment"
+import { Comment } from "entity/Comment"
 import Text from "shared/ui/Text/Text"
 import Skeleton from "shared/ui/Skeleton/Skeleton"
 import Avatar from "shared/ui/Avatar/Avatar"
 import AppLink from "shared/ui/AppLink/AppLink"
-import {RouterPath} from "shared/config/routeConfig/routeConfig"
+import { RouterPath } from "shared/config/routeConfig/routeConfig"
+import { HStack } from "shared/ui/Stack"
 
 interface CommentCardProps {
   className?: string;
@@ -37,7 +38,7 @@ const CommentCard: FC<CommentCardProps> = memo(
             return null
         }
         return (
-            <div className={classNames(cls.CommentCard, {}, [className])}>
+            <HStack align={'center'} justify={'between'} max className={classNames(cls.CommentCard, {}, [className])}>
                 <AppLink
                     to={`${RouterPath.profile}${comment.user.id}`}
                     className={cls.header}
@@ -45,10 +46,10 @@ const CommentCard: FC<CommentCardProps> = memo(
                     {comment.user.avatar ? (
                         <Avatar size={40} src={comment.user.avatar} />
                     ) : null}
-                    <Text className={cls.username} title={comment.user.username} />
+                    <Text title={comment.user.username} />
                 </AppLink>
-                <Text className={cls.text} text={comment.text} />
-            </div>
+                <Text text={comment.text} />
+            </HStack>
         )
     }
 )

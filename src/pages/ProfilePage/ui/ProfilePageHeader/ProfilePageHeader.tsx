@@ -1,19 +1,20 @@
-import {FC, useCallback} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
-import cls from "./ProfilePageHeader.module.scss"
-import {useTranslation} from "react-i18next"
+import { FC, useCallback } from "react"
+import { useTranslation } from "react-i18next"
 import Text from "shared/ui/Text/Text"
-import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
-import {useSelector} from "react-redux"
-import {getProfileData, getProfileError, getProfileReadonly, profileActions, updateProfileData,} from "entity/Profile"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {getUserAuthData} from "entity/User"
+import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
+import { useSelector } from "react-redux"
+import {
+    getProfileData,
+    getProfileError,
+    getProfileReadonly,
+    profileActions,
+    updateProfileData,
+} from "entity/Profile"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { getUserAuthData } from "entity/User"
+import { HStack } from "shared/ui/Stack"
 
-interface ProfilePageHeaderProps {
-  className?: string;
-}
-
-const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
+const ProfilePageHeader: FC = () => {
     const { t } = useTranslation()
     const authData = useSelector(getUserAuthData)
     const profileData = useSelector(getProfileData)
@@ -35,15 +36,14 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
         return null
     }
     return (
-        <div className={classNames(cls.ProfilePageHeader, {}, [className])}>
+        <HStack max justify={"between"}>
             <Text text={t("Profile")} />
             {canEdit && (
-                <div className={cls.blockBtn}>
+                <HStack justify={"end"} gap={"16"}>
                     {readonly ? (
                         <Button
                             size={ButtonSize.L}
                             onClick={onEdit}
-                            className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                         >
                             {t("edit")}
@@ -53,7 +53,6 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
                             <Button
                                 size={ButtonSize.L}
                                 onClick={onCancelEdit}
-                                className={cls.editBtn}
                                 theme={ButtonTheme.OUTLINE}
                             >
                                 {t("cancel")}
@@ -62,16 +61,15 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
                             <Button
                                 size={ButtonSize.L}
                                 onClick={onSave}
-                                className={cls.saveBtn}
                                 theme={ButtonTheme.OUTLINE_SECONDARY}
                             >
                                 {t("Save")}
                             </Button>
                         </>
                     )}
-                </div>
+                </HStack>
             )}
-        </div>
+        </HStack>
     )
 }
 

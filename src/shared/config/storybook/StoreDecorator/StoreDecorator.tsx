@@ -1,18 +1,18 @@
-import {Story} from '@storybook/react'
-import {StateSchema, StoreProvider} from 'app/providers/StoreProvider'
-import {loginReducer} from 'features/AuthByUsername/model/slice/loginSlice'
-import {profileReducer} from 'entity/Profile'
-import {ReducersList} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader'
-import {articlesDetailsReducer} from "entity/Article/model/slice/artliDetailsSlice"
-import {addCommentFormReducer} from "features/AddNewCommentForm/model/slices/addCommentFormSchema"
-import {articleDetailsPageReducer} from "pages/ArticlesDetailsPage/model/slice"
+import { Story } from "@storybook/react"
+import { StateSchema, StoreProvider } from "app/providers/StoreProvider"
+import { loginReducer } from "features/AuthByUsername/model/slice/loginSlice"
+import { profileReducer } from "entity/Profile"
+import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { articlesDetailsReducer } from "entity/Article/model/slice/artliDetailsSlice"
+import { addCommentFormReducer } from "features/AddCommentForm/model/slices/addCommentFormSchema"
+import { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slice"
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
     profile: profileReducer,
     articleDetails: articlesDetailsReducer,
-    addCommentForm:addCommentFormReducer,
-    articleDetailsPage:articleDetailsPageReducer
+    addCommentForm: addCommentFormReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 }
 
 export const StoreDecorator = (

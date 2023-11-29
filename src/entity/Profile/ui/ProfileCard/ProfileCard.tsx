@@ -1,14 +1,15 @@
-import {FC} from "react"
-import {classNames, Mods} from "shared/lib/classNames/classNames"
+import { FC } from "react"
+import { classNames, Mods } from "shared/lib/classNames/classNames"
 import cls from "./ProfileCard.module.scss"
-import {useTranslation} from "react-i18next"
-import Text, {TextAlign, TextTheme} from "shared/ui/Text/Text"
-import Input, {InputTheme} from "shared/ui/Input/Input"
-import {Profile} from "../../model/types/profile"
+import { useTranslation } from "react-i18next"
+import Text, { TextAlign, TextTheme } from "shared/ui/Text/Text"
+import Input, { InputTheme } from "shared/ui/Input/Input"
+import { Profile } from "../../model/types/profile"
 import Loader from "shared/ui/Loader/Loader"
 import Avatar from "shared/ui/Avatar/Avatar"
-import {Currency, CurrencySelect} from "entity/Currency"
-import {Country, CountrySelect} from "entity/Country"
+import { Currency, CurrencySelect } from "entity/Currency"
+import { Country, CountrySelect } from "entity/Country"
+import { HStack, VStack } from "shared/ui/Stack"
 
 interface ProfileCardProps {
   className?: string;
@@ -50,108 +51,124 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
 
     if (isLoading) {
         return (
-            <div
+            <HStack
+                max
+                justify={"center"}
                 className={classNames(cls.ProfileCard, {}, [className, cls.loading])}
             >
                 <Loader />
-            </div>
+            </HStack>
         )
     }
     if (errors) {
         return (
-            <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+            <HStack
+                max
+                justify={"center"}
+                className={classNames(cls.ProfileCard, {}, [className, cls.error])}
+            >
                 <Text
                     align={TextAlign.CENTER}
                     theme={TextTheme.ERROR}
                     title={t("There was an error loading the profile")}
                     text={t("Try refreshing the page")}
                 />
-            </div>
+            </HStack>
         )
     }
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
-            <div className={cls.data}>
-                {data?.avatar && (
-                    <div className={cls.avatarWrapper}>
-                        <Avatar size={150} src={data?.avatar} className={cls.avatar} />
-                    </div>
-                )}
-                <div className={cls.fields}>
-                    <Text text={t("Your name")}></Text>
-                    <Input
-                        onChange={onChangeFirstname}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.first}
-                        placeholder={t("Your name")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <Text text={t("Your lastname")}></Text>
-                    <Input
-                        onChange={onChangeLastname}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.lastname}
-                        placeholder={t("Your lastname")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <Text text={t("Your username")}></Text>
-                    <Input
-                        onChange={onChangeUsername}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.username}
-                        placeholder={t("Your username")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <Text text={t("Your age")}></Text>
-                    <Input
-                        type={"number"}
-                        onChange={onChangeAge}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.age}
-                        placeholder={t("Your age")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <Text text={t("Your city")}></Text>
-                    <Input
-                        onChange={onChangeCity}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.city}
-                        placeholder={t("Your city")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <Text text={t("Your avatar")}></Text>
-                    <Input
-                        onChange={onChangeAvatar}
-                        readonly={readonly}
-                        theme={InputTheme.OUTLINE}
-                        className={cls.input}
-                        value={data?.avatar}
-                        placeholder={t("Your avatar")}
-                    ></Input>
-                </div>
-                <div className={cls.fields}>
-                    <CurrencySelect readonly={readonly} onChange={onChangeCurrency} value={data?.currency} />
-                </div>
-                <div className={cls.fields}>
-                    <CountrySelect readonly={readonly} onChange={onChangeCountry} value={data?.country} />
-                </div>
+        <VStack
+            gap={"8"}
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
+            {data?.avatar && (
+                <HStack justify={"center"} max>
+                    <Avatar size={150} src={data?.avatar} className={cls.avatar} />
+                </HStack>
+            )}
+            <div className={cls.fields}>
+                <Text text={t("Your name")}></Text>
+                <Input
+                    onChange={onChangeFirstname}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.first}
+                    placeholder={t("Your name")}
+                ></Input>
             </div>
-        </div>
+            <div className={cls.fields}>
+                <Text text={t("Your lastname")}></Text>
+                <Input
+                    onChange={onChangeLastname}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.lastname}
+                    placeholder={t("Your lastname")}
+                ></Input>
+            </div>
+            <div className={cls.fields}>
+                <Text text={t("Your username")}></Text>
+                <Input
+                    onChange={onChangeUsername}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.username}
+                    placeholder={t("Your username")}
+                ></Input>
+            </div>
+            <div className={cls.fields}>
+                <Text text={t("Your age")}></Text>
+                <Input
+                    type={"number"}
+                    onChange={onChangeAge}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.age}
+                    placeholder={t("Your age")}
+                ></Input>
+            </div>
+            <div className={cls.fields}>
+                <Text text={t("Your city")}></Text>
+                <Input
+                    onChange={onChangeCity}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.city}
+                    placeholder={t("Your city")}
+                ></Input>
+            </div>
+            <div className={cls.fields}>
+                <Text text={t("Your avatar")}></Text>
+                <Input
+                    onChange={onChangeAvatar}
+                    readonly={readonly}
+                    theme={InputTheme.OUTLINE}
+                    className={cls.input}
+                    value={data?.avatar}
+                    placeholder={t("Your avatar")}
+                ></Input>
+            </div>
+            <div className={cls.fields}>
+                <CurrencySelect
+                    readonly={readonly}
+                    onChange={onChangeCurrency}
+                    value={data?.currency}
+                />
+            </div>
+            <div className={cls.fields}>
+                <CountrySelect
+                    readonly={readonly}
+                    onChange={onChangeCountry}
+                    value={data?.country}
+                />
+            </div>
+        </VStack>
     )
 }
 

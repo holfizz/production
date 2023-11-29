@@ -1,6 +1,7 @@
-import {FC, useCallback} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
-import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { FC, useCallback } from "react"
+import DynamicModuleLoader, {
+    ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import {
     fetchProfileData,
     getProfileError,
@@ -11,49 +12,43 @@ import {
     ProfileCard,
     profileReducer,
 } from "entity/Profile"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {useSelector} from "react-redux"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useSelector } from "react-redux"
 import ProfilePageHeader from "./ProfilePageHeader/ProfilePageHeader"
-import {Currency} from "entity/Currency"
-import {Country} from "entity/Country"
-import {
-    getProfileValidateErrors
-} from "entity/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
-import Text, {TextTheme} from "shared/ui/Text/Text"
-import {ValidateProfileErrors} from "entity/Profile/model/types/profile"
-import {useTranslation} from "react-i18next"
-import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import {useParams} from "react-router-dom"
-import {Page} from "widgets/page"
-
+import { Currency } from "entity/Currency"
+import { Country } from "entity/Country"
+import { getProfileValidateErrors } from "entity/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors"
+import Text, { TextTheme } from "shared/ui/Text/Text"
+import { ValidateProfileErrors } from "entity/Profile/model/types/profile"
+import { useTranslation } from "react-i18next"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { useParams } from "react-router-dom"
+import { Page } from "widgets/page"
+import { VStack } from "shared/ui/Stack"
 
 const reducers: ReducersList = {
     profile: profileReducer,
 }
 
-interface ProfilePageProps {
-  className?: string;
-}
-
-const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
+const ProfilePage: FC = () => {
     const dispatch = useAppDispatch()
-    const {t} = useTranslation('profile')
+    const { t } = useTranslation("profile")
     const formData = useSelector(getProfileForm)
     const validateErrors = useSelector(getProfileValidateErrors)
     const serverError = useSelector(getProfileError)
     const isLoading = useSelector(getProfileIsLoading)
     const readonly = useSelector(getProfileReadonly)
-    const {id} = useParams<{id:string}>()
+    const { id } = useParams<{ id: string }>()
 
     const validateErrorTranslate = {
-        [ValidateProfileErrors.INCORRECT_USER_DATA]:t('Incorrect user'),
-        [ValidateProfileErrors.SERVER_ERROR]:t('Server Error'),
-        [ValidateProfileErrors.INCORRECT_COUNTY]:t('Incorrect country'),
-        [ValidateProfileErrors.INCORRECT_AGE]:t('Incorrect age'),
-        [ValidateProfileErrors.NO_DATA]:t('Data not provided'),
+        [ValidateProfileErrors.INCORRECT_USER_DATA]: t("Incorrect user"),
+        [ValidateProfileErrors.SERVER_ERROR]: t("Server Error"),
+        [ValidateProfileErrors.INCORRECT_COUNTY]: t("Incorrect country"),
+        [ValidateProfileErrors.INCORRECT_AGE]: t("Incorrect age"),
+        [ValidateProfileErrors.NO_DATA]: t("Data not provided"),
     }
-    useInitialEffect(()=>{
-        if(id){
+    useInitialEffect(() => {
+        if (id) {
             dispatch(fetchProfileData(id))
         }
     })
@@ -110,11 +105,16 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     return (
         <DynamicModuleLoader reducer={reducers}>
             <Page>
-                <ProfilePageHeader />
-                {validateErrors?.length && validateErrors.map((err) => (
-                    <Text key={err} theme={TextTheme.ERROR} text={validateErrorTranslate[err]} />
-                ))}
-                <div className={classNames("", {}, [className])}>
+                <VStack max gap={"16"}>
+                    <ProfilePageHeader />
+                    {validateErrors?.length &&
+            validateErrors.map((err) => (
+                <Text
+                    key={err}
+                    theme={TextTheme.ERROR}
+                    text={validateErrorTranslate[err]}
+                />
+            ))}
                     <ProfileCard
                         data={formData}
                         isLoading={isLoading}
@@ -129,7 +129,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
                         onChangeCurrency={onChangeCurrency}
                         onChangeCountry={onChangeCountry}
                     />
-                </div>
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     )

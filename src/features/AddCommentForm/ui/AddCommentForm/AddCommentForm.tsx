@@ -1,14 +1,20 @@
-import {FC, memo, useCallback} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo, useCallback } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./AddCommentForm.module.scss"
-import {useTranslation} from "react-i18next"
-import Input, {InputTheme} from "shared/ui/Input/Input"
-import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
-import {useSelector} from "react-redux"
-import {getAddCommentFormError, getAddCommentFormText,} from "../../model/selectors/addCommentFormSelectors"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {addCommentFormAction, addCommentFormReducer,} from "../../model/slices/addCommentFormSchema"
-import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useTranslation } from "react-i18next"
+import Input, { InputTheme } from "shared/ui/Input/Input"
+import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
+import { useSelector } from "react-redux"
+import { getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import {
+    addCommentFormAction,
+    addCommentFormReducer,
+} from "../../model/slices/addCommentFormSchema"
+import DynamicModuleLoader, {
+    ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { HStack } from "shared/ui/Stack"
 
 export interface AddCommentFormProps {
   className?: string;
@@ -23,7 +29,6 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
     ({ className, onSendComment }) => {
         const { t } = useTranslation()
         const text = useSelector(getAddCommentFormText)
-        const error = useSelector(getAddCommentFormError)
         const dispatch = useAppDispatch()
 
         const onCommentTextChange = useCallback(
@@ -40,7 +45,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
 
         return (
             <DynamicModuleLoader reducer={reducers}>
-                <div className={classNames(cls.AddCommentForm, {}, [className])}>
+                <HStack max justify={'between'}  gap={'16'} className={classNames(cls.AddCommentForm, {}, [className])}>
                     <Input
                         className={cls.input}
                         theme={InputTheme.CLEAR}
@@ -55,7 +60,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
                     >
                         {t("Send")}
                     </Button>
-                </div>
+                </HStack>
             </DynamicModuleLoader>
         )
     }

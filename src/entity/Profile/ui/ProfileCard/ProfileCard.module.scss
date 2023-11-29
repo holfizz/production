@@ -10,11 +10,6 @@
   background: var(--bg-block-color);
 }
 
-.data{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
 .input {
   width: 200px;
@@ -34,9 +29,4 @@
   justify-content: center;
 }
 
-.avatarWrapper{
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+

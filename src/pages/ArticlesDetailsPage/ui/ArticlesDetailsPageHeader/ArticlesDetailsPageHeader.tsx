@@ -1,13 +1,13 @@
-import {FC, memo, useCallback} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
-import cls from "./ArticlesDetailsPageHeader.module.scss"
-import {useTranslation} from "react-i18next"
-import Button, {ButtonTheme} from "shared/ui/Button/Button"
-import {RouterPath} from "shared/config/routeConfig/routeConfig"
-import {useNavigate} from "react-router-dom"
-import {useSelector} from "react-redux"
-import {getCanEditArticle} from "../../model/selectors/article"
-import {getArticleDetailsData} from "entity/Article"
+import { FC, memo, useCallback } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
+import { useTranslation } from "react-i18next"
+import Button, { ButtonTheme } from "shared/ui/Button/Button"
+import { RouterPath } from "shared/config/routeConfig/routeConfig"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { getCanEditArticle } from "../../model/selectors/article"
+import { getArticleDetailsData } from "entity/Article"
+import { HStack } from "shared/ui/Stack"
 
 interface ArticlesDetailsPageHeaderProps {
   className?: string;
@@ -27,18 +27,18 @@ const ArticlesDetailsPageHeader: FC<ArticlesDetailsPageHeaderProps> = memo(
         }, [article?.id, navigate])
         const canEdit = useSelector(getCanEditArticle)
         return (
-            <div
-                className={classNames(cls.ArticlesDetailsPageHeader, {}, [className])}
+            <HStack max justify={'between'}
+                className={classNames('', {}, [className])}
             >
                 <Button theme={ButtonTheme.OUTLINE} onClick={backToList}>
                     {t("Back to list")}
                 </Button>
                 {canEdit && (
-                    <Button className={cls.editBtn} theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
+                    <Button theme={ButtonTheme.OUTLINE} onClick={onEditArticle}>
                         {t("Edit")}
                     </Button>
                 )}
-            </div>
+            </HStack>
         )
     }
 )
