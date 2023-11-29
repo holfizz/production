@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react"
-import Text, {TextSize, TextTheme} from "./Text"
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
-import {Theme} from "app/providers/ThemeProvider"
+import type { Meta, StoryObj } from "@storybook/react"
+import Text, { TextSize, TextTheme } from "./Text"
+import { ThemeDecorator } from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
+import { Theme } from "app/providers/ThemeProvider"
 
 const meta = {
     title: "shared/Text",
@@ -70,6 +70,15 @@ export const OnlyTextDark: Story = {
 
 }
 
+
+export const SizeS: Story = {
+    args: {
+        size:TextSize.S,
+        title:"Title title",
+        text:"Description Description Description Description"
+    },
+
+}
 
 export const SizeM: Story = {
     args: {

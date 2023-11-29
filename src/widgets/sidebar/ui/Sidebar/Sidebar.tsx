@@ -27,7 +27,7 @@ const Sidebar: FC<SidebarProps> = memo(({ className }) => {
         })
     }, [classLink, sidebarItemsList])
     return (
-        <menu
+        <aside
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
                 className,
@@ -42,14 +42,14 @@ const Sidebar: FC<SidebarProps> = memo(({ className }) => {
                     {collapsed ? <ChevronRight /> : <ChevronLeft />}
                 </div>
             </button>
-            <VStack gap={'16'} className={cls.links}>
+            <VStack role={"navigation"} gap={"16"} className={cls.links}>
                 {itemList}
             </VStack>
             <div className={cls.switchers}>
                 <LangSwitcher />
                 <ThemeSwitcher />
             </div>
-        </menu>
+        </aside>
     )
 })
 

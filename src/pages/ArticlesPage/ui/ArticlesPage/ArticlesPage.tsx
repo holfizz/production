@@ -1,25 +1,30 @@
-import {FC, memo, useCallback} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo, useCallback } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticlesPage.module.scss"
-import {useTranslation} from "react-i18next"
+import { useTranslation } from "react-i18next"
 import ArticleList from "entity/Article/ui/ArticleList/ArticleList"
-import DynamicModuleLoader, {ReducersList,} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import {articlesPageReducer, getArticles,} from "../../model/slice/articalPageSlice"
-import {useAppDispatch} from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import {useSelector} from "react-redux"
+import DynamicModuleLoader, {
+    ReducersList,
+} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import {
+    articlesPageReducer,
+    getArticles,
+} from "../../model/slice/articalPageSlice"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useSelector } from "react-redux"
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
 } from "../../model/selectors/articlesPageSelectors"
-import {Page} from "widgets/page"
+import { Page } from "widgets/page"
 
-import {fetchNextArticlesPage} from "../../model/service/fetchNextArticlesPage/fetchNextArticlesPage"
-import Text, {TextAlign, TextSize, TextTheme} from "shared/ui/Text/Text"
-import {useInitialEffect} from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import {initArticlesPage} from "../../model/service/initArticlesPage/initArticlesPage"
+import { fetchNextArticlesPage } from "../../model/service/fetchNextArticlesPage/fetchNextArticlesPage"
+import Text, { TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { initArticlesPage } from "../../model/service/initArticlesPage/initArticlesPage"
 import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters"
-import {useSearchParams} from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 
 interface ArticlesPageProps {
   className?: string;
@@ -54,7 +59,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
                 <Text
                     align={TextAlign.CENTER}
                     theme={TextTheme.ERROR}
-                    size={TextSize.XL}
+                    size={TextSize.L}
                     title={t("Error loading article")}
                     text={t("Try refreshing the page")}
                 />
