@@ -1,12 +1,11 @@
-import {FC, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Icon.module.scss"
-import {LucideIcon} from "lucide-react"
-
+import { LucideIcon } from "lucide-react"
 
 interface IconProps {
   className?: string;
-  SVG:LucideIcon
+  SVG: LucideIcon;
 }
 
 const Icon: FC<

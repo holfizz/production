@@ -1,7 +1,7 @@
-import {ChangeEvent, useMemo} from "react"
-import {classNames, Mods} from "shared/lib/classNames/classNames"
+import { ChangeEvent, useMemo } from "react"
+import { classNames, Mods } from "shared/lib/classNames/classNames"
 import cls from "./Select.module.scss"
-import {Forward} from "lucide-react"
+import { Forward } from "lucide-react"
 
 export interface SelectOption<T extends string> {
   value?: T;
@@ -37,7 +37,7 @@ const Select = <T extends string>(props: SelectProps<T>) => {
     return (
         <div className={classNames(cls.Wrapper, mods, [className])}>
             {label && (
-                <span className={cls.label}>
+                <span  className={cls.label}>
                     {label}
                     <Forward />
                 </span>

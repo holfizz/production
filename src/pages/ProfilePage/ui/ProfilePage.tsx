@@ -60,8 +60,6 @@ const ProfilePage: FC = () => {
     )
     const onChangeLastname = useCallback(
         (value?: string) => {
-            console.log(value)
-
             dispatch(profileActions.updateProfile({ lastname: value || "" }))
         },
         [dispatch]
@@ -74,7 +72,7 @@ const ProfilePage: FC = () => {
     )
     const onChangeCity = useCallback(
         (value?: string) => {
-            dispatch(profileActions.updateProfile({ lastname: value || "" }))
+            dispatch(profileActions.updateProfile({ city: value || "" }))
         },
         [dispatch]
     )

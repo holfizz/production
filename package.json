@@ -95,6 +95,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.23.3",
+    "@headlessui/react": "^1.7.17",
     "@reduxjs/toolkit": "^1.9.7",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",

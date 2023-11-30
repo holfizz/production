@@ -1,8 +1,8 @@
-import {FC, useCallback} from "react"
-import {useTranslation} from "react-i18next"
-import Select from "shared/ui/Select/Select"
-import {Country} from "../../model/types/country"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, useCallback } from "react"
+import { useTranslation } from "react-i18next"
+import { Country } from "../../model/types/country"
+import { classNames } from "shared/lib/classNames/classNames"
+import ListBox from "shared/ui/ListBox/ListBox"
 
 interface CurrencySelectProps {
   className?: string;
@@ -21,18 +21,24 @@ const CountrySelect: FC<CurrencySelectProps> = ({
     readonly,
     className,
 }) => {
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country)
-    }, [onChange])
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country)
+        },
+        [onChange]
+    )
     const { t } = useTranslation()
     return (
-        <Select
+        <ListBox
+            direction={"top"}
             className={classNames("", {}, [className])}
             value={value}
+            defaultValue={t("indicate country")}
             label={t("indicate country")}
             onChange={onChangeHandler}
-            options={options}
+            items={options}
             readonly={readonly}
+
         />
     )
 }
