@@ -1,8 +1,9 @@
-import type {Meta, StoryObj} from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 import ArticlesDetailsPageHeader from "./ArticlesDetailsPageHeader"
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
-    title: "shared/ArticlesDetailsPageHeader",
+    title: "pages/ArticleDetailsPage/ArticlesDetailsPageHeader",
     component: ArticlesDetailsPageHeader,
     parameters: {},
 } satisfies Meta<typeof ArticlesDetailsPageHeader>
@@ -10,5 +11,6 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>;
 
-
-export const Normal: Story = {}
+export const Normal: Story = {
+    decorators: [StoreDecorator({})],
+}

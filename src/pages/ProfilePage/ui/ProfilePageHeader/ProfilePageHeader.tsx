@@ -3,16 +3,16 @@ import { useTranslation } from "react-i18next"
 import Text from "shared/ui/Text/Text"
 import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
 import { useSelector } from "react-redux"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { getUserAuthData } from "entity/User"
+import { HStack } from "shared/ui/Stack"
 import {
     getProfileData,
     getProfileError,
     getProfileReadonly,
     profileActions,
     updateProfileData,
-} from "entity/Profile"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
-import { getUserAuthData } from "entity/User"
-import { HStack } from "shared/ui/Stack"
+} from "features/editableProfileCard"
 
 const ProfilePageHeader: FC = () => {
     const { t } = useTranslation()

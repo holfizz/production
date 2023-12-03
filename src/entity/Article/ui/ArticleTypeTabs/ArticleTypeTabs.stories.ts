@@ -1,7 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 import ArticleTypeTabs from "./ArticleTypeTabs"
-import {ArticleType} from "entity/Article"
-import {action} from "@storybook/addon-actions"
+import { ArticleType } from "entity/Article"
+import { action } from "@storybook/addon-actions"
 
 const meta = {
     title: "entities/Article/ArticleTypeTabs",
@@ -17,5 +17,6 @@ export const Normal: Story = {
     args:{
         value:ArticleType.SCIENCE,
         onChangeType:action('onChangeType')
-    }
+    },
+
 }

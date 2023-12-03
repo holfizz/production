@@ -1,3 +1,4 @@
+export {articlesDetailsReducer} from "entity/Article/model/slice/artliDetailsSlice"
 export { default as ArticleTypeTabs} from "entity/Article/ui/ArticleTypeTabs/ArticleTypeTabs"
 export {default as ArticleSortSelector} from "./ui/ArticleSortSelector/ArticleSortSelector"
 export {default as ArticleViewSelector} from "./ui/ArticleViewSelector/ArticleViewSelector"

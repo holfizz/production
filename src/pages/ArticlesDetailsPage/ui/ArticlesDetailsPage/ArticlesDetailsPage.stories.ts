@@ -1,11 +1,14 @@
-import type {Meta, StoryObj} from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 import ArticlesDetailsPage from "./ArticlesDetailsPage"
-import {Article} from "entity/Article"
-import {ArticleBlockType, ArticleType,} from "entity/Article/model/types/article"
-import {StoreDecorator} from "shared/config/storybook/StoreDecorator/StoreDecorator"
+import { Article } from "entity/Article"
+import {
+    ArticleBlockType,
+    ArticleType,
+} from "entity/Article/model/types/article"
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
-    title: "pages/Article/ArticlesDetailsPage",
+    title: "pages/ArticleDetailsPage/ArticlesDetailsPage",
     component: ArticlesDetailsPage,
     parameters: {},
 } satisfies Meta<typeof ArticlesDetailsPage>

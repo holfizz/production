@@ -8,19 +8,20 @@ import {
     Reducer,
     ReducersMapObject,
 } from "@reduxjs/toolkit"
-import { ProfileSchema } from "entity/Profile"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "entity/Article"
 import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage"
 import { AddCommentFormSchema } from "features/AddCommentForm"
 import { ArticlePageSchema } from "pages/ArticlesPage"
 import { ScrollSaveSchema } from "features/ScrollSave"
+import { rtkApi } from "shared/api/rtkApi"
+import { ProfileSchema } from "features/editableProfileCard"
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scrollSave: ScrollSaveSchema;
-
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
   //async reducers
   loginForm?: LoginSchema;
   profile?: ProfileSchema;

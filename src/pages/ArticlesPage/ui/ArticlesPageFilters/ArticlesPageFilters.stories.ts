@@ -1,8 +1,9 @@
-import type {Meta, StoryObj} from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 import ArticlesPageFilters from "./ArticlesPageFilters"
+import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
 
 const meta = {
-    title: "pages/Article/ArticlesPageFilters",
+    title: "pages/ArticlesPageFilters",
     component: ArticlesPageFilters,
     parameters: {},
 } satisfies Meta<typeof ArticlesPageFilters>
@@ -12,5 +13,5 @@ type Story = StoryObj<typeof meta>;
 
 
 export const Normal: Story = {
-
+    decorators: [StoreDecorator({})],
 }

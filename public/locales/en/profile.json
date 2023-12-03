@@ -6,5 +6,6 @@
   "Server Error": "Server Error",
   "Incorrect country": "Incorrect country",
   "Incorrect age": "Incorrect age",
-  "Data not provided": "Data not provided"
+  "Data not provided": "Data not provided",
+  "Profile not found": "Profile not found"
 }
