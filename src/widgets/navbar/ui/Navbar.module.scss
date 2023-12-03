@@ -10,10 +10,9 @@
 }
 
 .links {
+  position: relative;
+  display: block;
   margin-left: auto;
-  width: 200px;
-  display: flex;
-  justify-content: space-between;
 }
 .appName{
   margin-left: -15px;

@@ -1,15 +1,17 @@
-import {type FC, memo, useCallback, useEffect, useState} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { type FC, memo, useCallback, useEffect, useState } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
-import {useTranslation} from "react-i18next"
-import Button, {ButtonSize, ButtonTheme} from "shared/ui/Button/Button"
-import {ArrowBigLeft, LogIn, Snail} from "lucide-react"
-import {LoginModal} from "features/AuthByUsername"
-import {getUserAuthData, userActions} from "entity/User"
-import {useDispatch, useSelector} from "react-redux"
+import { useTranslation } from "react-i18next"
+import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
+import { LogIn, Snail } from "lucide-react"
+import { LoginModal } from "features/AuthByUsername"
+import { getUserAuthData, userActions } from "entity/User"
+import { useDispatch, useSelector } from "react-redux"
 import AppLink from "shared/ui/AppLink/AppLink"
-import {RouterPath} from "shared/config/routeConfig/routeConfig"
-import Text, {TextSize} from "shared/ui/Text/Text"
+import { RouterPath } from "shared/config/routeConfig/routeConfig"
+import Text, { TextSize } from "shared/ui/Text/Text"
+import Dropdown from "shared/ui/Dropdown/Dropdown"
+import Avatar from "shared/ui/Avatar/Avatar"
 
 interface NavbarProps {
   className?: string;
@@ -37,16 +39,18 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                 <AppLink className={cls.createBtn} to={RouterPath.article_create}>
                     {t("Create article")}
                 </AppLink>
-                <div className={cls.links}>
-                    <Button
-                        onClick={onLogout}
-                        theme={ButtonTheme.OUTLINE}
-                        size={ButtonSize.XL}
-                    >
-                        {t("log out")}
-                        <ArrowBigLeft />
-                    </Button>
-                </div>
+                <Dropdown
+                    direction={"bottom left"}
+                    className={cls.links}
+                    items={[
+                        {
+                            content: t("Profile"),
+                            href: RouterPath.profile + authData.id,
+                        },
+                        { content: t("log out"), onClick: onLogout },
+                    ]}
+                    trigger={<Avatar size={50} src={authData.avatar} />}
+                />
             </header>
         )
     }

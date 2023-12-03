@@ -25,7 +25,7 @@ const people: ListBoxItem[] = [
 ]
 export const Light: Story = {
     args: {
-        direction:'top',
+        direction:'top right',
         items: people,
         onChange: action("value"),
         defaultValue: t("indicate currency"),
@@ -33,7 +33,7 @@ export const Light: Story = {
 }
 export const Dark: Story = {
     args: {
-        direction:'top',
+        direction:'top right',
         items: people,
         onChange: action("value"),
         defaultValue: t("indicate currency"),
@@ -42,10 +42,43 @@ export const Dark: Story = {
 }
 export const WithLabel: Story = {
     args: {
-        direction:'top',
+        direction:'top right',
         items: people,
         onChange: action("value"),
         defaultValue: t("indicate currency"),
         label: t("indicate currency"),
+    },
+}
+export const TopLeft: Story = {
+    args: {
+        direction:'top left',
+        items: people,
+        onChange: action("value"),
+        defaultValue: t("indicate currency"),
+    },
+}
+export const TopRight: Story = {
+    args: {
+        value:'123',
+        direction:'top right',
+        items: people,
+        onChange: action("value"),
+        defaultValue: t("indicate currency"),
+    },
+}
+export const BottomLeft: Story = {
+    args: {
+        direction:'bottom left',
+        items: people,
+        onChange: action("value"),
+        defaultValue: t("indicate currency"),
+    },
+}
+export const BottomRight: Story = {
+    args: {
+        direction:'bottom right',
+        items: people,
+        onChange: action("value"),
+        defaultValue: t("indicate currency"),
     },
 }

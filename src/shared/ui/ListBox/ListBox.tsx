@@ -6,13 +6,13 @@ import Button, { ButtonTheme } from "shared/ui/Button/Button"
 import Icon from "shared/ui/Icon/Icon"
 import { CornerDownRight } from "lucide-react"
 import { HStack } from "shared/ui/Stack"
+import { DropdownDirection } from "shared/types/ui"
 
 export interface ListBoxItem {
   value: string;
   content: string;
   disabled?: boolean;
 }
-type DropdownDirection = "top" | "bottom";
 interface ListBoxProps {
   className?: string;
   items?: ListBoxItem[];
@@ -25,8 +25,10 @@ interface ListBoxProps {
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
-    bottom: cls.optionsBottom,
-    top: cls.optionsTop,
+    "bottom left": cls.optionsBottomLeft,
+    "bottom right": cls.optionsBottomRight,
+    "top left": cls.optionsTopLeft,
+    "top right": cls.optionsTopRight,
 }
 
 const ListBox: FC<ListBoxProps> = memo((props) => {
@@ -37,15 +39,21 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
         defaultValue,
         onChange,
         readonly,
-        direction = "bottom",
+        direction = "bottom right",
         label,
     } = props
     return (
-        <HStack gap={'16'}>
+        <HStack gap={"16"}>
             {label && (
-                <HStack  align={'center'} className={classNames('',{[cls.readonly]:readonly},[])}>
+                <HStack
+                    align={"center"}
+                    className={classNames("", { [cls.readonly]: readonly }, [])}
+                >
                     {label}
-                    <Icon className={classNames('',{[cls.readonly]:readonly},[])} SVG={CornerDownRight} />
+                    <Icon
+                        className={classNames("", { [cls.readonly]: readonly }, [])}
+                        SVG={CornerDownRight}
+                    />
                 </HStack>
             )}
             <HListBox
@@ -56,7 +64,9 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
                 onChange={onChange}
             >
                 <HListBox.Button className={cls.trigger}>
-                    <Button disabled={readonly} theme={ButtonTheme.OUTLINE}>{value ?? defaultValue}</Button>
+                    <Button disabled={readonly} theme={ButtonTheme.OUTLINE}>
+                        {value ?? defaultValue}
+                    </Button>
                 </HListBox.Button>
                 <HListBox.Options
                     className={classNames(cls.options, {}, [

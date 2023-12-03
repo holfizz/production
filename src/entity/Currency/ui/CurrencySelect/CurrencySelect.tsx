@@ -30,7 +30,7 @@ const CurrencySelect: FC<CurrencySelectProps> = ({
     const { t } = useTranslation()
     return (
         <ListBox
-            direction={"top"}
+            direction={"top right"}
             readonly={readonly}
             defaultValue={t("indicate currency")}
             label={t("indicate currency")}

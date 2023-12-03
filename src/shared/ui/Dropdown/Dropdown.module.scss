@@ -1,32 +1,29 @@
-.listBox {
+.Dropdown {
   position: relative;
   display: flex;
 }
-.trigger {
+.btn {
   background: none;
   border: none;
   outline: none;
   padding: 0;
   margin: 0;
 }
-.options {
-  min-width: max-content;
+.menu {
+  position: absolute;
   border: 1 px solid var(--components-color);
   overflow: hidden;
+  min-width: max-content;
   width: 100%;
   background: var(--listbox-color);
-  position: absolute;
   z-index: 10;
   border-radius: 12px;
   box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
 }
-.readonly {
-  color: var(--grey);
-}
 .item {
-  padding: 10px 25px;
+  padding: 10px;
   width: 100%;
-  min-width: max-content;
+  height: 100%;
   border: none;
   background: none;
   outline: none;
@@ -36,26 +33,19 @@
 .active {
   background: var(--grey);
 }
-.selected {
-  background: var(--bg-inverted-color);
-}
-.disabled {
-  opacity: 0.7;
-}
-.optionsBottomLeft {
+.menuBottomLeft {
   top: 100%;
   right: 0;
 }
-.optionsBottomRight {
+.menuBottomRight {
   top: 100%;
   left: 0;
 }
-.optionsTopLeft {
+.menuTopLeft {
   bottom: 100%;
   right: 0;
 }
-.optionsTopRight {
+.menuTopRight {
   bottom: 100%;
   left: 0;
 }
-
