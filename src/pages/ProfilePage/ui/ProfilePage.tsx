@@ -1,10 +1,10 @@
 import { FC } from "react"
 import { Page } from "widgets/page"
 import { VStack } from "shared/ui/Stack"
-import { EditableProfileCard } from "features/editableProfileCard"
 import { useParams } from "react-router-dom"
 import Text from "shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
+import { EditableProfileCard } from "features/editableProfileCard"
 
 const ProfilePage: FC = () => {
     const { t } = useTranslation("profile")

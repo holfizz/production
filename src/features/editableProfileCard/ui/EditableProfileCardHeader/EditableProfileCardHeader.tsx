@@ -14,7 +14,7 @@ import {
     updateProfileData,
 } from "features/editableProfileCard"
 
-const ProfilePageHeader: FC = () => {
+const EditableProfileCardHeader: FC = () => {
     const { t } = useTranslation()
     const authData = useSelector(getUserAuthData)
     const profileData = useSelector(getProfileData)
@@ -42,6 +42,7 @@ const ProfilePageHeader: FC = () => {
                 <HStack justify={"end"} gap={"16"}>
                     {readonly ? (
                         <Button
+                            data-testid={"EditableProfileCardHeader.EditButton"}
                             size={ButtonSize.L}
                             onClick={onEdit}
                             theme={ButtonTheme.OUTLINE}
@@ -51,6 +52,7 @@ const ProfilePageHeader: FC = () => {
                     ) : (
                         <>
                             <Button
+                                data-testid={"EditableProfileCardHeader.CancelButton"}
                                 size={ButtonSize.L}
                                 onClick={onCancelEdit}
                                 theme={ButtonTheme.OUTLINE}
@@ -59,6 +61,7 @@ const ProfilePageHeader: FC = () => {
                             </Button>
 
                             <Button
+                                data-testid={"EditableProfileCardHeader.SaveButton"}
                                 size={ButtonSize.L}
                                 onClick={onSave}
                                 theme={ButtonTheme.OUTLINE_SECONDARY}
@@ -73,4 +76,4 @@ const ProfilePageHeader: FC = () => {
     )
 }
 
-export default ProfilePageHeader
+export default EditableProfileCardHeader

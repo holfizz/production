@@ -90,6 +90,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             <div className={cls.fields}>
                 <Text text={t("Your name")}></Text>
                 <Input
+                    data-testid={"ProfileCard.firstname"}
                     onChange={onChangeFirstname}
                     readonly={readonly}
                     theme={InputTheme.OUTLINE}
@@ -101,6 +102,7 @@ const ProfileCard: FC<ProfileCardProps> = (props) => {
             <div className={cls.fields}>
                 <Text text={t("Your lastname")}></Text>
                 <Input
+                    data-testid={"ProfileCard.lastname"}
                     onChange={onChangeLastname}
                     readonly={readonly}
                     theme={InputTheme.OUTLINE}

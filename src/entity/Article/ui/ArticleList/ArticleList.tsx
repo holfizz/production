@@ -1,11 +1,11 @@
-import {FC, HTMLAttributeAnchorTarget, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, HTMLAttributeAnchorTarget, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticleList.module.scss"
-import {Article, ArticleView} from "../../model/types/article"
+import { Article, ArticleView } from "../../model/types/article"
 import ArticleListItem from "../ArticleListItem/ArticleListItem"
 import ArticleListItemSkeleton from "entity/Article/ui/ArticleListItem/ArticleListItemSkeleton"
-import Text, {TextSize} from "shared/ui/Text/Text"
-import {useTranslation} from "react-i18next"
+import Text, { TextSize } from "shared/ui/Text/Text"
+import { useTranslation } from "react-i18next"
 
 interface ArticleListProps {
   className?: string;
@@ -13,6 +13,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   view?: ArticleView;
   target?: HTMLAttributeAnchorTarget;
+  virtualize?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) => {

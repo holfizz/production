@@ -9,6 +9,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { fetchArticleRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useGetArticleRecommendationListQuery } from "../../api/articleRecommendationsApi"
+import { classNames } from "shared/lib/classNames/classNames"
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -29,11 +30,11 @@ export const ArticleRecommendationsList = memo(
         })
         const {data:articles, isLoading,error} = useGetArticleRecommendationListQuery(3)
 
-        if(isLoading || error){
+        if(isLoading || error || !articles){
             return null
         }
         return (
-            <div className={cls.ArticleRecommendationsList}>
+            <div className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
                 <Text
                     size={TextSize.L}
                     className={cls.commentTitle}
