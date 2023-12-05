@@ -35,10 +35,7 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
         })
         return (
             <div className={classNames(cls.ArticleDetailsComments, {}, [className])}>
-                <Text
-                    size={TextSize.L}
-                    title={t("Comment")}
-                />
+                <Text size={TextSize.L} title={t("Comment")} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentList isLoading={isLoading} comments={comments} />
             </div>

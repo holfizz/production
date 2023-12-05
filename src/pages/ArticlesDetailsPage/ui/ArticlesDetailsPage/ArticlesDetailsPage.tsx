@@ -12,7 +12,6 @@ import { articleDetailsPageReducer } from "../../model/slice/index"
 import ArticlesDetailsPageHeader from "pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader"
 import { VStack } from "shared/ui/Stack"
 import { ArticleRecommendationsList } from "features/articleRecommendationsList"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import ArticleDetailsComments from "pages/ArticlesDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments"
 
 interface ArticlesDetailsPageProps {
@@ -26,8 +25,6 @@ const reducers: ReducersList = {
 const ArticlesDetailsPage: FC<ArticlesDetailsPageProps> = ({ className }) => {
     const { t } = useTranslation("article-details")
     const { id } = useParams<{ id: string }>()
-    const dispatch = useAppDispatch()
-
     if (!id) {
         return (
             <div className={classNames(cls.ArticlesDetailsPage, {}, [className])}>

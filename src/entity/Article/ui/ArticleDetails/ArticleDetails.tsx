@@ -42,6 +42,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     const article = useSelector(getArticleDetailsData)
     const error = useSelector(getArticleDetailsError)
 
+  
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.CODE:
