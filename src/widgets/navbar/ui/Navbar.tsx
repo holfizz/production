@@ -5,7 +5,12 @@ import { useTranslation } from "react-i18next"
 import Button, { ButtonSize, ButtonTheme } from "shared/ui/Button/Button"
 import { LogIn, Snail } from "lucide-react"
 import { LoginModal } from "features/AuthByUsername"
-import { getUserAuthData, userActions } from "entity/User"
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions,
+} from "entity/User"
 import { useDispatch, useSelector } from "react-redux"
 import AppLink from "shared/ui/AppLink/AppLink"
 import { RouterPath } from "shared/config/routeConfig/routeConfig"
@@ -22,13 +27,19 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
     const authData = useSelector(getUserAuthData)
     const dispatch = useDispatch()
-
+    const isAdmin = useSelector(isUserAdmin)
+    const isManager = useSelector(isUserManager)
+    useEffect(() => {
+        console.log(isAdmin)
+    }, [isAdmin])
     const onLogout = useCallback(() => {
         dispatch(userActions.logout())
     }, [dispatch])
     useEffect(() => {
         setIsAuthModal(false)
     }, [authData])
+
+    const isAdminPanelAvailable = isAdmin || isManager
     if (authData) {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
@@ -43,6 +54,14 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                     direction={"bottom left"}
                     className={cls.links}
                     items={[
+                        ...(isAdminPanelAvailable
+                            ? [
+                                {
+                                    content: t("Admin"),
+                                    href: RouterPath.admin_panel,
+                                },
+                            ]
+                            : []),
                         {
                             content: t("Profile"),
                             href: RouterPath.profile + authData.id,
