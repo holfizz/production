@@ -6,13 +6,11 @@ import { useSelector } from "react-redux"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { getUserAuthData } from "entity/User"
 import { HStack } from "shared/ui/Stack"
-import {
-    getProfileData,
-    getProfileError,
-    getProfileReadonly,
-    profileActions,
-    updateProfileData,
-} from "features/editableProfileCard"
+import { getProfileData } from "../../model/selectors/getProfileData/getProfileData"
+import { getProfileReadonly } from "../../model/selectors/getProfileReadonly/getProfileReadonly"
+import { getProfileError } from "../../model/selectors/getProfileError/getProfileError"
+import { profileActions } from "../../model/slice/profileSlice"
+import { updateProfileData } from "../../model/services/updateProfileData/updateProfileData"
 
 const EditableProfileCardHeader: FC = () => {
     const { t } = useTranslation()
