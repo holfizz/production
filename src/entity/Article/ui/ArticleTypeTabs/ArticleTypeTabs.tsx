@@ -1,14 +1,13 @@
-import {FC, memo, useCallback, useMemo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
-import {useTranslation} from "react-i18next"
-import Tabs, {TabItem} from "shared/ui/Tabs/Tabs"
-import {ArticleType} from "entity/Article"
-
+import { FC, memo, useCallback, useMemo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
+import { useTranslation } from "react-i18next"
+import Tabs, { TabItem } from "shared/ui/Tabs/Tabs"
+import { ArticleType } from "../../model/const/const"
 
 interface ArticleTypeTabsProps {
   className?: string;
-  value:ArticleType;
-  onChangeType:(type:ArticleType)=>void
+  value: ArticleType;
+  onChangeType: (type: ArticleType) => void;
 }
 
 const ArticleTypeTabs: FC<ArticleTypeTabsProps> = memo(({className,value,onChangeType}) => {

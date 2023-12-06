@@ -20,8 +20,8 @@ import DynamicModuleLoader, {
     ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { ProfileCard } from "entity/Profile"
-import { ValidateProfileErrors } from "../../model/types/editableProfileCardSchema"
 import { VStack } from "shared/ui/Stack"
+import { ValidateProfileErrors } from "features/editableProfileCard/model/const/const"
 
 interface EditableProfileCardProps {
   className?: string;

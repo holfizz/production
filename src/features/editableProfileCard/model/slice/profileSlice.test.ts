@@ -1,11 +1,9 @@
 import { profileActions, profileReducer } from "./profileSlice"
 import { Currency } from "entity/Currency"
 import { Country } from "entity/Country"
-import {
-    ProfileSchema,
-    ValidateProfileErrors,
-} from "../types/editableProfileCardSchema"
+import { ProfileSchema } from "../types/editableProfileCardSchema"
 import { updateProfileData } from "features/editableProfileCard"
+import { ValidateProfileErrors } from "features/editableProfileCard/model/const/const"
 
 const data = {
     first: "Sergey",

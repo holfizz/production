@@ -1,10 +1,10 @@
-import {FC, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticleViewSelector.module.scss"
-import {ArticleView} from "../../model/types/article"
-import {AlignJustify, Grid2X2} from "lucide-react"
-import Button, {ButtonTheme} from "shared/ui/Button/Button"
+import { AlignJustify, Grid2X2 } from "lucide-react"
+import Button, { ButtonTheme } from "shared/ui/Button/Button"
 import Icon from "shared/ui/Icon/Icon"
+import { ArticleView } from "../../model/const/const"
 
 interface ArticleViewSelectorProps {
   className?: string;

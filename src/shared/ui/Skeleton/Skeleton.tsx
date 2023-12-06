@@ -1,7 +1,6 @@
-import {CSSProperties, FC, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { CSSProperties, FC, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Skeleton.module.scss"
-import {useTranslation} from "react-i18next"
 
 interface SkeletonProps {
   className?: string;
@@ -12,7 +11,6 @@ interface SkeletonProps {
 
 const Skeleton: FC<SkeletonProps> = memo((props) => {
     const { className, width, height, border='3px' } = props
-    const { t } = useTranslation()
     const style: CSSProperties = {
         width,
         height,

@@ -1,23 +1,27 @@
-import {FC, HTMLAttributeAnchorTarget, memo} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import { FC, HTMLAttributeAnchorTarget, memo } from "react"
+import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticleListItem.module.scss"
-import {useTranslation} from "react-i18next"
-import {Article, ArticleBlockType, ArticleTextBlock, ArticleView,} from "../../model/types/article"
+import { useTranslation } from "react-i18next"
+import { Article, ArticleTextBlock } from "../../model/types/article"
 import Text from "shared/ui/Text/Text"
 import Card from "shared/ui/Card/Card"
 import Avatar from "shared/ui/Avatar/Avatar"
 import Icon from "shared/ui/Icon/Icon"
-import {Eye} from "lucide-react"
-import Button, {ButtonTheme} from "shared/ui/Button/Button"
+import { Eye } from "lucide-react"
+import Button, { ButtonTheme } from "shared/ui/Button/Button"
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
 import AppLink from "shared/ui/AppLink/AppLink"
-import {RouterPath} from "shared/config/routeConfig/routeConfig"
+import { RouterPath } from "shared/config/routeConfig/routeConfig"
+import {
+    ArticleBlockType,
+    ArticleView,
+} from "entity/Article/model/const/const"
 
 interface ArticleListItemProps {
   className?: string;
   article: Article;
   view: ArticleView;
-  target?:HTMLAttributeAnchorTarget
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticleListItem: FC<ArticleListItemProps> = memo(

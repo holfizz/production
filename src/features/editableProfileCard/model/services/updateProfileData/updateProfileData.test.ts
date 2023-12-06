@@ -3,7 +3,7 @@ import { Currency } from "entity/Currency"
 import { Country } from "entity/Country"
 import { updateProfileData } from "./updateProfileData"
 
-import { ValidateProfileErrors } from "../../types/editableProfileCardSchema"
+import { ValidateProfileErrors } from "features/editableProfileCard/model/const/const"
 
 const data = {
     first: "Sergey",

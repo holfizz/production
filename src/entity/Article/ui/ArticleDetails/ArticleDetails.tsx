@@ -17,7 +17,7 @@ import Text, { TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text"
 import Avatar from "shared/ui/Avatar/Avatar"
 import { CalendarDays, Eye } from "lucide-react"
 import Icon from "shared/ui/Icon/Icon"
-import { ArticleBlock, ArticleBlockType } from "../../model/types/article"
+import { ArticleBlock } from "../../model/types/article"
 import Skeleton from "shared/ui/Skeleton/Skeleton"
 import ArticleImageBlockComponent from "../ArticleImageBlockComponent/ArticleImageBlockComponent"
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
@@ -25,6 +25,7 @@ import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArt
 import ArticleCodeBlockComponent from "entity/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent"
 import ArticleTypeTabs from "entity/Article/ui/ArticleTypeTabs/ArticleTypeTabs"
 import { HStack, VStack } from "shared/ui/Stack"
+import { ArticleBlockType } from "../../model/const/const"
 
 interface ArticleDetailsProps {
   className?: string;
@@ -42,7 +43,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     const article = useSelector(getArticleDetailsData)
     const error = useSelector(getArticleDetailsError)
 
-  
+
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
         case ArticleBlockType.CODE:
@@ -82,7 +83,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     let content
     if (isLoading) {
         content = (
-            <>
+            <VStack gap={'4'} max>
                 <Skeleton
                     className={cls.avatar}
                     width={200}
@@ -113,7 +114,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
                     height={200}
                     border={"18px"}
                 ></Skeleton>
-            </>
+            </VStack>
         )
     } else if (error) {
         content = (
@@ -150,7 +151,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     }
     return (
         <DynamicModuleLoader reducer={reducers}>
-            <VStack gap={'16'} className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack max gap={'16'} className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </VStack>
         </DynamicModuleLoader>
