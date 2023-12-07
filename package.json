@@ -29,6 +29,8 @@
   "author": "holfizz",
   "license": "ISC",
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.23.4",
+    "@babel/plugin-transform-typescript": "^7.23.5",
     "@babel/preset-env": "^7.23.2",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
@@ -71,6 +73,7 @@
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "html-webpack-plugin": "^5.5.3",
     "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
