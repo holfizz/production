@@ -22,6 +22,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
     const { t } = useTranslation()
     const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
     const authData = useSelector(getUserAuthData)
+
     useEffect(() => {
         setIsAuthModal(false)
     }, [authData])

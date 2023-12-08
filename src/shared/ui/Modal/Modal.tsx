@@ -9,7 +9,7 @@ import {
     useRef,
     useState,
 } from "react"
-import {classNames, Mods} from "shared/lib/classNames/classNames"
+import { classNames, Mods } from "shared/lib/classNames/classNames"
 import cls from "./Modal.module.scss"
 import Portal from "shared/ui/Portal/Portal"
 
