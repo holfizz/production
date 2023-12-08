@@ -5,6 +5,8 @@ import { HStack, VStack } from "shared/ui/Stack"
 import { classNames } from "shared/lib/classNames/classNames"
 import { DropdownDirection } from "shared/types/ui"
 import AppLink from "shared/ui/AppLink/AppLink"
+import { mapDirectionClass } from "../../styles/conts"
+import popupCls from "../../styles/popup.module.scss"
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -20,24 +22,20 @@ interface DropdownProps {
   trigger: ReactNode;
 }
 
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    "bottom left": cls.menuBottomLeft,
-    "bottom right": cls.menuBottomRight,
-    "top left": cls.menuTopLeft,
-    "top right": cls.menuTopRight,
-}
-
 const Dropdown: FC<DropdownProps> = memo((props) => {
     const { className, items, trigger, direction = "bottom right" } = props
     return (
         <HStack gap={"16"} className={classNames("", {}, [className])}>
-            <Menu as={"div"} className={cls.Dropdown}>
+            <Menu as={"div"} className={popupCls.popup}>
                 <HStack>
-                    <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
+                    <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
                 </HStack>
                 <VStack max align={"center"}>
                     <Menu.Items
-                        className={classNames(cls.menu, {}, [mapDirectionClass[direction]])}
+                        className={classNames(popupCls.menu, {}, [
+                            mapDirectionClass[direction],
+                            cls.menu
+                        ])}
                     >
                         {items.map((item) => {
                             const content = ({ active }: { active: boolean }) => (
@@ -45,16 +43,20 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                                     disabled={item.disabled}
                                     type={"button"}
                                     onClick={item.onClick}
-                                    className={classNames(cls.item, {
-                                        [cls.active]: active,
-                                    })}
+                                    className={classNames(popupCls.item, {
+                                        [popupCls.active]: active,
+                                    },[cls.item])}
                                 >
                                     {item.content}
                                 </button>
                             )
                             if (item.href) {
                                 return (
-                                    <Menu.Item key={String(item.content)} to={item.href} as={AppLink}>
+                                    <Menu.Item
+                                        key={String(item.content)}
+                                        to={item.href}
+                                        as={AppLink}
+                                    >
                                         {content}
                                     </Menu.Item>
                                 )

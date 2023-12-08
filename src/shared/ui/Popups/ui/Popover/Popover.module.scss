@@ -1,0 +1,10 @@
+.panel {
+  padding: 15px;
+  width: fit-content;
+  position: absolute;
+  overflow: hidden;
+  background: var(--listbox-color);
+  z-index: 10;
+  border-radius: 12px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+}

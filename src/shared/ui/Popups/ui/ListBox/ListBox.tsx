@@ -7,6 +7,8 @@ import Icon from "shared/ui/Icon/Icon"
 import { CornerDownRight } from "lucide-react"
 import { HStack } from "shared/ui/Stack"
 import { DropdownDirection } from "shared/types/ui"
+import { mapDirectionClass } from "../../styles/conts"
+import popupCls from "../../styles/popup.module.scss"
 
 export interface ListBoxItem {
   value: string;
@@ -22,13 +24,6 @@ interface ListBoxProps {
   readonly?: boolean;
   direction?: DropdownDirection;
   label?: string;
-}
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    "bottom left": cls.optionsBottomLeft,
-    "bottom right": cls.optionsBottomRight,
-    "top left": cls.optionsTopLeft,
-    "top right": cls.optionsTopRight,
 }
 
 const ListBox: FC<ListBoxProps> = memo((props) => {
@@ -47,11 +42,11 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
             {label && (
                 <HStack
                     align={"center"}
-                    className={classNames("", { [cls.readonly]: readonly }, [])}
+                    className={classNames("", { [popupCls.readonly]: readonly }, [className])}
                 >
                     {label}
                     <Icon
-                        className={classNames("", { [cls.readonly]: readonly }, [])}
+                        className={classNames("", { [popupCls.readonly]: readonly }, [])}
                         SVG={CornerDownRight}
                     />
                 </HStack>
@@ -59,18 +54,19 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
             <HListBox
                 disabled={readonly}
                 as={"div"}
-                className={cls.listBox}
+                className={popupCls.popup}
                 value={value}
                 onChange={onChange}
             >
-                <HListBox.Button className={cls.trigger}>
+                <HListBox.Button className={popupCls.trigger}>
                     <Button disabled={readonly} theme={ButtonTheme.OUTLINE}>
                         {value ?? defaultValue}
                     </Button>
                 </HListBox.Button>
                 <HListBox.Options
-                    className={classNames(cls.options, {}, [
+                    className={classNames(popupCls.menu, {}, [
                         mapDirectionClass[direction],
+                        cls.options
                     ])}
                 >
                     {items?.map((item) => (
@@ -83,13 +79,13 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
                             {({ active, selected }) => (
                                 <li
                                     className={classNames(
-                                        cls.item,
+                                        popupCls.item,
                                         {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled,
-                                            [cls.selected]: selected,
+                                            [popupCls.active]: active,
+                                            [popupCls.readonly]: item.disabled,
+                                            [popupCls.selected]: selected,
                                         },
-                                        []
+                                        [cls.item]
                                     )}
                                 >
                                     {item.content}
