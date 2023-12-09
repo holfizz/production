@@ -1,4 +1,4 @@
-import { type FC, memo, useEffect, useState } from "react"
+import { type FC, memo, useCallback, useEffect, useState } from "react"
 import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
 import { useTranslation } from "react-i18next"
@@ -20,9 +20,16 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = memo(({ className }) => {
     const { t } = useTranslation()
-    const [isAuthModal, setIsAuthModal] = useState<boolean>(false)
     const authData = useSelector(getUserAuthData)
+    const [isAuthModal, setIsAuthModal] = useState(false)
 
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false)
+    }, [])
+
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true)
+    }, [])
     useEffect(() => {
         setIsAuthModal(false)
     }, [authData])
@@ -47,14 +54,14 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
         <header className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
                 <Button
-                    onClick={() => setIsAuthModal(true)}
+                    onClick={onShowModal}
                     theme={ButtonTheme.OUTLINE}
                     size={ButtonSize.XL}
                 >
                     {t("log in")}
                     <LogIn />
                 </Button>
-                <LoginModal isOpen={isAuthModal} onClose={setIsAuthModal} />
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             </div>
         </header>
     )

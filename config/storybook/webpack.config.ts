@@ -1,5 +1,5 @@
 import webpack, { DefinePlugin, RuleSetRule } from "webpack"
-import { BuildPaths } from "../build/types/config"
+import { BuildOptions, BuildPaths } from "../build/types/config"
 import path from "path"
 import { buildCssLoader } from "../build/loaders/buildCssLoader"
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
@@ -33,7 +33,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
       exclude: /node_modules/,
   })
 
-  config!.module!.rules.push(buildCssLoader(true))
+  config!.module!.rules.push(buildCssLoader({ isDev: true } as BuildOptions))
 
   config!.plugins!.push(
       new DefinePlugin({

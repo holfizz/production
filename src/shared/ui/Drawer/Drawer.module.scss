@@ -10,7 +10,7 @@
   align-items: flex-end;
   z-index: -1;
 }
-.content{
+.content {
   height: 60%;
   background: var(--bg-color);
   bottom: 0;
@@ -20,12 +20,12 @@
   width: 100%;
   min-height: 100px;
   padding: 20px;
-  transition: .3s transform;
+  transition: 0.3s transform;
   transform: translateY(100%);
   overflow-y: auto;
   overflow-x: hidden;
 }
-.content::before{
+.content::before {
   content: "";
   position: relative;
   display: block;
@@ -36,11 +36,40 @@
   bottom: 40px;
   border-radius: 12px;
 }
-.opened{
+.opened {
   pointer-events: auto;
   opacity: 1;
   z-index: 10;
-  .content{
+  .content {
     transform: translateY(0);
+  }
+}
+.Drawer.opened {
+  animation: blur-modal 0.4s ease forwards;
+}
+
+.isClosing{
+  .content{
+    transform: translateY(100%);
+  }
+}
+
+@keyframes blur-modal {
+  0% {
+    backdrop-filter: blur(0);
+  }
+
+  100% {
+    backdrop-filter: blur(8px);
+  }
+}
+
+@keyframes close-overlay {
+  0% {
+    backdrop-filter: blur(8px);
+  }
+
+  100% {
+    backdrop-filter: blur(0);
   }
 }
