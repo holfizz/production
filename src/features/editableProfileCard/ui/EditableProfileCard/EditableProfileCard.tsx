@@ -1,14 +1,14 @@
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import { useTranslation } from "react-i18next"
 import cls from "./EditableProfileCard.module.scss"
 import { memo, useCallback } from "react"
 import { useSelector } from "react-redux"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { Currency } from "entity/Currency"
-import { Country } from "entity/Country"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { Currency } from "@/entities/Currency"
+import { Country } from "@/entities/Country"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import EditableProfileCardHeader from "../EditableProfileCardHeader/EditableProfileCardHeader"
-import Text, { TextTheme } from "shared/ui/Text/Text"
+import Text, { TextTheme } from "@/shared/ui/Text/Text"
 import { getProfileForm } from "../../model/selectors/getProfileForm/getProfileForm"
 import { getProfileValidateErrors } from "../../model/selectors/getProfileValidateErrors/getProfileValidateErrors"
 import { getProfileError } from "../../model/selectors/getProfileError/getProfileError"
@@ -18,10 +18,10 @@ import { fetchProfileData } from "../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from "../../model/slice/profileSlice"
 import DynamicModuleLoader, {
     ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { ProfileCard } from "entity/Profile"
-import { VStack } from "shared/ui/Stack"
-import { ValidateProfileErrors } from "features/editableProfileCard/model/const/const"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { ProfileCard } from "@/entities/Profile"
+import { VStack } from "@/shared/ui/Stack"
+import { ValidateProfileErrors } from "@/features/editableProfileCard/model/const/const"
 
 interface EditableProfileCardProps {
   className?: string;

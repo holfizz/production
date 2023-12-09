@@ -1,7 +1,7 @@
 import {type FC, memo, useState} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import {classNames} from "@/shared/lib/classNames/classNames"
 import cls from "./LangSwitcher.module.scss"
-import Button, {ButtonSize} from "shared/ui/Button/Button"
+import Button, {ButtonSize} from "@/shared/ui/Button/Button"
 import {useTranslation} from "react-i18next"
 import {Globe} from "lucide-react"
 

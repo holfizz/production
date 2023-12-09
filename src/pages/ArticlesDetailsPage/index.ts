@@ -1,4 +1,4 @@
-export { articleDetailsPageReducer } from "pages/ArticlesDetailsPage/model/slice"
+export { articleDetailsPageReducer } from "@/pages/ArticlesDetailsPage/model/slice"
 
 export type { ArticleDetailsPageSchema } from "./model/types/index"
 export type { ArticleDetailRecommendationsSchema } from "./model/types/ArticleDetailRecommendationsSchema"

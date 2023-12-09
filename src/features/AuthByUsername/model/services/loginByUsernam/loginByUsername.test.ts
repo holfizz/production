@@ -1,6 +1,6 @@
-import {TestAsyncThunk} from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-import {loginByUsername} from "features/AuthByUsername"
-import {userActions} from "entity/User"
+import {TestAsyncThunk} from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
+import {loginByUsername} from "@/features/AuthByUsername"
+import {userActions} from "@/entities/User"
 
 
 describe("loginByUsername.test", () => {

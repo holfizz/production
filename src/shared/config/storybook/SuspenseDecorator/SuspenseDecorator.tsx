@@ -1,5 +1,5 @@
 import { Suspense } from "react"
-import Loader from "shared/ui/Loader/Loader"
+import Loader from "@/shared/ui/Loader/Loader"
 import { Decorator } from "@storybook/react"
 
 export const SuspenseDecorator: Decorator = (Story) => (

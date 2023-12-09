@@ -1,2 +1,2 @@
-export {default as PageError} from "widgets/pageError/ui/PageError"
+export {default as PageError} from "@/widgets/pageError/ui/PageError"
 

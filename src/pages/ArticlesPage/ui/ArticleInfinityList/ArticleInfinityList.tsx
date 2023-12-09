@@ -1,20 +1,20 @@
 import { FC, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./ArticleInfinityList.module.scss"
 import { useTranslation } from "react-i18next"
-import ArticleList from "entity/Article/ui/ArticleList/ArticleList"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import ArticleList from "@/entities/Article/ui/ArticleList/ArticleList"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useSelector } from "react-redux"
-import { getArticles } from "pages/ArticlesPage/model/slice/articalPageSlice"
+import { getArticles } from "@/pages/ArticlesPage/model/slice/articalPageSlice"
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
     getArticlesPageView,
-} from "pages/ArticlesPage/model/selectors/articlesPageSelectors"
+} from "@/pages/ArticlesPage/model/selectors/articlesPageSelectors"
 import { useSearchParams } from "react-router-dom"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { initArticlesPage } from "pages/ArticlesPage/model/service/initArticlesPage/initArticlesPage"
-import Text, { TextAlign, TextSize, TextTheme } from "shared/ui/Text/Text"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { initArticlesPage } from "@/pages/ArticlesPage/model/service/initArticlesPage/initArticlesPage"
+import Text, { TextAlign, TextSize, TextTheme } from "@/shared/ui/Text/Text"
 
 interface ArticleInfinityListProps {
   className?: string;

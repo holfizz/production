@@ -1,18 +1,18 @@
 import { FC, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./ArticlesDetailsPage.module.scss"
 import { useTranslation } from "react-i18next"
-import { ArticleDetails } from "entity/Article"
+import { ArticleDetails } from "@/entities/Article"
 import { useParams } from "react-router-dom"
 import DynamicModuleLoader, {
     ReducersList,
-} from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
-import { Page } from "widgets/page"
+} from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { Page } from "@/widgets/page"
 import { articleDetailsPageReducer } from "../../model/slice/index"
-import ArticlesDetailsPageHeader from "pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader"
-import { VStack } from "shared/ui/Stack"
-import { ArticleRecommendationsList } from "features/articleRecommendationsList"
-import ArticleDetailsComments from "pages/ArticlesDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments"
+import ArticlesDetailsPageHeader from "@/pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader"
+import { VStack } from "@/shared/ui/Stack"
+import { ArticleRecommendationsList } from "@/features/articleRecommendationsList"
+import ArticleDetailsComments from "@/pages/ArticlesDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments"
 
 interface ArticlesDetailsPageProps {
   className?: string;

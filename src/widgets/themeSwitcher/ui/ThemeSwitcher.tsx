@@ -1,22 +1,21 @@
-import type {FC} from "react"
-import {memo, useEffect, useState} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import type { FC } from "react"
+import { memo, useEffect, useState } from "react"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./ThemeSwitcher.module.scss"
-import {Theme, useTheme} from "app/providers/ThemeProvider"
-import {CSSTransition} from "react-transition-group"
-import Button from "shared/ui/Button/Button"
-import {Moon, Sun} from "lucide-react"
+import { Theme, useTheme } from "@/app/providers/ThemeProvider"
+import { CSSTransition } from "react-transition-group"
+import Button from "@/shared/ui/Button/Button"
+import { Moon, Sun } from "lucide-react"
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
-
 const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
     const { theme, toggleTheme } = useTheme()
     const [themeSwitch, setThemeSwitch] = useState<boolean>(false)
     useEffect(() => {
-        setThemeSwitch(prevState => !prevState)
+        setThemeSwitch((prevState) => !prevState)
     }, [theme])
     return (
         <Button

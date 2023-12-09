@@ -1,15 +1,15 @@
 import { useTranslation } from "react-i18next"
 import cls from "./ArticleRecommendationsList.module.scss"
 import { memo } from "react"
-import Text, { TextSize } from "shared/ui/Text/Text"
-import ArticleList from "entity/Article/ui/ArticleList/ArticleList"
+import Text, { TextSize } from "@/shared/ui/Text/Text"
+import ArticleList from "@/entities/Article/ui/ArticleList/ArticleList"
 import { useSelector } from "react-redux"
-import { getArticleRecommendationsIsLoading } from "pages/ArticlesDetailsPage/model/selectors/recommendations"
-import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
-import { fetchArticleRecommendations } from "pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations"
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch"
+import { getArticleRecommendationsIsLoading } from "@/pages/ArticlesDetailsPage/model/selectors/recommendations"
+import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
+import { fetchArticleRecommendations } from "@/pages/ArticlesDetailsPage/model/services/fetchArticleRecommendations/fetchArticleRecommendations"
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useGetArticleRecommendationListQuery } from "../../api/articleRecommendationsApi"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 
 interface ArticleRecommendationsListProps {
   className?: string;

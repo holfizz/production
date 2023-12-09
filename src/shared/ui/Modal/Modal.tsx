@@ -1,8 +1,8 @@
 import { FC, PropsWithChildren } from "react"
-import { classNames, Mods } from "shared/lib/classNames/classNames"
+import { classNames, Mods } from "@/shared/lib/classNames/classNames"
 import cls from "./Modal.module.scss"
-import Portal from "shared/ui/Portal/Portal"
-import { useModal } from "shared/lib/hooks/useModal/useModal"
+import Portal from "@/shared/ui/Portal/Portal"
+import { useModal } from "@/shared/lib/hooks/useModal/useModal"
 
 interface ModalProps {
   className?: string;

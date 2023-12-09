@@ -1,8 +1,8 @@
 import { FC, memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./ForbiddenPage.module.scss"
 import { useTranslation } from "react-i18next"
-import { Page } from "widgets/page"
+import { Page } from "@/widgets/page"
 
 interface ForbiddenPageProps {
   className?: string;

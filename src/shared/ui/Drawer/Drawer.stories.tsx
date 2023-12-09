@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { Drawer } from "./Drawer"
 import { action } from "@storybook/addon-actions"
-import NotificationItem from "entity/Notification/ui/NotificationItem/NotificationItem"
+import NotificationItem from "@/entities/Notification/ui/NotificationItem/NotificationItem"
 
 const meta = {
     title: "shared/Drawer",

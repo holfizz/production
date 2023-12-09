@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react"
+import type { Meta, StoryObj } from "@storybook/react"
 import Tabs from "./Tabs"
-import {action} from "@storybook/addon-actions"
-import {ThemeDecorator} from "shared/config/storybook/ThemeDecorator/ThemeDecorator"
-import {Theme} from "app/providers/ThemeProvider"
+import { action } from "@storybook/addon-actions"
+import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator"
+import { Theme } from "@/app/providers/ThemeProvider"
 
 const meta = {
     title: "shared/Tabs",
@@ -25,7 +25,7 @@ export const Normal: Story = {
         onTabClick:action('onTabClick')
     },
 }
-export const dark: Story = {
+export const Dark: Story = {
     args: {
         tabs: [
             { value: "tab 1", content: "tab 1" },

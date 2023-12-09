@@ -1,8 +1,8 @@
-import { Currency } from "entity/Currency"
-import { Country } from "entity/Country"
+import { Currency } from "@/entities/Currency"
+import { Country } from "@/entities/Country"
 import { validateProfileData } from "./validateProfileData"
 
-import { ValidateProfileErrors } from "features/editableProfileCard/model/const/const"
+import { ValidateProfileErrors } from "@/features/editableProfileCard/model/const/const"
 
 const data = {
     first: "Sergey",

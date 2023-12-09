@@ -1,1 +1,1 @@
-export { default as ThemeSwitcher } from 'widgets/themeSwitcher/ui/ThemeSwitcher'
+export { default as ThemeSwitcher } from '@/widgets/themeSwitcher/ui/ThemeSwitcher'

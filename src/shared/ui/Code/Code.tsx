@@ -1,7 +1,7 @@
 import {FC, memo, useCallback, useState} from "react"
-import {classNames} from "shared/lib/classNames/classNames"
+import {classNames} from "@/shared/lib/classNames/classNames"
 import cls from "./Code.module.scss"
-import Button, {ButtonTheme} from "shared/ui/Button/Button"
+import Button, {ButtonTheme} from "@/shared/ui/Button/Button"
 import {Copy} from "lucide-react"
 
 interface CodeProps {

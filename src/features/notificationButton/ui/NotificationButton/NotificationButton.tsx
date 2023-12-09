@@ -1,14 +1,13 @@
 import { FC, memo, useCallback, useState } from "react"
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./NotificationButton.module.scss"
-import { Popover } from "shared/ui/Popups"
-import Button, { ButtonTheme } from "shared/ui/Button/Button"
-import Icon from "shared/ui/Icon/Icon"
+import { Popover } from "@/shared/ui/Popups"
+import Button, { ButtonTheme } from "@/shared/ui/Button/Button"
+import Icon from "@/shared/ui/Icon/Icon"
 import { Bell } from "lucide-react"
-import { NotificationList } from "entity/Notification"
-import { Drawer } from "shared/ui/Drawer/Drawer"
+import { NotificationList } from "@/entities/Notification"
+import { Drawer } from "@/shared/ui/Drawer/Drawer"
 import { BrowserView, MobileView } from "react-device-detect"
-import { AnimationProvider } from "shared/lib/components/AnimationProvider"
 
 interface NotificationButtonProps {
   className?: string;
@@ -41,11 +40,9 @@ const NotificationButton: FC<NotificationButtonProps> = memo(
                 </BrowserView>
                 <MobileView>
                     {trigger}
-                    <AnimationProvider>
-                        <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                            <NotificationList />
-                        </Drawer>
-                    </AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationList />
+                    </Drawer>
                 </MobileView>
             </div>
         )

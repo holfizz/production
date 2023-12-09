@@ -1,10 +1,13 @@
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import React, { memo, ReactNode, useCallback, useEffect } from "react"
-import { useTheme } from "app/providers/ThemeProvider"
+import { useTheme } from "@/app/providers/ThemeProvider"
 import Overlay from "../Overlay/Overlay"
 import cls from "./Drawer.module.scss"
 import Portal from "../Portal/Portal"
-import { useAnimationLibs } from "../../lib/components/AnimationProvider/AnimationProvider"
+import {
+    AnimationProvider,
+    useAnimationLibs,
+} from "../../lib/components/AnimationProvider/AnimationProvider"
 
 interface DrawerProps {
   className?: string;
@@ -92,10 +95,19 @@ export const DrawerContent = memo((props: DrawerProps) => {
     )
 })
 
-export const Drawer = memo((props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs()
     if (!isLoaded) {
         return null
     }
     return <DrawerContent {...props} />
-})
+}
+export const Drawer = (props: DrawerProps) => {
+    return (
+        <AnimationProvider>
+            <DrawerAsync {...props}/>
+        </AnimationProvider>
+    )
+}
+
+

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import { ArticleRecommendationsList } from "./ArticleRecommendationsList"
-import { StoreDecorator } from "shared/config/storybook/StoreDecorator/StoreDecorator"
-import { Article } from "entity/Article"
+import { StoreDecorator } from "@/shared/config/storybook/StoreDecorator/StoreDecorator"
+import { Article } from "@/entities/Article"
 
 const meta = {
     title: "features/ArticleRecommendationsList",
