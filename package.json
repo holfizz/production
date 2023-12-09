@@ -104,10 +104,12 @@
   "dependencies": {
     "@babel/core": "^7.23.3",
     "@headlessui/react": "^1.7.17",
+    "@react-spring/web": "^9.7.3",
     "@reduxjs/toolkit": "^1.9.7",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "@types/react-router-dom": "^5.3.3",
+    "@use-gesture/react": "^10.3.0",
     "axios": "^1.6.0",
     "babel": "^6.23.0",
     "circular-dependency-plugin": "^5.2.2",
