@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import Text from "@/shared/ui/Text/Text"
 import { useTranslation } from "react-i18next"
 import { EditableProfileCard } from "@/features/editableProfileCard"
+import ProfileRating from "@/features/profileRating/ui/ProfileRating/ProfileRating"
 
 const ProfilePage: FC = () => {
     const { t } = useTranslation("profile")
@@ -16,6 +17,7 @@ const ProfilePage: FC = () => {
         <Page>
             <VStack max gap={"16"}>
                 <EditableProfileCard id={id} />
+                <ProfileRating profileId={id} />
             </VStack>
         </Page>
     )

@@ -1,6 +1,4 @@
 import { FC, memo, useCallback, useState } from "react"
-import { classNames } from "@/shared/lib/classNames/classNames"
-import cls from "./RatingCard.module.scss"
 import Card from "@/shared/ui/Card/Card"
 import { HStack, VStack } from "@/shared/ui/Stack"
 import Text, { TextAlign } from "@/shared/ui/Text/Text"
@@ -19,14 +17,22 @@ interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starCount: number) => void;
   onAccept?: (starCount: number, feedback?: string) => void;
+  rate?: number;
 }
 
 const RatingCard: FC<RatingCardProps> = memo((props) => {
-    const { className, title, feedbackTitle, hasFeedback, onAccept, onCancel } =
-    props
+    const {
+        className,
+        title,
+        feedbackTitle,
+        hasFeedback,
+        onAccept,
+        onCancel,
+        rate = 0,
+    } = props
     const { t } = useTranslation()
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [starsCount, setStarsCount] = useState(0)
+    const [starsCount, setStarsCount] = useState(rate)
     const [feedback, setFeedback] = useState("")
     const onSelectStars = useCallback(
         (selectedStarsCount: number) => {
@@ -60,32 +66,36 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
     )
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
-            <VStack align={"center"} gap={"8"}>
-                <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+        <Card max className={className}>
+            <VStack max align={"center"} gap={"8"}>
+                <Text title={starsCount ? t('Thank you for rating') : title} />
+                <StarRating selectedStars={starsCount} rate={rate} size={35} onSelect={onSelectStars} />
                 <BrowserView>
-                    <VStack max gap={"32"}>
-                        <Modal isOpen={isModalOpen} onClose={close}>
+                    <Modal isOpen={isModalOpen} onClose={close}>
+                        <VStack max gap={"16"}>
+
                             {modalContent}
-                        </Modal>
-                        <HStack max gap={"16"} justify={"end"}>
-                            <Button
-                                onClick={cancelHandler}
-                                size={ButtonSize.M}
-                                theme={ButtonTheme.OUTLINE_SECONDARY}
-                            >
-                                {t("close")}
-                            </Button>
-                            <Button
-                                onClick={acceptHandler}
-                                size={ButtonSize.M}
-                                theme={ButtonTheme.OUTLINE}
-                            >
-                                {t("Send")}
-                            </Button>
-                        </HStack>
-                    </VStack>
+
+                            <HStack max gap={"16"} justify={"end"}>
+
+                                <Button
+                                    onClick={cancelHandler}
+                                    size={ButtonSize.M}
+                                    theme={ButtonTheme.OUTLINE_SECONDARY}
+                                >
+                                    {t("close")}
+                                </Button>
+                                <Button
+                                    onClick={acceptHandler}
+                                    size={ButtonSize.M}
+                                    theme={ButtonTheme.OUTLINE}
+                                >
+                                    {t("Send")}
+                                </Button>
+                            </HStack>
+                        </VStack>
+
+                    </Modal>
                 </BrowserView>
                 <MobileView>
                     <Drawer isOpen={isModalOpen}>

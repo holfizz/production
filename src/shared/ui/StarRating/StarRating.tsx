@@ -9,13 +9,14 @@ interface StarRatingProps {
   onSelect?: (startCount: number) => void;
   size?: number;
   selectedStars?: number;
+  rate?: number;
 }
 
 const stars = [1, 2, 3, 4, 5]
 
 const StarRating: FC<StarRatingProps> = memo(
-    ({ className, selectedStars, onSelect, size = 30 }) => {
-        const [currentStartCount, setCurrentStartCount] = useState<number>(0)
+    ({ className, selectedStars, onSelect, size = 30, rate = 0 }) => {
+        const [currentStartCount, setCurrentStartCount] = useState<number>(rate)
         const [isSelected, setIsSelected] = useState<boolean>(
             Boolean(selectedStars)
         )
