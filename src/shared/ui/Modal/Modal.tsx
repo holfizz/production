@@ -7,7 +7,7 @@ import { useModal } from "@/shared/lib/hooks/useModal/useModal"
 interface ModalProps {
   className?: string;
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   lazy?: boolean;
 }
 

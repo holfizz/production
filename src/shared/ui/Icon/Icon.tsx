@@ -1,18 +1,20 @@
 import { FC, memo } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./Icon.module.scss"
-import { LucideIcon } from "lucide-react"
+import { LucideIcon, LucideProps } from "lucide-react"
 
-interface IconProps {
+interface IconProps extends Omit<LucideProps, "ref"> {
   className?: string;
   SVG: LucideIcon;
 }
 
-const Icon: FC<
-  IconProps> = memo(({className, SVG}) => {
-      return (
-          <SVG className={classNames(cls.Icon, {}, [className])}/>
-      )
-  })
+const Icon: FC<IconProps> = memo(({ className, SVG, ...otherProps }) => {
+    return (
+        <SVG
+            className={classNames(cls.Icon, {}, [className])}
+            {...otherProps}
+        />
+    )
+})
 
 export default Icon

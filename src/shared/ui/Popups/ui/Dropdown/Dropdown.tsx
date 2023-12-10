@@ -37,7 +37,7 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                             cls.menu
                         ])}
                     >
-                        {items.map((item) => {
+                        {items.map((item, index) => {
                             const content = ({ active }: { active: boolean }) => (
                                 <button
                                     disabled={item.disabled}
@@ -63,7 +63,7 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                             }
                             return (
                             // eslint-disable-next-line react/jsx-key
-                                <Menu.Item as={Fragment}>{content}</Menu.Item>
+                                <Menu.Item key={index} as={Fragment}>{content}</Menu.Item>
                             )
                         })}
                     </Menu.Items>

@@ -17,7 +17,7 @@ const Popover: FC<PopoverProps> = memo(({ className, direction ='bottom right', 
     return (
         <div className={classNames(popoverCls.popup, {}, [className, cls.Popover])}>
             <HPopover>
-                <HPopover.Button className={popoverCls.trigger}>
+                <HPopover.Button as={'div'} className={popoverCls.trigger}>
                     {trigger}
                 </HPopover.Button>
                 <HPopover.Panel

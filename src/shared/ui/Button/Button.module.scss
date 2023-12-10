@@ -40,7 +40,10 @@
   background: var(--components-color);
   color: var(--grey);
 }
-
+.red{
+  color: red;
+  border: red 2px solid;
+}
 .size_m{
   width:auto;
   height: 30px;

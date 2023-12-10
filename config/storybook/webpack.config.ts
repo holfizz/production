@@ -20,6 +20,10 @@ export default ({ config }: { config: webpack.Configuration }) => {
       "node_modules", // добавляем эту строку
   ]
   // @ts-ignore
+  config!.resolve!.alias = {
+      "@": paths.src,
+  }
+  // @ts-ignore
   config!.module!.rules = config!.module!.rules!.map((rule: RuleSetRule) => {
       if (/svg/.test(rule.test as string)) {
           return { ...rule, exclude: /\.svg$/i }
@@ -34,7 +38,6 @@ export default ({ config }: { config: webpack.Configuration }) => {
   })
 
   config!.module!.rules.push(buildCssLoader({ isDev: true } as BuildOptions))
-
   config!.plugins!.push(
       new DefinePlugin({
           __IS_DEV__: JSON.stringify(true),

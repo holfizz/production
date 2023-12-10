@@ -7,7 +7,7 @@ import {
 } from "react"
 
 interface UseModalProps {
-  onClose: () => void;
+  onClose?: () => void;
   isOpen?: boolean;
   animationDelay?: number;
 }
