@@ -64,7 +64,7 @@ module.exports = {
         "react/display-name": "off",
         "no-undef": "off",
         "react/no-array-index-key": "off",
-        "holfizz-plugin/path-checker": "error",
+        "holfizz-plugin/path-checker": ["error", { alias: "@" }],
     },
     globals: {
         __IS_DEV__: true,
