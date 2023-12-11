@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import ArticleTypeTabs from "./ArticleTypeTabs"
-import { ArticleType } from '../..'
 import { action } from "@storybook/addon-actions"
+import { ArticleType } from "@/entities/Article"
 
 const meta = {
     title: "entities/Article/ArticleTypeTabs",
