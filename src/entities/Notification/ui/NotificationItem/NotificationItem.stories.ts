@@ -3,7 +3,7 @@ import NotificationItem from "./NotificationItem"
 import { Notification } from "@/entities/Notification/model/types/notification"
 
 const meta = {
-    title: "shared/NotificationItem",
+    title: "entities/NotificationItem",
     component: NotificationItem,
     parameters: {},
 } satisfies Meta<typeof NotificationItem>

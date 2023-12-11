@@ -19,8 +19,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
       paths.src,
       "node_modules", // добавляем эту строку
   ]
-  // @ts-ignore
   config!.resolve!.alias = {
+      ...config!.resolve!.alias,
       "@": paths.src,
   }
   // @ts-ignore
@@ -41,7 +41,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config!.plugins!.push(
       new DefinePlugin({
           __IS_DEV__: JSON.stringify(true),
-          __API__: JSON.stringify("https://test.api"),
+          __API__: JSON.stringify("http://localhost:3000"),
           __PROJECT__: JSON.stringify("storybook"),
       }),
       new MiniCssExtractPlugin()

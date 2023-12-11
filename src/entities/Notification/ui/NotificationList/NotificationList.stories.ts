@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import NotificationList from "./NotificationList"
 
 const meta = {
-    title: "shared/NotificationList",
+    title: "entities/NotificationList",
     component: NotificationList,
     parameters: {},
 } satisfies Meta<typeof NotificationList>
