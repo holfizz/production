@@ -3,7 +3,7 @@ import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
 import { useTranslation } from "react-i18next"
 import Button, { ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button"
-import { LogIn, Snail } from "lucide-react"
+import { LogIn, PencilLine } from "lucide-react"
 import { LoginModal } from "@/features/AuthByUsername"
 import { getUserAuthData } from "@/entities/User"
 import { useSelector } from "react-redux"
@@ -37,8 +37,8 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
         return (
             <header className={classNames(cls.Navbar, {}, [className])}>
                 <div className={cls.appName}>
-                    <Snail size={40} className={cls.logo} />
-                    <Text size={TextSize.L} text={t("articles")} />
+                    <PencilLine size={40} className={cls.logo} />
+                    <Text size={TextSize.L} title={t("InkDrops")} />
                 </div>
                 <AppLink className={cls.createBtn} to={RoutePath.article_create}>
                     {t("Create article")}
