@@ -12,7 +12,7 @@ import Text, { TextSize } from "@/shared/ui/Text/Text"
 import { HStack } from "@/shared/ui/Stack"
 import { NotificationButton } from "@/features/notificationButton"
 import { AvatarDropdown } from "@/features/avatarDropdown"
-import { RoutePath } from "@/shared/const/router"
+import { getRouteArticleCreate } from "@/shared/const/router"
 
 interface NavbarProps {
   className?: string;
@@ -40,7 +40,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                     <PencilLine size={40} className={cls.logo} />
                     <Text size={TextSize.L} title={t("InkDrops")} />
                 </div>
-                <AppLink className={cls.createBtn} to={RoutePath.article_create}>
+                <AppLink className={cls.createBtn} to={getRouteArticleCreate()}>
                     {t("Create article")}
                 </AppLink>
                 <HStack className={cls.actions} gap={"16"}>

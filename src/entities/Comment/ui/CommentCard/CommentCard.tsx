@@ -7,7 +7,7 @@ import Skeleton from "@/shared/ui/Skeleton/Skeleton"
 import Avatar from "@/shared/ui/Avatar/Avatar"
 import AppLink from "@/shared/ui/AppLink/AppLink"
 import { HStack } from "@/shared/ui/Stack"
-import { RoutePath } from "@/shared/const/router"
+import { getRouteProfile } from "@/shared/const/router"
 
 interface CommentCardProps {
   className?: string;
@@ -40,7 +40,7 @@ const CommentCard: FC<CommentCardProps> = memo(
         return (
             <HStack align={'center'} justify={'between'} max className={classNames(cls.CommentCard, {}, [className])}>
                 <AppLink
-                    to={`${RoutePath.profile}${comment.user.id}`}
+                    to={getRouteProfile(comment.user.id)}
                     className={cls.header}
                 >
                     {comment.user.avatar ? (

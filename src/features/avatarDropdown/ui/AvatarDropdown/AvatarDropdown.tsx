@@ -11,7 +11,7 @@ import {
     userActions,
 } from "@/entities/User"
 import { useDispatch, useSelector } from "react-redux"
-import { RoutePath } from "@/shared/const/router"
+import { getRouteAdminPanel, getRouteProfile } from "@/shared/const/router"
 
 interface AvatarDropdownProps {
   className?: string;
@@ -39,13 +39,13 @@ const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className }) => {
                     ? [
                         {
                             content: t("Admin"),
-                            href: RoutePath.admin_panel,
+                            href: getRouteAdminPanel(),
                         },
                     ]
                     : []),
                 {
                     content: t("Profile"),
-                    href: RoutePath.profile + authData.id,
+                    href: getRouteProfile(authData.id),
                 },
                 { content: t("log out"), onClick: onLogout },
             ]}
