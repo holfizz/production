@@ -2,10 +2,10 @@ import { FC, Fragment, memo } from "react"
 import { Listbox as HListBox } from "@headlessui/react"
 import cls from "./ListBox.module.scss"
 import { classNames } from "@/shared/lib/classNames/classNames"
-import Button, { ButtonTheme } from "@/shared/ui/Button/Button"
-import Icon from "@/shared/ui/Icon/Icon"
+import Button, { ButtonTheme } from "../../../Button/Button"
+import Icon from "../../../Icon/Icon"
 import { CornerDownRight } from "lucide-react"
-import { HStack } from "@/shared/ui/Stack"
+import HStack from "../../../Stack/HStack/HStack"
 import { DropdownDirection } from "@/shared/types/ui"
 import { mapDirectionClass } from "../../styles/conts"
 import popupCls from "../../styles/popup.module.scss"
@@ -42,7 +42,9 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
             {label && (
                 <HStack
                     align={"center"}
-                    className={classNames("", { [popupCls.readonly]: readonly }, [className])}
+                    className={classNames("", { [popupCls.readonly]: readonly }, [
+                        className,
+                    ])}
                 >
                     {label}
                     <Icon
@@ -66,7 +68,7 @@ const ListBox: FC<ListBoxProps> = memo((props) => {
                 <HListBox.Options
                     className={classNames(popupCls.menu, {}, [
                         mapDirectionClass[direction],
-                        cls.options
+                        cls.options,
                     ])}
                 >
                     {items?.map((item) => (

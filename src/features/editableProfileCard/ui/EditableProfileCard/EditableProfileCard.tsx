@@ -21,7 +21,7 @@ import DynamicModuleLoader, {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { ProfileCard } from "@/entities/Profile"
 import { VStack } from "@/shared/ui/Stack"
-import { ValidateProfileErrors } from "@/features/editableProfileCard/model/const/const"
+import { ValidateProfileErrors } from '../../model/const/const'
 
 interface EditableProfileCardProps {
   className?: string;

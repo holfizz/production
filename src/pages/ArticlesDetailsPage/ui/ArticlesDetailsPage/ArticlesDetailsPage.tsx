@@ -9,10 +9,10 @@ import DynamicModuleLoader, {
 } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { Page } from "@/widgets/page"
 import { articleDetailsPageReducer } from "../../model/slice/index"
-import ArticlesDetailsPageHeader from "@/pages/ArticlesDetailsPage/ui/ArticlesDetailsPageHeader/ArticlesDetailsPageHeader"
+import ArticlesDetailsPageHeader from '../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader'
 import { VStack } from "@/shared/ui/Stack"
 import { ArticleRecommendationsList } from "@/features/articleRecommendationsList"
-import ArticleDetailsComments from "@/pages/ArticlesDetailsPage/ui/ArticleDetailsComments/ArticleDetailsComments"
+import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments'
 import { ArticleRating } from "@/features/articleRating"
 
 interface ArticlesDetailsPageProps {

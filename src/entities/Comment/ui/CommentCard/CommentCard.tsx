@@ -1,7 +1,7 @@
 import { FC, memo } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./CommentCard.module.scss"
-import { Comment } from "@/entities/Comment"
+import { Comment } from '../..'
 import Text from "@/shared/ui/Text/Text"
 import Skeleton from "@/shared/ui/Skeleton/Skeleton"
 import Avatar from "@/shared/ui/Avatar/Avatar"

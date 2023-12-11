@@ -22,8 +22,8 @@ import Skeleton from "@/shared/ui/Skeleton/Skeleton"
 import ArticleImageBlockComponent from "../ArticleImageBlockComponent/ArticleImageBlockComponent"
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
 import { fetchArticleById } from "../../model/services/fetchArticleById/fetchArticleById"
-import ArticleCodeBlockComponent from "@/entities/Article/ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent"
-import ArticleTypeTabs from "@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs"
+import ArticleCodeBlockComponent from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent'
+import ArticleTypeTabs from '../ArticleTypeTabs/ArticleTypeTabs'
 import { HStack, VStack } from "@/shared/ui/Stack"
 import { ArticleBlockType } from "../../model/const/const"
 

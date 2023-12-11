@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import NotificationItem from "./NotificationItem"
-import { Notification } from "@/entities/Notification/model/types/notification"
+import { Notification } from '../../model/types/notification'
 
 const meta = {
     title: "entities/NotificationItem",

@@ -1,10 +1,10 @@
 import { FC, Fragment, memo, ReactNode } from "react"
 import { Menu } from "@headlessui/react"
 import cls from "./Dropdown.module.scss"
-import { HStack, VStack } from "@/shared/ui/Stack"
+import { HStack, VStack } from '../../../Stack'
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { DropdownDirection } from "@/shared/types/ui"
-import AppLink from "@/shared/ui/AppLink/AppLink"
+import AppLink from '../../../AppLink/AppLink'
 import { mapDirectionClass } from "../../styles/conts"
 import popupCls from "../../styles/popup.module.scss"
 
@@ -34,7 +34,7 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                     <Menu.Items
                         className={classNames(popupCls.menu, {}, [
                             mapDirectionClass[direction],
-                            cls.menu
+                            cls.menu,
                         ])}
                     >
                         {items.map((item, index) => {
@@ -43,9 +43,13 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                                     disabled={item.disabled}
                                     type={"button"}
                                     onClick={item.onClick}
-                                    className={classNames(popupCls.item, {
-                                        [popupCls.active]: active,
-                                    },[cls.item])}
+                                    className={classNames(
+                                        popupCls.item,
+                                        {
+                                            [popupCls.active]: active,
+                                        },
+                                        [cls.item]
+                                    )}
                                 >
                                     {item.content}
                                 </button>
@@ -63,7 +67,9 @@ const Dropdown: FC<DropdownProps> = memo((props) => {
                             }
                             return (
                             // eslint-disable-next-line react/jsx-key
-                                <Menu.Item key={index} as={Fragment}>{content}</Menu.Item>
+                                <Menu.Item key={index} as={Fragment}>
+                                    {content}
+                                </Menu.Item>
                             )
                         })}
                     </Menu.Items>

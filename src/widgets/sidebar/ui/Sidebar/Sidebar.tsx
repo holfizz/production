@@ -5,9 +5,9 @@ import { LangSwitcher } from "@/widgets/langSwitcher"
 import { ThemeSwitcher } from "@/widgets/themeSwitcher"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-import SidebarItem from "@/widgets/sidebar/ui/SidebarItem/SidebarItem"
+import SidebarItem from "../../ui/SidebarItem/SidebarItem"
 import { useSelector } from "react-redux"
-import { getSidebarItems } from "@/widgets/sidebar/module/selectors/getSidebarItems"
+import { getSidebarItems } from "../../module/selectors/getSidebarItems"
 import { VStack } from "@/shared/ui/Stack"
 
 interface SidebarProps {

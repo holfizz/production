@@ -5,7 +5,7 @@ import { Currency } from "@/entities/Currency"
 import { Country } from "@/entities/Country"
 import { userEvent } from "@testing-library/user-event"
 import { screen } from "@testing-library/react"
-import { profileReducer } from "@/features/editableProfileCard"
+import { profileReducer } from '../..'
 import { $api } from "@/shared/api/api"
 
 const profile: Profile = {

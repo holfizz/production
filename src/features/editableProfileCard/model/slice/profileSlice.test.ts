@@ -2,8 +2,8 @@ import { profileActions, profileReducer } from "./profileSlice"
 import { Currency } from "@/entities/Currency"
 import { Country } from "@/entities/Country"
 import { ProfileSchema } from "../types/editableProfileCardSchema"
-import { updateProfileData } from "@/features/editableProfileCard"
-import { ValidateProfileErrors } from "@/features/editableProfileCard/model/const/const"
+import { updateProfileData } from '../..'
+import { ValidateProfileErrors } from '../const/const'
 
 const data = {
     first: "Sergey",

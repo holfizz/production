@@ -15,7 +15,7 @@ import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import {
     ArticleBlockType,
     ArticleView,
-} from "@/entities/Article/model/const/const"
+} from '../../model/const/const'
 
 interface ArticleListItemProps {
   className?: string;

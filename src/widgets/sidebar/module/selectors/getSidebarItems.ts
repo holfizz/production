@@ -1,9 +1,9 @@
-import {createSelector} from "@reduxjs/toolkit"
-import {getUserAuthData} from "@/entities/User"
-import {RouterPath} from "@/shared/config/routeConfig/routeConfig"
-import {BookAudio, Home, ListTree, User} from "lucide-react"
+import { createSelector } from "@reduxjs/toolkit"
+import { getUserAuthData } from "@/entities/User"
+import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
+import { BookAudio, Home, ListTree, User } from "lucide-react"
 
-import {SidebarItemType} from "@/widgets/sidebar/module/types/sidebar"
+import { SidebarItemType } from "../../module/types/sidebar"
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const SidebarItemsList: SidebarItemType[] = [

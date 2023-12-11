@@ -1,5 +1,5 @@
 import {TestAsyncThunk} from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-import {loginByUsername} from "@/features/AuthByUsername"
+import {loginByUsername} from '../../..'
 import {userActions} from "@/entities/User"
 
 

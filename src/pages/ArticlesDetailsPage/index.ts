@@ -1,4 +1,7 @@
-export { articleDetailsPageReducer } from "@/pages/ArticlesDetailsPage/model/slice"
+export { fetchArticleRecommendations } from "./model/services/fetchArticleRecommendations/fetchArticleRecommendations"
+export { getArticleRecommendationsIsLoading } from "./model/selectors/recommendations"
+
+export { articleDetailsPageReducer } from "./model/slice"
 
 export type { ArticleDetailsPageSchema } from "./model/types/index"
 export type { ArticleDetailRecommendationsSchema } from "./model/types/ArticleDetailRecommendationsSchema"

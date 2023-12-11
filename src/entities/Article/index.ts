@@ -1,3 +1,5 @@
+export {default as ArticleList} from "./ui/ArticleList/ArticleList"
+
 export { articlesDetailsReducer } from "./model/slice/artliDetailsSlice"
 export { default as ArticleTypeTabs } from ".//ui/ArticleTypeTabs/ArticleTypeTabs"
 export { default as ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector"

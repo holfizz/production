@@ -9,7 +9,7 @@ import {
     ArticleView,
     ArticleViewSelector,
 } from "@/entities/Article"
-import { articlesPageActions } from "@/pages/ArticlesPage/model/slice/articalPageSlice"
+import { articlesPageActions } from '../../model/slice/articalPageSlice'
 import { useSelector } from "react-redux"
 import {
     getArticlesPageOrder,
@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next"
 import Card from "@/shared/ui/Card/Card"
 import Input, { InputSize, InputTheme } from "@/shared/ui/Input/Input"
 import { SortOrder } from "@/shared/types"
-import { fetchArticlesList } from "@/pages/ArticlesPage/model/service/fetchArticlesList/fetchArticlesList"
+import { fetchArticlesList } from '../../model/service/fetchArticlesList/fetchArticlesList'
 import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce"
 
 interface ArticlesPageFiltersProps {

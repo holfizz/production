@@ -23,7 +23,7 @@ module.exports = {
         "unused-imports",
         "i18next",
         "react-hooks",
-        "holfizz-plugin",
+        "ulbi-tv-plugin",
     ],
     rules: {
         "react/jsx-indent": [2, 4],
@@ -64,7 +64,18 @@ module.exports = {
         "react/display-name": "off",
         "no-undef": "off",
         "react/no-array-index-key": "off",
-        "holfizz-plugin/path-checker": ["error", { alias: "@" }],
+        "ulbi-tv-plugin/path-checker": ["error", { alias: "@" }],
+        "ulbi-tv-plugin/public-api-imports": [
+            "error",
+            {
+                alias: "@",
+                testFilesPatterns: [
+                    "**/*.test.*",
+                    "**/*.story.*",
+                    "**/StoreDecorator.tsx",
+                ],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

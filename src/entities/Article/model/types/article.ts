@@ -2,7 +2,7 @@ import { User } from "@/entities/User"
 import {
     ArticleBlockType,
     ArticleType,
-} from "@/entities/Article/model/const/const"
+} from '../const/const'
 
 export interface ArticleBockBase {
   id: string;

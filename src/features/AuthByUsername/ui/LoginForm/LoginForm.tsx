@@ -7,8 +7,8 @@ import Input, {InputTheme} from "@/shared/ui/Input/Input"
 import {useSelector} from "react-redux"
 import Text, {TextTheme} from "@/shared/ui/Text/Text"
 import i18n from "@/shared/config/i18n/i18n"
-import {loginByUsername} from "@/features/AuthByUsername"
-import {loginActions, loginReducer,} from "@/features/AuthByUsername/model/slice/loginSlice"
+import {loginByUsername} from '../..'
+import {loginActions, loginReducer,} from '../../model/slice/loginSlice'
 import {getLoginUsername} from "../../model/selectors/getLoginUsername/getLoginUsername"
 import {getLoginPassword} from "../../model/selectors/getLoginPassword/getLoginPassword"
 import {getLoginLoading} from "../../model/selectors/getLoginLoading/getLoginLoading"
