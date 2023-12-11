@@ -75,7 +75,7 @@ module.exports = {
                     "**/StoreDecorator.tsx",
                 ],
             },
-        ],
+        ]
     },
     globals: {
         __IS_DEV__: true,

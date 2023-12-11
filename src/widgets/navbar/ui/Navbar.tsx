@@ -8,11 +8,11 @@ import { LoginModal } from "@/features/AuthByUsername"
 import { getUserAuthData } from "@/entities/User"
 import { useSelector } from "react-redux"
 import AppLink from "@/shared/ui/AppLink/AppLink"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import Text, { TextSize } from "@/shared/ui/Text/Text"
 import { HStack } from "@/shared/ui/Stack"
 import { NotificationButton } from "@/features/notificationButton"
 import { AvatarDropdown } from "@/features/avatarDropdown"
+import { RoutePath } from "@/shared/const/router"
 
 interface NavbarProps {
   className?: string;
@@ -40,7 +40,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }) => {
                     <Snail size={40} className={cls.logo} />
                     <Text size={TextSize.L} text={t("articles")} />
                 </div>
-                <AppLink className={cls.createBtn} to={RouterPath.article_create}>
+                <AppLink className={cls.createBtn} to={RoutePath.article_create}>
                     {t("Create article")}
                 </AppLink>
                 <HStack className={cls.actions} gap={"16"}>

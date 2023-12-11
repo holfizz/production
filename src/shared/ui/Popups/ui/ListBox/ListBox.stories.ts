@@ -3,7 +3,8 @@ import ListBox, { ListBoxItem } from "./ListBox"
 import { action } from "@storybook/addon-actions"
 import { t } from "i18next"
 import { ThemeDecorator } from "@/shared/config/storybook/ThemeDecorator/ThemeDecorator"
-import { Theme } from "@/app/providers/ThemeProvider"
+
+import { Theme } from "@/shared/const/theme"
 
 const meta = {
     title: "shared/ListBox",

@@ -1,14 +1,14 @@
 import { type FC, memo, useMemo, useState } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./Sidebar.module.scss"
-import { LangSwitcher } from "@/widgets/langSwitcher"
-import { ThemeSwitcher } from "@/widgets/themeSwitcher"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import SidebarItem from "../../ui/SidebarItem/SidebarItem"
 import { useSelector } from "react-redux"
 import { getSidebarItems } from "../../module/selectors/getSidebarItems"
 import { VStack } from "@/shared/ui/Stack"
+import { LangSwitcher } from "@/features/langSwitcher"
+import { ThemeSwitcher } from "@/features/themeSwitcher"
 
 interface SidebarProps {
   className?: string;

@@ -1,13 +1,13 @@
 import { FC, memo } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./CommentCard.module.scss"
-import { Comment } from '../..'
+import { Comment } from "../.."
 import Text from "@/shared/ui/Text/Text"
 import Skeleton from "@/shared/ui/Skeleton/Skeleton"
 import Avatar from "@/shared/ui/Avatar/Avatar"
 import AppLink from "@/shared/ui/AppLink/AppLink"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import { HStack } from "@/shared/ui/Stack"
+import { RoutePath } from "@/shared/const/router"
 
 interface CommentCardProps {
   className?: string;
@@ -40,7 +40,7 @@ const CommentCard: FC<CommentCardProps> = memo(
         return (
             <HStack align={'center'} justify={'between'} max className={classNames(cls.CommentCard, {}, [className])}>
                 <AppLink
-                    to={`${RouterPath.profile}${comment.user.id}`}
+                    to={`${RoutePath.profile}${comment.user.id}`}
                     className={cls.header}
                 >
                     {comment.user.avatar ? (

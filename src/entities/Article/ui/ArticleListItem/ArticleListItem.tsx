@@ -11,11 +11,8 @@ import { Eye } from "lucide-react"
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button"
 import ArticleTextBlockComponent from "../ArticleTextBlockComponent/ArticleTextBlockComponent"
 import AppLink from "@/shared/ui/AppLink/AppLink"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
-import {
-    ArticleBlockType,
-    ArticleView,
-} from '../../model/const/const'
+import { ArticleBlockType, ArticleView } from "../../model/const/const"
+import { RoutePath } from "@/shared/const/router"
 
 interface ArticleListItemProps {
   className?: string;
@@ -57,7 +54,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(
                         <img src={article.img} className={cls.img} alt={article.title} />
                         {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock}/>}
                         <div className={cls.footer}>
-                            <AppLink target={target} to={RouterPath.articles_details + article.id}>
+                            <AppLink target={target} to={RoutePath.article_details + article.id}>
                                 <Button theme={ButtonTheme.OUTLINE}>{t("Read more")}</Button>
                             </AppLink>
                             {views}
@@ -67,7 +64,7 @@ const ArticleListItem: FC<ArticleListItemProps> = memo(
             )
         }
         return (
-            <AppLink target={target} to={RouterPath.articles_details + article.id}
+            <AppLink target={target} to={RoutePath.article_details + article.id}
                 className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
             >
                 <Card>

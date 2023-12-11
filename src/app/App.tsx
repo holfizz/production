@@ -1,10 +1,10 @@
-import {type FC, Suspense, useEffect} from "react"
-import {classNames} from "@/shared/lib/classNames/classNames"
-import {AppRouter} from "@/app/providers/Router"
-import {Navbar} from "@/widgets/navbar"
-import {Sidebar} from "@/widgets/sidebar"
-import {useDispatch, useSelector} from "react-redux"
-import {getUserMounted, userActions} from "@/entities/User"
+import { type FC, Suspense, useEffect } from "react"
+import { classNames } from "@/shared/lib/classNames/classNames"
+import { AppRouter } from "./providers/Router"
+import { Navbar } from "@/widgets/navbar"
+import { Sidebar } from "@/widgets/sidebar"
+import { useDispatch, useSelector } from "react-redux"
+import { getUserMounted, userActions } from "@/entities/User"
 
 const App: FC = () => {
     const dispatch = useDispatch()

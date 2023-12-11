@@ -2,12 +2,12 @@ import { FC, memo, useCallback } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { useTranslation } from "react-i18next"
 import Button, { ButtonTheme } from "@/shared/ui/Button/Button"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { getCanEditArticle } from "../../model/selectors/article"
 import { getArticleDetailsData } from "@/entities/Article"
 import { HStack } from "@/shared/ui/Stack"
+import { RoutePath } from "@/shared/const/router"
 
 interface ArticlesDetailsPageHeaderProps {
   className?: string;
@@ -20,10 +20,10 @@ const ArticlesDetailsPageHeader: FC<ArticlesDetailsPageHeaderProps> = memo(
         const article = useSelector(getArticleDetailsData)
 
         const backToList = useCallback(() => {
-            navigate(RouterPath.articles)
+            navigate(RoutePath.articles)
         }, [navigate])
         const onEditArticle = useCallback(() => {
-            navigate(`${RouterPath.articles}/${article?.id}/edit`)
+            navigate(`${RoutePath.articles}/${article?.id}/edit`)
         }, [article?.id, navigate])
         const canEdit = useSelector(getCanEditArticle)
         return (

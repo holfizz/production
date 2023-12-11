@@ -1,19 +1,19 @@
 import { createSelector } from "@reduxjs/toolkit"
 import { getUserAuthData } from "@/entities/User"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import { BookAudio, Home, ListTree, User } from "lucide-react"
 
 import { SidebarItemType } from "../../module/types/sidebar"
+import { RoutePath } from "@/shared/const/router"
 
 export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     const SidebarItemsList: SidebarItemType[] = [
         {
-            path: RouterPath.main,
+            path: RoutePath.main,
             Icon: Home,
             text: "Main",
         },
         {
-            path: RouterPath.about,
+            path: RoutePath.about,
             Icon: BookAudio,
             text: "About",
         },
@@ -21,13 +21,13 @@ export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
     if (userData) {
         SidebarItemsList.push(
             {
-                path: RouterPath.profile + userData.id,
+                path: RoutePath.profile + userData.id,
                 Icon: User,
                 text: "Profile",
                 authOnly: true,
             },
             {
-                path: RouterPath.articles,
+                path: RoutePath.articles,
                 Icon: ListTree,
                 text: "Articles",
                 authOnly: true,

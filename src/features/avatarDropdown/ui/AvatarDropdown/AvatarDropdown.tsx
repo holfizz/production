@@ -2,7 +2,6 @@ import { FC, memo, useCallback } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./AvatarDropdown.module.scss"
 import { useTranslation } from "react-i18next"
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
 import Avatar from "@/shared/ui/Avatar/Avatar"
 import { Dropdown } from "@/shared/ui/Popups"
 import {
@@ -12,6 +11,7 @@ import {
     userActions,
 } from "@/entities/User"
 import { useDispatch, useSelector } from "react-redux"
+import { RoutePath } from "@/shared/const/router"
 
 interface AvatarDropdownProps {
   className?: string;
@@ -39,13 +39,13 @@ const AvatarDropdown: FC<AvatarDropdownProps> = memo(({ className }) => {
                     ? [
                         {
                             content: t("Admin"),
-                            href: RouterPath.admin_panel,
+                            href: RoutePath.admin_panel,
                         },
                     ]
                     : []),
                 {
                     content: t("Profile"),
-                    href: RouterPath.profile + authData.id,
+                    href: RoutePath.profile + authData.id,
                 },
                 { content: t("log out"), onClick: onLogout },
             ]}
