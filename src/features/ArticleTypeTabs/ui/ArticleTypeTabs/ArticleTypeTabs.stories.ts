@@ -4,7 +4,7 @@ import { action } from "@storybook/addon-actions"
 import { ArticleType } from "@/entities/Article"
 
 const meta = {
-    title: "entities/Article/ArticleTypeTabs",
+    title: "features/ArticleTypeTabs",
     component: ArticleTypeTabs,
     parameters: {},
 } satisfies Meta<typeof ArticleTypeTabs>
