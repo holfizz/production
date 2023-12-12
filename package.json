@@ -27,7 +27,6 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "precommit": "lint-staged"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": "eslint"
