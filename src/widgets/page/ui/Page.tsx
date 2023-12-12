@@ -16,14 +16,16 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { useSelector } from "react-redux"
 import { StateSchema } from "@/app/providers/StoreProvider"
 import { useThrottle } from "@/shared/lib/hooks/useThrottle/useThrottle"
+import { TestProps } from "@/shared/types/tests"
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   onScrollEnd?: () => void;
 }
 
 const Page: FC<PropsWithChildren<PageProps>> = memo(
-    ({ className, children, onScrollEnd }) => {
+    (props) => {
+        const { className, children, onScrollEnd } = props
         const { pathname } = useLocation()
         const dispatch = useAppDispatch()
 
@@ -51,7 +53,7 @@ const Page: FC<PropsWithChildren<PageProps>> = memo(
             )
         }, 500)
         return (
-            <main
+            <main data-testid={props['data-testid'] ?? "Page"}
                 onScroll={onScroll}
                 ref={wrapperRef}
                 className={classNames(cls.Page, {}, [className])}
