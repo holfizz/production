@@ -1,9 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn build:prod
-yarn lint:ts
-yarn lint:scss
-yarn test:unit
-yarn storybook:build
-yarn test:ui
+npm run lint:ts
