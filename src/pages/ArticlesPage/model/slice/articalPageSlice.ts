@@ -38,7 +38,7 @@ const articlesPageSlice = createSlice({
         sort: ArticleSortField.CREATE,
         search: "",
         order: "asc",
-        type:ArticleType.ALL
+        type: ArticleType.ALL,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
