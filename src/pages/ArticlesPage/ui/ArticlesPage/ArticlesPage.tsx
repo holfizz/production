@@ -7,7 +7,7 @@ import DynamicModuleLoader, {
 import { articlesPageReducer } from "../../model/slice/articalPageSlice"
 import { Page } from "@/widgets/page"
 import ArticlesPageFilters from "../ArticlesPageFilters/ArticlesPageFilters"
-import { fetchNextArticlesPage } from '../../model/service/fetchNextArticlesPage/fetchNextArticlesPage'
+import { fetchNextArticlesPage } from "../../model/service/fetchNextArticlesPage/fetchNextArticlesPage"
 import ArticleInfinityList from "../ArticleInfinityList/ArticleInfinityList"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 
@@ -27,7 +27,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
     return (
         <DynamicModuleLoader removeAfterUnmount={false} reducer={reducers}>
-            <Page
+            <Page data-testid={'ArticlesPage'}
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >
