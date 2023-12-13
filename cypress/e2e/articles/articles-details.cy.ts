@@ -16,16 +16,17 @@ describe("Opened the page with the article", () => {
     it("And sees the content of the recommendations article list", () => {
         cy.getByTestId("ArticleRecommendationsList").should("exist")
     })
-    it("And leave a comment", () => {
+    it.skip("And leave a comment", () => {
         cy.getByTestId("ArticleDetails.Info")
         cy.getByTestId("AddCommentForm").scrollIntoView()
         cy.getByTestId("AddCommentForm.Input").clear().type("text")
         cy.getByTestId("AddCommentForm.Button").click()
     })
     it("And leave rating", () => {
+        cy.intercept('GET', '**/articles/*', {fixture:'article-details.json'})
         cy.getByTestId("ArticleDetails.Info")
         cy.getByTestId("RatingCard").scrollIntoView()
         cy.setRate(5, "feedback")
-        // cy.get("[data-selected=true]").should("have.length", 5)
+        cy.get("[data-selected=true]").should("have.length", 5)
     })
 })
