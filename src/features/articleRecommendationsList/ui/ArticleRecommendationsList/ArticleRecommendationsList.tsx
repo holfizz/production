@@ -12,6 +12,7 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useGetArticleRecommendationListQuery } from "../../api/articleRecommendationsApi"
 import { classNames } from "@/shared/lib/classNames/classNames"
+import { VStack } from "@/shared/ui/Stack"
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -36,7 +37,7 @@ export const ArticleRecommendationsList = memo(
             return null
         }
         return (
-            <div className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
+            <VStack data-testid={'ArticleRecommendationsList'} gap={'8'} className={classNames(cls.ArticleRecommendationsList, {}, [className])}>
                 <Text
                     size={TextSize.L}
                     className={cls.commentTitle}
@@ -48,7 +49,7 @@ export const ArticleRecommendationsList = memo(
                     articles={articles}
                     isLoading={recommendationsIsLoading}
                 />
-            </div>
+            </VStack>
         )
     }
 )

@@ -30,7 +30,6 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
         const { t } = useTranslation()
         const text = useSelector(getAddCommentFormText)
         const dispatch = useAppDispatch()
-
         const onCommentTextChange = useCallback(
             (value: string) => {
                 dispatch(addCommentFormAction.setText(value))
@@ -45,8 +44,15 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
 
         return (
             <DynamicModuleLoader reducer={reducers}>
-                <HStack max justify={'between'}  gap={'16'} className={classNames(cls.AddCommentForm, {}, [className])}>
+                <HStack
+                    data-testid={"AddCommentForm"}
+                    max
+                    justify={"between"}
+                    gap={"16"}
+                    className={classNames(cls.AddCommentForm, {}, [className])}
+                >
                     <Input
+                        data-testid={"AddCommentForm.Input"}
                         className={cls.input}
                         theme={InputTheme.CLEAR}
                         onChange={onCommentTextChange}
@@ -54,6 +60,7 @@ const AddCommentForm: FC<AddCommentFormProps> = memo(
                         placeholder={t("enter comment text")}
                     />
                     <Button
+                        data-testid={"AddCommentForm.Button"}
                         size={ButtonSize.XL}
                         onClick={onSendHandler}
                         theme={ButtonTheme.OUTLINE}

@@ -53,6 +53,7 @@ const Flex: FC<FlexProps> = (props) => {
         align = "center",
         gap,
         max,
+        ...otherProps
     } = props
     const classes = [
         className,
@@ -64,7 +65,7 @@ const Flex: FC<FlexProps> = (props) => {
     const mods: Mods = {
         [cls.max]: max,
     }
-    return <div className={classNames(cls.Flex, mods, classes)}>{children}</div>
+    return <div className={classNames(cls.Flex, mods, classes)} {...otherProps}>{children}</div>
 }
 
 export default Flex

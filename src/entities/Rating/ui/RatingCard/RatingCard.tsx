@@ -57,7 +57,7 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
     const modalContent = (
         <>
             <Text align={TextAlign.CENTER} title={feedbackTitle} />
-            <Input
+            <Input data-testid={'RatingCard.Input'}
                 onChange={setFeedback}
                 size={InputSize.FULL}
                 placeholder={t("your feedback")}
@@ -66,19 +66,23 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
     )
 
     return (
-        <Card max className={className}>
+        <Card data-testid={'RatingCard'} max className={className}>
             <VStack max align={"center"} gap={"8"}>
-                <Text title={starsCount ? t('Thank you for rating') : title} />
-                <StarRating selectedStars={starsCount} rate={rate} size={35} onSelect={onSelectStars} />
+                <Text title={starsCount ? t("Thank you for rating") : title} />
+                <StarRating
+                    selectedStars={starsCount}
+                    rate={rate}
+                    size={35}
+                    onSelect={onSelectStars}
+                />
                 <BrowserView>
                     <Modal isOpen={isModalOpen} onClose={close}>
                         <VStack max gap={"16"}>
-
                             {modalContent}
 
                             <HStack max gap={"16"} justify={"end"}>
-
                                 <Button
+                                    data-testid={"RatingCard.Close"}
                                     onClick={cancelHandler}
                                     size={ButtonSize.M}
                                     theme={ButtonTheme.OUTLINE_SECONDARY}
@@ -86,6 +90,7 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
                                     {t("close")}
                                 </Button>
                                 <Button
+                                    data-testid={"RatingCard.Send"}
                                     onClick={acceptHandler}
                                     size={ButtonSize.M}
                                     theme={ButtonTheme.OUTLINE}
@@ -94,7 +99,6 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
                                 </Button>
                             </HStack>
                         </VStack>
-
                     </Modal>
                 </BrowserView>
                 <MobileView>
@@ -102,11 +106,12 @@ const RatingCard: FC<RatingCardProps> = memo((props) => {
                         <VStack gap={"16"}>
                             {modalContent}
                             <Button
+                                data-testid={"RatingCard.Send"}
                                 theme={ButtonTheme.OUTLINE_SECONDARY}
                                 onClick={acceptHandler}
                                 size={ButtonSize.FULL}
                             >
-                                {"Send"}
+                                {t("Send")}
                             </Button>
                         </VStack>
                     </Drawer>

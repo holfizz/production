@@ -42,6 +42,8 @@ const StarRating: FC<StarRatingProps> = memo(
             <div className={classNames(cls.StarRating, {}, [className])}>
                 {stars.map((starNumber) => (
                     <Icon
+                        data-testid={"StarRating." + starNumber}
+                        data-selected={currentStartCount >= starNumber}
                         height={size}
                         width={size}
                         className={classNames(cls.starIcon, {}, [

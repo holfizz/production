@@ -128,7 +128,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
                 <HStack justify={'center'} gap={"16"} className={cls.avatarWrapper}>
                     <Avatar src={article?.img} className={cls.avatar} size={200} />
                 </HStack>
-                <VStack gap={'4'} max>
+                <VStack  gap={'4'} max>
                     <Text
                         title={article?.title}
                         text={article?.subtitle}
@@ -149,7 +149,7 @@ const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) => {
     }
     return (
         <DynamicModuleLoader reducer={reducers}>
-            <VStack max gap={'16'} className={classNames(cls.ArticleDetails, {}, [className])}>
+            <VStack data-testid={'ArticleDetails.Info'} max gap={'16'} className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </VStack>
         </DynamicModuleLoader>
