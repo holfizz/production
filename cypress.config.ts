@@ -5,4 +5,10 @@ export default defineConfig({
         setupNodeEvents(on, config) {},
         baseUrl: "http://localhost:3000/",
     },
+    component: {
+        devServer: {
+            framework: "react",
+            bundler: "webpack",
+        },
+    },
 })
