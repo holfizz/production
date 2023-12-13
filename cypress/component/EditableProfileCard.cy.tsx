@@ -17,11 +17,8 @@ describe("EditableProfileCard.cy.tsx", () => {
                     },
                 }}
             >
-<<<<<<< HEAD
                 <EditableProfileCard id={USER_ID}/>
-=======
                 <EditableProfileCard id={USER_ID} />
->>>>>>> origin/main
             </TestProvider>
         )
     })
