@@ -5,7 +5,7 @@
   "main": "index.ts",
   "repository": "https://github.com/holfizz/production.git",
   "scripts": {
-    "start": "webpack serve -env apiUrl=https://holfizzproduction.ru:8443",
+    "start": "webpack serve",
     "start:vite": "vite",
     "start:dev": "concurrently \"npm run start\" \"npm run start:dev:server\"",
     "start:dev:vite": "concurrently \"npm run start:vite\" \"npm run start:dev:server\"",
