@@ -15,7 +15,7 @@ export default (env: BuildEnv) => {
 
     const mode = env?.mode || "development"
     const PORT = env?.port || 3000
-    const apiUrl = "https://89.248.204.68:8443"
+    const apiUrl = env?.apiUrl ||"https://89.248.204.68:8443"
 
     const isDev = mode === "development"
 
