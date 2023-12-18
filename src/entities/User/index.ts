@@ -1,3 +1,5 @@
+export { saveJsonSettings } from "./model/services/saveJsonSettings"
+export { useJsonSettingsByKey } from "./model/selectors/jsonSettings"
 export {
     isUserManager,
     isUserAdmin,
@@ -7,4 +9,4 @@ export { getUserMounted } from "./model/selectors/getUserMounted/getUserMounted"
 export { getUserAuthData } from "./model/selectors/getUserAuthData/getUserAuthData"
 export { userReducer, userActions } from "./model/slice/userSlice"
 export type { User, UserSchema } from "./model/types/user"
-export {UserRole} from "./model/const/const"
+export { UserRole } from "./model/const/const"
